@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Верумическая теория</title>
+
+    <!-- Подключаем KaTeX для формул -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.css">
+
+    <link rel='stylesheet' type='text/css' href='style.css'>
+
+</head>
+
+<body>
+
+    <!-- ВЕРХНЕЕ МЕНЮ (ПОСТОЯННОЕ) -->
+    <header>
+        <div class="site-title">Верумическая теория устойчивого благополучия (ВЕРУМИКА)</i></div>
+
+        <nav class="main-nav">
+            <script src="0menu.js"></script>
+        </nav>
+
+    </header>
+
+    <div class="container">
+        
+        <!-- ЛЕВАЯ КОЛОНКА (МЕНЯЕТСЯ В ЗАВИСИМОСТИ ОТ СТРАНИЦЫ) -->
+        <!-- Эту часть нужно копировать в каждый HTML файл, меняя только список ссылок -->
+        <aside class="sidebar">
+            <h3>Раздел: Теория ВСЕГО</h3>
+
+            <ul class="submenu">
+<li><a href="401_nachyeor.html">Теория теорий</a></li>
+<li><a href="402_spravteor.html">Справедливость всех теорий</a></li>
+<li><a href="403_onmatem.html">Только математика!</a></li>
+<li><a href="404_minaks.html">Минимальный набор аксиом</a></li>
+<li><a href="405_minosn.html">Проверка минимальности основания</a></li>
+<li><a href="406_strrazv.html">Универсальная структура развития</a></li>
+<li><a href="407_minsogl.html">Минимальное условие согласованности</a></li>
+<li><a href="408_urv.html">Универсальный принцип эволюции</a></li>
+<li><a href="409_gf.html">Гипотеза функционала</a></li>
+<li><a href="410_mp.html">Минимальный потенциал "V"</a></li>
+<li><a href="411_mvpo.html">Может ли "V" порождать объекты?</a></li>
+<li><a href="412_vpks.html">Возможен ли переход к субъекту?</a></li>
+<li><a href="413_pkss.html">Переход к системе субъектов</a></li>
+<li><a href="414_pksr.html">Переход к саморефлексивности</a></li>
+<li><a href="415_sps.html">Есть ли предельное состояние?</a></li>
+<li><a href="416_tsps.html">Теорема предельного состояния</a></li>
+<li><a href="417_pkfr.html">Переход к физической реальности</a></li>
+<li><a href="418_pnd.html">Принцип наименьшего действия</a></li>
+<li><a href="419_fsc.html" class="active">Функционал согласованности "C"</a></li>
+<li><a href="420_mfs.html">Минимальный функционал "C"</a></li>
+<li><a href="421_rpv.html">Размерность пространства‑времени</a></li>
+<li><a href="422_rfc.html">Размерностный функционал</a></li>
+<li><a href="423_vm.html">Выведение метрики</a></li>
+<li><a href="424_kpz.html">Калибровочные поля и заряд</a></li>
+<li><a href="425_mk.html">Механизм квантования</a></li>
+<li><a href="426_aem.html">Атомы, элементы, молекулы</a></li>
+<li><a href="427_mmh.html">Минимальная модель химии</a></li>
+<li><a href="428_evh.html">Эксперимент верумической химии</a></li>
+<li><a href="429_iss.html">Идея создания симуляции</a></li>
+<li><a href="430_mms.html">Минимальная модель симуляции</a></li>
+<li><a href="431_vs1.html">Верумическая симуляция 1.0</a></li>
+<li><a href="432_vs2.html">Верумическая симуляция 2.0</a></li>
+            </ul>
+
+        </aside>
+
+        <!-- ОСНОВНОЙ КОНТЕНТ -->
+        <main class="content">
+
+
+
+<h1>Функционал согласованности $C(\Omega)$</h1>
+
+<p>Попробуем построить конкретный кандидат на функционал согласованности:</p>
+<div class="math-block">
+$$
+C(\Omega)
+$$
+</div>
+<p>такой, чтобы его различные пределы могли порождать известные физические действия.</p>
+
+<p>Сразу фиксируем статус: это <strong>конструктивная математическая гипотеза</strong>, а не доказанная физическая теория. Главная задача — получить форму, которую можно проверять.</p>
+
+<h2>1. Расширяем пространство состояний</h2>
+
+<p>До этого:</p>
+<div class="math-block">
+$$
+\Omega = (\phi, \chi, \psi, \eta, \tau).
+$$
+</div>
+
+<p>Теперь для физического уровня вводим:</p>
+<div class="math-block">
+$$
+\boxed{\Omega = (g_{\mu\nu}, A_\mu, \Phi, \Psi)}.
+$$
+</div>
+
+<p>где:</p>
+<ul>
+  <li>$g_{\mu\nu}$ — структура геометрической согласованности (аналог гравитационного поля);</li>
+  <li>$A_\mu$ — поле связей (аналог калибровочного поля);</li>
+  <li>$\Phi$ — поле формирования устойчивых структур;</li>
+  <li>$\Psi$ — поле субъектных состояний.</li>
+</ul>
+
+<p>Идея: разные физические поля — не разные сущности, а разные компоненты одного объекта:</p>
+<div class="math-block">
+$$
+\Omega.
+$$
+</div>
+
+<h2>2. Строим общий функционал согласованности</h2>
+
+<p>Предлагаем:</p>
+<div class="math-block">
+$$
+\boxed{C[\Omega] = C_g + C_A + C_\Phi + C_\Psi + C_{int}}.
+$$
+</div>
+
+<h3>2.1. Геометрическая согласованность</h3>
+
+<p>Берём:</p>
+<div class="math-block">
+$$
+C_g = \frac{1}{16\pi G} \int R(g) \sqrt{-g}\,d^4x,
+$$
+</div>
+<p>где:</p>
+<div class="math-block">
+$$
+R(g)
+$$
+</div>
+<p>— кривизна пространства.</p>
+
+<p>Но теперь интерпретация меняется:</p>
+<ul>
+  <li>в обычной ОТО: $R$ — геометрическая характеристика;</li>
+  <li>в новой схеме: $R$ — мера геометрической несогласованности.</li>
+</ul>
+
+<p>Получаем:</p>
+<div class="math-block">
+$$
+\boxed{C_g \rightarrow S_{GR}}.
+$$
+</div>
+
+<h2>3. Электромагнитный сектор</h2>
+
+<p>Для поля связи:</p>
+<div class="math-block">
+$$
+A_\mu
+$$
+</div>
+<p>вводим:</p>
+<div class="math-block">
+$$
+F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu.
+$$
+</div>
+
+<p>Функционал:</p>
+<div class="math-block">
+$$
+C_A = -\frac{1}{4} \int F_{\mu\nu} F^{\mu\nu} \sqrt{-g}\,d^4x.
+$$
+</div>
+
+<p>Это даёт:</p>
+<div class="math-block">
+$$
+\boxed{C_A \rightarrow S_{EM}}.
+$$
+</div>
+
+<p>Интерпретация: электромагнитное поле — это оптимальная структура связей между элементами.</p>
+
+<h2>4. Поле устойчивых структур</h2>
+
+<p>Теперь вводим:</p>
+<div class="math-block">
+$$
+\Phi
+$$
+</div>
+<p>— поле формирования устойчивых конфигураций.</p>
+
+<p>Берём:</p>
+<div class="math-block">
+$$
+C_\Phi = \int \left[ \frac{1}{2} (\partial_\mu \Phi)^2 - V(\Phi) \right] d^4x.
+$$
+</div>
+
+<p>Потенциал:</p>
+<div class="math-block">
+$$
+V(\Phi) = \lambda (\Phi^2 - v^2)^2.
+$$
+</div>
+
+<p>Минимумы:</p>
+<div class="math-block">
+$$
+\Phi = \pm v.
+$$
+</div>
+
+<p>Это создаёт:</p>
+<ul>
+  <li>устойчивые состояния;</li>
+  <li>возбуждения;</li>
+  <li>частицы.</li>
+</ul>
+
+<p>То есть:</p>
+<div class="math-block">
+$$
+\boxed{\text{частица} = \text{локальный минимум поля согласованности}}.
+$$
+</div>
+
+<h2>5. Квантовый сектор</h2>
+
+<p>Теперь сложнейшее.</p>
+
+<p>Вводим пространство состояний:</p>
+<div class="math-block">
+$$
+\Psi.
+$$
+</div>
+
+<p>Вместо классического состояния используем:</p>
+<div class="math-block">
+$$
+\Psi(x).
+$$
+</div>
+
+<p>Добавляем:</p>
+<div class="math-block">
+$$
+C_\Psi = \int \bar{\Psi} (i\gamma^\mu D_\mu - m) \Psi\,d^4x.
+$$
+</div>
+
+<p>Получаем:</p>
+<div class="math-block">
+$$
+\boxed{C_\Psi \rightarrow S_{QFT}}.
+$$
+</div>
+
+<p>То есть квантовая теория появляется как условие сохранения согласованности информационной структуры.</p>
+
+<h2>6. Полный функционал</h2>
+
+<p>Теперь:</p>
+<div class="math-block">
+$$
+\boxed{
+C[\Omega] = \int d^4x \sqrt{-g} \left[
+\frac{R}{16\pi G}
+- \frac{1}{4} F^2
++ \frac{1}{2} (\partial \Phi)^2
+- V(\Phi)
++ \bar{\Psi}(i\gamma^\mu D_\mu - m)\Psi
++ C_{int}
+\right]
+}.
+$$
+</div>
+
+<p>Это уже очень близко по форме к объединённому действию современной физики.</p>
+
+<h2>7. Откуда берётся принцип действия?</h2>
+
+<p>Теперь задаём:</p>
+<div class="math-block">
+$$
+\boxed{\delta C[\Omega] = 0}.
+$$
+</div>
+
+<p>Варьируем по компонентам.</p>
+
+<p>По:</p>
+<div class="math-block">
+$$
+g_{\mu\nu}
+$$
+</div>
+<p>получаем:</p>
+<div class="math-block">
+$$
+G_{\mu\nu} = 8\pi G T_{\mu\nu}.
+$$
+</div>
+<p>Аналог уравнений Эйнштейна.</p>
+
+<p>По:</p>
+<div class="math-block">
+$$
+A_\mu
+$$
+</div>
+<p>получаем:</p>
+<div class="math-block">
+$$
+\partial_\mu F^{\mu\nu} = J^\nu.
+$$
+</div>
+<p>Аналог Максвелла.</p>
+
+<p>По:</p>
+<div class="math-block">
+$$
+\Phi
+$$
+</div>
+<p>получаем:</p>
+<div class="math-block">
+$$
+\Box\Phi + \frac{\partial V}{\partial\Phi} = 0.
+$$
+</div>
+
+<p>По:</p>
+<div class="math-block">
+$$
+\Psi
+$$
+</div>
+<p>получаем:</p>
+<div class="math-block">
+$$
+(i\gamma^\mu D_\mu - m)\Psi = 0.
+$$
+</div>
+<p>Аналог уравнения Дирака.</p>
+
+<h2>8. Теперь химия</h2>
+
+<p>Химия появляется не на уровне фундаментального поля, а на уровне устойчивых минимумов:</p>
+<div class="math-block">
+$$
+\Phi_1 + \Phi_2 + \Phi_3 + \dots
+$$
+</div>
+
+<p>Пусть есть несколько локальных минимумов:</p>
+<div class="math-block">
+$$
+\Phi_i.
+$$
+</div>
+
+<p>Комбинация:</p>
+<div class="math-block">
+$$
+M = (\Phi_1, \Phi_2, \dots, \Phi_n)
+$$
+</div>
+<p>устойчива, если:</p>
+<div class="math-block">
+$$
+C(M) > C(\Phi_1) + C(\Phi_2) + \dots + C(\Phi_n).
+$$
+</div>
+
+<p>То есть:</p>
+<div class="math-block">
+$$
+\boxed{\text{молекула} = \text{более согласованная конфигурация, чем отдельные атомы}}.
+$$
+</div>
+
+<h2>9. Появление химической связи</h2>
+
+<p>Энергия связи:</p>
+<div class="math-block">
+$$
+E_b = C(M) - \sum C(\Phi_i).
+$$
+</div>
+
+<p>Если:</p>
+<div class="math-block">
+$$
+E_b > 0,
+$$
+</div>
+<p>система устойчива.</p>
+
+<p>Получаем:</p>
+<div class="math-block">
+$$
+\boxed{\text{химическая связь} = \text{выигрыш согласованности}}.
+$$
+</div>
+
+<h2>10. Полная иерархия</h2>
+
+<p>Получается:</p>
+<div class="math-block">
+$$
+C[\Omega]
+$$
+</div>
+<p>↓</p>
+<p>геометрический сектор:</p>
+<div class="math-block">
+$$
+g_{\mu\nu}
+$$
+</div>
+<p>↓</p>
+<p>пространство‑время</p>
+
+<p>сектор связей:</p>
+<div class="math-block">
+$$
+A_\mu
+$$
+</div>
+<p>↓</p>
+<p>взаимодействия</p>
+
+<p>сектор устойчивости:</p>
+<div class="math-block">
+$$
+\Phi
+$$
+</div>
+<p>↓</p>
+<p>частицы</p>
+
+<p>комбинации минимумов:</p>
+<div class="math-block">
+$$
+\Phi_i + \Phi_j
+$$
+</div>
+<p>↓</p>
+<p>атомы</p>
+
+<p>устойчивые комплексы:</p>
+<div class="math-block">
+$$
+M
+$$
+</div>
+<p>↓</p>
+<p>молекулы</p>
+
+<p>самосохраняющиеся комплексы:</p>
+<div class="math-block">
+$$
+\Psi
+$$
+</div>
+<p>↓</p>
+<p>жизнь и субъекты</p>
+
+<h2>11. Что удалось получить в рамках программы</h2>
+
+<p>Мы получили кандидатную структуру:</p>
+<div class="math-block">
+$$
+\boxed{\text{один функционал согласованности} \rightarrow \text{разные физические пределы}}.
+$$
+</div>
+
+<p>Схема:</p>
+<div class="math-block">
+$$
+\boxed{
+C[\Omega] \Rightarrow
+\begin{cases}
+S_{GR} \\
+S_{EM} \\
+S_{QFT} \\
+S_{chem}
+\end{cases}
+}.
+$$
+</div>
+
+<h2>12. Главная нерешённая проблема</h2>
+
+<p>Самое слабое место сейчас — не математическая форма, а выбор:</p>
+<div class="math-block">
+$$
+\boxed{C[\Omega]}
+$$
+</div>
+<p>из первых принципов.</p>
+
+<p>Мы фактически «подогнали» известные лагранжианы внутрь общего функционала.</p>
+
+<p>Настоящая теория должна сделать обратное: не сказать:</p>
+<div class="math-block">
+$$
+C \supset S_{GR}, S_{EM}, S_{QFT},
+$$
+</div>
+<p>а вывести их:</p>
+<div class="math-block">
+$$
+\boxed{C \rightarrow S_{GR} + S_{EM} + S_{QFT}}.
+$$
+</div>
+
+<p>Следующий самый строгий шаг — попытаться определить <strong>минимальный $C[\Omega]$</strong>, используя только аксиомы согласованности, симметрии и принцип $V=D$, а затем проверить, возникают ли из него лагранжианы физики как неизбежные следствия.</p>
+
+
+
+
+
+        </main>
+
+
+    <!-- Скрипты KaTeX -->
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false}
+            ],
+            throwOnError: false
+        });">
+    </script>
+</body>
+</html>

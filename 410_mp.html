@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Верумическая теория</title>
+
+    <!-- Подключаем KaTeX для формул -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.css">
+
+    <link rel='stylesheet' type='text/css' href='style.css'>
+
+</head>
+
+<body>
+
+    <!-- ВЕРХНЕЕ МЕНЮ (ПОСТОЯННОЕ) -->
+    <header>
+        <div class="site-title">Верумическая теория устойчивого благополучия (ВЕРУМИКА)</i></div>
+
+        <nav class="main-nav">
+            <script src="0menu.js"></script>
+        </nav>
+
+    </header>
+
+    <div class="container">
+        
+        <!-- ЛЕВАЯ КОЛОНКА (МЕНЯЕТСЯ В ЗАВИСИМОСТИ ОТ СТРАНИЦЫ) -->
+        <!-- Эту часть нужно копировать в каждый HTML файл, меняя только список ссылок -->
+        <aside class="sidebar">
+            <h3>Раздел: Теория ВСЕГО</h3>
+
+            <ul class="submenu">
+<li><a href="401_nachyeor.html">Теория теорий</a></li>
+<li><a href="402_spravteor.html">Справедливость всех теорий</a></li>
+<li><a href="403_onmatem.html">Только математика!</a></li>
+<li><a href="404_minaks.html">Минимальный набор аксиом</a></li>
+<li><a href="405_minosn.html">Проверка минимальности основания</a></li>
+<li><a href="406_strrazv.html">Универсальная структура развития</a></li>
+<li><a href="407_minsogl.html">Минимальное условие согласованности</a></li>
+<li><a href="408_urv.html">Универсальный принцип эволюции</a></li>
+<li><a href="409_gf.html">Гипотеза функционала</a></li>
+<li><a href="410_mp.html" class="active">Минимальный потенциал "V"</a></li>
+<li><a href="411_mvpo.html">Может ли "V" порождать объекты?</a></li>
+<li><a href="412_vpks.html">Возможен ли переход к субъекту?</a></li>
+<li><a href="413_pkss.html">Переход к системе субъектов</a></li>
+<li><a href="414_pksr.html">Переход к саморефлексивности</a></li>
+<li><a href="415_sps.html">Есть ли предельное состояние?</a></li>
+<li><a href="416_tsps.html">Теорема предельного состояния</a></li>
+<li><a href="417_pkfr.html">Переход к физической реальности</a></li>
+<li><a href="418_pnd.html">Принцип наименьшего действия</a></li>
+<li><a href="419_fsc.html">Функционал согласованности "C"</a></li>
+<li><a href="420_mfs.html">Минимальный функционал "C"</a></li>
+<li><a href="421_rpv.html">Размерность пространства‑времени</a></li>
+<li><a href="422_rfc.html">Размерностный функционал</a></li>
+<li><a href="423_vm.html">Выведение метрики</a></li>
+<li><a href="424_kpz.html">Калибровочные поля и заряд</a></li>
+<li><a href="425_mk.html">Механизм квантования</a></li>
+<li><a href="426_aem.html">Атомы, элементы, молекулы</a></li>
+<li><a href="427_mmh.html">Минимальная модель химии</a></li>
+<li><a href="428_evh.html">Эксперимент верумической химии</a></li>
+<li><a href="429_iss.html">Идея создания симуляции</a></li>
+<li><a href="430_mms.html">Минимальная модель симуляции</a></li>
+<li><a href="431_vs1.html">Верумическая симуляция 1.0</a></li>
+<li><a href="432_vs2.html">Верумическая симуляция 2.0</a></li>
+            </ul>
+
+        </aside>
+
+        <!-- ОСНОВНОЙ КОНТЕНТ -->
+        <main class="content">
+
+
+
+<h1>Минимальный потенциал $V(\Omega)$</h1>
+
+<h2>1. Требования к потенциалу</h2>
+
+<p>Нам нужен такой потенциал $ V(\Omega),$<br>
+чтобы он имел:</p>
+<ol>
+  <li><strong>устойчивые минимумы</strong> → объекты;</li>
+  <li><strong>возмущения вокруг минимумов</strong> → свойства объектов;</li>
+  <li><strong>связанные минимумы</strong> → сложные структуры;</li>
+  <li><strong>иерархию устойчивости</strong> → уровни организации.</li>
+</ol>
+
+<h2>2. Разложение поля согласованности</h2>
+
+<p>Введём не одно число, а многокомпонентное поле:</p>
+<div class="math-block">
+$$
+\Omega = (\omega_1, \omega_2, \ldots, \omega_n).
+$$
+</div>
+<p>Почему?</p>
+<p>Потому что один параметр слишком беден.</p>
+
+<p>Например:</p>
+<ul>
+  <li>один компонент может отвечать за различимость;</li>
+  <li>другой — за устойчивость;</li>
+  <li>третий — за связь;</li>
+  <li>четвёртый — за направление изменения.</li>
+</ul>
+
+<h2>3. Минимальный потенциал первого уровня</h2>
+
+<p>Начнём с симметричного вида:</p>
+<div class="math-block">
+$$
+\boxed{V_0(\Omega) = \lambda (\Omega^2 - \eta^2)^2},
+$$
+</div>
+<p>где:</p>
+<div class="math-block">
+$$
+\Omega^2 = \Omega \cdot \Omega.
+$$
+</div>
+
+<p>Что он даёт?</p>
+<p>Минимумы:</p>
+<div class="math-block">
+$$
+|\Omega| = \eta.
+$$
+</div>
+<p>То есть существует множество устойчивых состояний.</p>
+
+<p>Это первый уровень:</p>
+<div class="math-block">
+$$
+\boxed{\text{объекты}}.
+$$
+</div>
+
+<p>Но такие объекты независимы. Нужны связи.</p>
+
+<h2>4. Добавляем взаимодействие</h2>
+
+<p>Вводим несколько полей:</p>
+<div class="math-block">
+$$
+\Omega_i.
+$$
+</div>
+<p>Тогда:</p>
+<div class="math-block">
+$$
+V_1 = \sum_i \lambda_i (\Omega_i^2 - \eta_i^2)^2 + \sum_{ij} g_{ij} \Omega_i \Omega_j.
+$$
+</div>
+
+<p>Второй член:</p>
+<div class="math-block">
+$$
+g_{ij} \Omega_i \Omega_j
+$$
+</div>
+<p>определяет:</p>
+<ul>
+  <li>притяжение;</li>
+  <li>отталкивание;</li>
+  <li>совместимость.</li>
+</ul>
+
+<p>Теперь возможны связанные состояния.</p>
+
+<p>Например, отдельно:</p>
+<div class="math-block">
+$$
+V(A) + V(B),
+$$
+</div>
+<p>но вместе:</p>
+<div class="math-block">
+$$
+V(A, B) < V(A) + V(B).
+$$
+</div>
+<p>Тогда возникает связь.</p>
+
+<p>Это математический аналог:</p>
+<div class="math-block">
+$$
+\boxed{\text{связь возникает, если совместное состояние более согласовано}}.
+$$
+</div>
+
+<h2>5. Добавляем иерархию</h2>
+
+<p>Теперь самая важная часть. Почему существуют уровни: частица → атом → молекула → организм?</p>
+
+<p>Нужно, чтобы устойчивые структуры могли объединяться в новые устойчивые структуры.</p>
+
+<p>Для этого вводим масштабный параметр:</p>
+<div class="math-block">
+$$
+r.
+$$
+</div>
+<p>Пусть:</p>
+<div class="math-block">
+$$
+\Omega(r)
+$$
+</div>
+<p>описывает структуру на разных масштабах.</p>
+
+<p>Тогда:</p>
+<div class="math-block">
+$$
+V = V_0 + V_1 + V_2 + \ldots,
+$$
+</div>
+<p>где:</p>
+<div class="math-block">
+$$
+V_n
+$$
+</div>
+<p>отвечает за уровень организации.</p>
+
+<p>Получаем:</p>
+<div class="math-block">
+$$
+\boxed{V(\Omega) = \sum_n \lambda_n (\Omega_n^2 - \eta_n^2)^2 + \sum_{ij} g_{ij} \Omega_i \Omega_j}.
+$$
+</div>
+
+<h2>6. Возникновение объектов</h2>
+
+<p>Объектом считаем локальный минимум:</p>
+<div class="math-block">
+$$
+\frac{\partial V}{\partial\Omega} = 0
+$$
+</div>
+<p>и:</p>
+<div class="math-block">
+$$
+\frac{\partial^2 V}{\partial\Omega^2} > 0.
+$$
+</div>
+
+<p>То есть:</p>
+<div class="math-block">
+$$
+\boxed{\text{объект} = \text{устойчивый минимум потенциала согласованности}}.
+$$
+</div>
+
+<h2>7. Возникновение взаимодействий</h2>
+
+<p>Пусть есть два объекта:</p>
+<div class="math-block">
+$$
+\Omega_A, \Omega_B.
+$$
+</div>
+<p>После объединения:</p>
+<div class="math-block">
+$$
+\Omega_{AB}.
+$$
+</div>
+<p>Если:</p>
+<div class="math-block">
+$$
+V(\Omega_{AB}) < V(\Omega_A) + V(\Omega_B),
+$$
+</div>
+<p>то возникает устойчивое объединение.</p>
+
+<p>Это даёт:</p>
+<ul>
+  <li>связи;</li>
+  <li>комплексы;</li>
+  <li>структуры.</li>
+</ul>
+
+<h2>8. Аналог химической связи</h2>
+
+<p>В химии атомы образуют молекулу, если совместное состояние энергетически выгоднее.</p>
+
+<p>Здесь энергия заменяется общей мерой согласованности. То есть:</p>
+<div class="math-block">
+$$
+\boxed{\text{химическая связь} = \text{выигрыш согласованности}}.
+$$
+</div>
+
+<h2>9. Возникновение сложности</h2>
+
+<p>Теперь важное свойство.</p>
+
+<p>Если:</p>
+<div class="math-block">
+$$
+\Omega_{AB}
+$$
+</div>
+<p>сама становится устойчивым минимумом, она становится новым объектом.</p>
+
+<p>То есть:</p>
+<div class="math-block">
+$$
+A + B \rightarrow C,
+$$
+</div>
+<p>где:</p>
+<div class="math-block">
+$$
+C \neq A + B.
+$$
+</div>
+
+<p>Получаем рекурсивность:</p>
+<div class="math-block">
+$$
+\boxed{\text{объекты могут создавать новые объекты}}.
+$$
+</div>
+<p>Это необходимое условие для иерархии.</p>
+
+<h2>10. Где появляется субъект?</h2>
+
+<p>Пока у нас есть только структуры.</p>
+
+<p>Чтобы появился субъект, нужен особый тип структуры: не просто устойчивый объект, а объект, который:</p>
+<ol>
+  <li>имеет внутреннее состояние;</li>
+  <li>различает внешние состояния;</li>
+  <li>изменяет поведение согласно предпочтению.</li>
+</ol>
+
+<p>Формально: пусть часть поля:</p>
+<div class="math-block">
+$$
+\Omega_s
+$$
+</div>
+<p>имеет внутренний функционал оценки:</p>
+<div class="math-block">
+$$
+B(\Omega_s).
+$$
+</div>
+<p>Тогда:</p>
+<div class="math-block">
+$$
+\Omega_s
+$$
+</div>
+<p>становится протосубъектом.</p>
+
+<h2>11. Получаем предварительную лестницу</h2>
+
+<div class="math-block">
+$$
+V(\Omega)
+$$
+</div>
+<div class="math-block">
+$$
+\downarrow
+$$
+</div>
+<div class="math-block">
+$$
+\text{устойчивые минимумы}
+$$
+</div>
+<div class="math-block">
+$$
+\downarrow
+$$
+</div>
+<div class="math-block">
+$$
+\text{частицы}
+$$
+</div>
+<div class="math-block">
+$$
+\downarrow
+$$
+</div>
+<div class="math-block">
+$$
+\text{связанные минимумы}
+$$
+</div>
+<div class="math-block">
+$$
+\downarrow
+$$
+</div>
+<div class="math-block">
+$$
+\text{атомоподобные структуры}
+$$
+</div>
+<div class="math-block">
+$$
+\downarrow
+$$
+</div>
+<div class="math-block">
+$$
+\text{иерархические минимумы}
+$$
+</div>
+<div class="math-block">
+$$
+\downarrow
+$$
+</div>
+<div class="math-block">
+$$
+\text{молекулярные структуры}
+$$
+</div>
+<div class="math-block">
+$$
+\downarrow
+$$
+</div>
+<div class="math-block">
+$$
+\text{самоподдерживающиеся структуры}
+$$
+</div>
+<div class="math-block">
+$$
+\downarrow
+$$
+</div>
+<div class="math-block">
+$$
+\text{субъекты}
+$$
+</div>
+
+<h2>12. Главная проблема</h2>
+
+<p>Сейчас мы получили <strong>архитектуру</strong>.</p>
+
+<p>Но настоящая теория требует конкретики.</p>
+
+<p>Нужно определить:</p>
+<div class="math-block">
+$$
+\boxed{V(\Omega) = ?}
+$$
+</div>
+<p>не просто класс функций.</p>
+
+<p>Нужно найти такой потенциал, который:</p>
+<ol>
+  <li>имеет конечное число устойчивых типов объектов;</li>
+  <li>даёт аналог зарядов и взаимодействий;</li>
+  <li>порождает дискретные уровни;</li>
+  <li>имеет предел, похожий на квантовую механику;</li>
+  <li>воспроизводит химические спектры.</li>
+</ol>
+
+<p>Следующий математический шаг я бы предложил такой:</p>
+
+<p><strong>Попытаться построить простейшую модель $V(\Omega)$ с двумя уровнями структуры:</strong></p>
+<div class="math-block">
+$$
+\Omega = (\Omega_{\text{элементарное}}, \Omega_{\text{связующее}}).
+$$
+</div>
+<p>И проверить, может ли она автоматически дать:</p>
+<ul>
+  <li>устойчивые «частицы»;</li>
+  <li>аналог заряда;</li>
+  <li>аналог химической связи;</li>
+  <li>переход от простого к сложному.</li>
+</ul>
+
+<p>Это будет первый настоящий «игрушечный мир» верумической физики, который можно будет анализировать математически.</p>
+
+
+
+
+
+        </main>
+
+
+    <!-- Скрипты KaTeX -->
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false}
+            ],
+            throwOnError: false
+        });">
+    </script>
+</body>
+</html>

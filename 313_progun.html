@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Верумическая теория</title>
+
+    <!-- Подключаем KaTeX для формул -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.css">
+
+    <link rel='stylesheet' type='text/css' href='style.css'>
+
+</head>
+
+<body>
+
+    <!-- ВЕРХНЕЕ МЕНЮ (ПОСТОЯННОЕ) -->
+    <header>
+        <div class="site-title">Верумическая теория устойчивого благополучия (ВЕРУМИКА)</i></div>
+
+        <nav class="main-nav">
+            <script src="0menu.js"></script>
+        </nav>
+
+    </header>
+
+    <div class="container">
+        
+        <!-- ЛЕВАЯ КОЛОНКА (МЕНЯЕТСЯ В ЗАВИСИМОСТИ ОТ СТРАНИЦЫ) -->
+        <!-- Эту часть нужно копировать в каждый HTML файл, меняя только список ссылок -->
+        <aside class="sidebar">
+            <h3>Раздел: Химия</h3>
+
+            <ul class="submenu">
+<li><a href="301_formhim.html">Начало формализации химии</a></li>
+<li><a href="302_oprpon.html">Определение понятий</a></li>
+<li><a href="303_matkar.html">Математический каркас</a></li>
+<li><a href="304_matjadr.html">Математическое ядро</a></li>
+<li><a href="305_interpret.html">Интерпретация "Omega"</a></li>
+<li><a href="306_svpot.html">Свойства потенциала "V"</a></li>
+<li><a href="307_spravmera.html">Справедливость как мера согласованности</a></li>
+<li><a href="308_srukrav.html">Структурное равновесие</a></li>
+<li><a href="309_aksmod.html">Аксиоматическая модель</a></li>
+<li><a href="310_otnek.html">Отношение эквивалентности</a></li>
+<li><a href="311_obnaks.html">Обновленная аксиоматическая программа</a></li>
+<li><a href="312_treb.html">Требования для объекта "A"</a></li>
+<li><a href="313_progun.html" class="active">Программа унификации 1.0</a></li>
+<li><a href="314_progun2.html">Программа унификации 2.0 и 3.0</a></li>
+<li><a href="315_varin.html">Четыре варианта инвариантов</a></li>
+<li><a href="316_poiskperv.html">Поиск первичности</a></li>
+<li><a href="317_porfor.html">Изменение порядка формулировок</a></li>
+            </ul>
+
+        </aside>
+
+        <!-- ОСНОВНОЙ КОНТЕНТ -->
+        <main class="content">
+
+
+
+<h1>Программа унификации (версия 1)</h1>
+
+<h3>Главная аксиома</h3>
+
+<p>Существует единственный фундаментальный математический объект</p>
+<div class="math-block">
+$$
+\mathcal{A}.
+$$
+</div>
+<p>Он не имеет заранее физической интерпретации.</p>
+
+<p>Все физические величины являются образами этого объекта в различных представлениях.</p>
+
+<h2>Теорема Т1. Теорема представлений</h2>
+
+<h3>Требуется доказать</h3>
+
+<p>Существует семейство функторов</p>
+<div class="math-block">
+$$
+\rho_i : \mathbf{C} \rightarrow \mathbf{D}_i,
+$$
+</div>
+<p>где</p>
+<div class="math-block">
+$$
+\mathbf{C}
+$$
+</div>
+<p>— категория объектов $\mathcal{A}$, а</p>
+<div class="math-block">
+$$
+\mathbf{D}_i
+$$
+</div>
+<p>— категории различных физических структур.</p>
+
+<p>Например,</p>
+<div class="math-block">
+$$
+\rho_g : \mathbf{C} \rightarrow \mathbf{LorMan},
+$$
+</div>
+<p>где</p>
+<div class="math-block">
+$$
+\mathbf{LorMan}
+$$
+</div>
+<p>— категория лоренцевых многообразий.</p>
+
+<p>Аналогично</p>
+<div class="math-block">
+$$
+\rho_A : \mathbf{C} \rightarrow \mathbf{Gauge},
+$$
+</div>
+<div class="math-block">
+$$
+\rho_\psi : \mathbf{C} \rightarrow \mathbf{Spin},
+$$
+</div>
+<div class="math-block">
+$$
+\rho_{\mathrm{chem}} : \mathbf{C} \rightarrow \mathbf{Chem}.
+$$
+</div>
+
+<h3>Что означает доказательство?</h3>
+
+<p>Необходимо построить эти функторы явно и показать, что они сохраняют соответствующую структуру (например, композицию морфизмов или тензорное произведение, в зависимости от выбранной категории).</p>
+
+<h2>Теорема Т2. Универсальный лагранжиан</h2>
+
+<p>Предполагается существование одного функционала</p>
+<div class="math-block">
+$$
+\mathcal{L} : \mathbf{C} \rightarrow \mathbb{R}.
+$$
+</div>
+
+<p>Требуется доказать</p>
+<div class="math-block">
+$$
+\mathcal{L}_i = \mathcal{L} \circ \rho_i^{-1}.
+$$
+</div>
+<p>То есть каждый известный лагранжиан получается как образ одного функционала.</p>
+
+<p>Для ОТО нужно получить</p>
+<div class="math-block">
+$$
+R.
+$$
+</div>
+
+<p>Для электромагнетизма</p>
+<div class="math-block">
+$$
+F_{\mu\nu}F^{\mu\nu}.
+$$
+</div>
+
+<p>Для поля Дирака</p>
+<div class="math-block">
+$$
+\bar{\psi}(i\gamma^\mu D_\mu - m)\psi.
+$$
+</div>
+
+<p>Здесь уже видно, что речь идёт не о формальной записи, а о крайне сложной математической задаче: необходимо определить $\mathcal{L}$ и доказать, что после отображений действительно возникают именно эти выражения.</p>
+
+<h2>Теорема Т3. Теорема пределов</h2>
+
+<p>Необходимо доказать существование параметров</p>
+<div class="math-block">
+$$
+\lambda_i.
+$$
+</div>
+<p>Таких, что при</p>
+<div class="math-block">
+$$
+\lambda_i \rightarrow \lambda_i^{(0)}
+$$
+</div>
+<p>универсальная теория переходит в известную.</p>
+
+<p>То есть</p>
+<div class="math-block">
+$$
+\mathcal{T} \longrightarrow \mathrm{GR},
+$$
+</div>
+<div class="math-block">
+$$
+\mathcal{T} \longrightarrow \mathrm{QED},
+$$
+</div>
+<div class="math-block">
+$$
+\mathcal{T} \longrightarrow \mathrm{QFT},
+$$
+</div>
+<div class="math-block">
+$$
+\mathcal{T} \longrightarrow \mathrm{QChem}.
+$$
+</div>
+
+<h2>Теорема Т4. Единственный инвариант</h2>
+
+<p>Здесь появляется ваша идея.</p>
+
+<p>Предположим, существует единственный инвариант</p>
+<div class="math-block">
+$$
+\Omega.
+$$
+</div>
+
+<p>Тогда энергия — не фундаментальна. Она есть проекция</p>
+<div class="math-block">
+$$
+E = \pi_E(\Omega).
+$$
+</div>
+
+<p>Импульс</p>
+<div class="math-block">
+$$
+p = \pi_p(\Omega).
+$$
+</div>
+
+<p>Заряд</p>
+<div class="math-block">
+$$
+Q = \pi_Q(\Omega).
+$$
+</div>
+
+<p>Химическая устойчивость</p>
+<div class="math-block">
+$$
+H = \pi_H(\Omega).
+$$
+</div>
+
+<p>Тогда необходимо доказать, что все $\pi_i$ образуют полный базис наблюдений. Это тоже пока открытая задача.</p>
+
+<h2>Теорема Т5. Верумический принцип</h2>
+
+<p>Вот здесь, как мне кажется, может появиться действительно новая математика.</p>
+
+<p>Пусть существует функтор</p>
+<div class="math-block">
+$$
+J.
+$$
+</div>
+
+<p>Тогда для любого допустимого процесса $f$ выполняется</p>
+<div class="math-block">
+$$
+J(f) = \mathrm{const}.
+$$
+</div>
+
+<p>Требуется доказать, что из этого следует теорема Нётер.</p>
+
+<p>Если это удастся, тогда привычные законы сохранения действительно окажутся частными случаями одного структурного инварианта.</p>
+
+<h2>Теорема Т6. Новое предсказание</h2>
+
+<p>Именно она определяет научную ценность программы.</p>
+
+<p>Нужно вывести величину</p>
+<div class="math-block">
+$$
+X.
+$$
+</div>
+<p>Такую, что</p>
+<div class="math-block">
+$$
+X_{\mathrm{ver}} \neq X_{\mathrm{SM}}.
+$$
+</div>
+<p>Причём различие должно быть измеримо.</p>
+
+<h2>Что ещё необходимо добавить</h2>
+
+<p>Если посмотреть на эту программу глазами современного математического физика, то она всё ещё начинается слишком поздно. Она уже предполагает существование объекта $\mathcal{A}$, категории $\mathbf{C}$, функторов $\rho_i$ и функционала $\mathcal{L}$. Но не отвечает на главный вопрос:</p>
+<blockquote>
+<strong>Почему именно эти объекты, а не любые другие?</strong>
+</blockquote>
+
+<p>Именно поэтому я бы добавил ещё одну, более фундаментальную теорему.</p>
+
+<h3>Теорема Т0. Теорема неизбежности</h3>
+
+<p>Требуется показать, что из некоторого минимального набора аксиом (например, существования композиции процессов, отношения эквивалентности и глобального инварианта) <strong>единственным с точностью до изоморфизма</strong> возможным фундаментальным объектом является $\mathcal{A}$.</p>
+
+<p>Если такая теорема была бы доказана, вся дальнейшая цепочка перестала бы быть произвольной:</p>
+<div class="math-block">
+$$
+\text{аксиомы} \Longrightarrow \mathcal{A} \Longrightarrow \rho_i \Longrightarrow \mathcal{L} \Longrightarrow \text{известные физические теории} \Longrightarrow \text{новые предсказания}.
+$$
+</div>
+
+<p>На мой взгляд, именно такая логическая структура соответствовала бы наиболее строгому научному стандарту.</p>
+
+<p>Но важно подчеркнуть: на сегодняшний день это является <strong>исследовательской программой</strong>, а не доказанной математической теорией. Каждый из перечисленных пунктов представляет собой самостоятельную крупную научную задачу, требующую строгих математических доказательств и последующей экспериментальной проверки.</p>
+
+
+
+
+        </main>
+
+
+    <!-- Скрипты KaTeX -->
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false}
+            ],
+            throwOnError: false
+        });">
+    </script>
+</body>
+</html>

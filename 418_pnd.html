@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Верумическая теория</title>
+
+    <!-- Подключаем KaTeX для формул -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.css">
+
+    <link rel='stylesheet' type='text/css' href='style.css'>
+
+</head>
+
+<body>
+
+    <!-- ВЕРХНЕЕ МЕНЮ (ПОСТОЯННОЕ) -->
+    <header>
+        <div class="site-title">Верумическая теория устойчивого благополучия (ВЕРУМИКА)</i></div>
+
+        <nav class="main-nav">
+            <script src="0menu.js"></script>
+        </nav>
+
+    </header>
+
+    <div class="container">
+        
+        <!-- ЛЕВАЯ КОЛОНКА (МЕНЯЕТСЯ В ЗАВИСИМОСТИ ОТ СТРАНИЦЫ) -->
+        <!-- Эту часть нужно копировать в каждый HTML файл, меняя только список ссылок -->
+        <aside class="sidebar">
+            <h3>Раздел: Теория ВСЕГО</h3>
+
+            <ul class="submenu">
+<li><a href="401_nachyeor.html">Теория теорий</a></li>
+<li><a href="402_spravteor.html">Справедливость всех теорий</a></li>
+<li><a href="403_onmatem.html">Только математика!</a></li>
+<li><a href="404_minaks.html">Минимальный набор аксиом</a></li>
+<li><a href="405_minosn.html">Проверка минимальности основания</a></li>
+<li><a href="406_strrazv.html">Универсальная структура развития</a></li>
+<li><a href="407_minsogl.html">Минимальное условие согласованности</a></li>
+<li><a href="408_urv.html">Универсальный принцип эволюции</a></li>
+<li><a href="409_gf.html">Гипотеза функционала</a></li>
+<li><a href="410_mp.html">Минимальный потенциал "V"</a></li>
+<li><a href="411_mvpo.html">Может ли "V" порождать объекты?</a></li>
+<li><a href="412_vpks.html">Возможен ли переход к субъекту?</a></li>
+<li><a href="413_pkss.html">Переход к системе субъектов</a></li>
+<li><a href="414_pksr.html">Переход к саморефлексивности</a></li>
+<li><a href="415_sps.html">Есть ли предельное состояние?</a></li>
+<li><a href="416_tsps.html">Теорема предельного состояния</a></li>
+<li><a href="417_pkfr.html">Переход к физической реальности</a></li>
+<li><a href="418_pnd.html" class="active">Принцип наименьшего действия</a></li>
+<li><a href="419_fsc.html">Функционал согласованности "C"</a></li>
+<li><a href="420_mfs.html">Минимальный функционал "C"</a></li>
+<li><a href="421_rpv.html">Размерность пространства‑времени</a></li>
+<li><a href="422_rfc.html">Размерностный функционал</a></li>
+<li><a href="423_vm.html">Выведение метрики</a></li>
+<li><a href="424_kpz.html">Калибровочные поля и заряд</a></li>
+<li><a href="425_mk.html">Механизм квантования</a></li>
+<li><a href="426_aem.html">Атомы, элементы, молекулы</a></li>
+<li><a href="427_mmh.html">Минимальная модель химии</a></li>
+<li><a href="428_evh.html">Эксперимент верумической химии</a></li>
+<li><a href="429_iss.html">Идея создания симуляции</a></li>
+<li><a href="430_mms.html">Минимальная модель симуляции</a></li>
+<li><a href="431_vs1.html">Верумическая симуляция 1.0</a></li>
+<li><a href="432_vs2.html">Верумическая симуляция 2.0</a></li>
+            </ul>
+
+        </aside>
+
+        <!-- ОСНОВНОЙ КОНТЕНТ -->
+        <main class="content">
+
+
+
+<h1>Принцип наименьшего действия</h1>
+
+<p>Это один из самых важных этапов, потому что принцип наименьшего действия является одним из наиболее общих принципов современной физики. Если бы удалось вывести его из более фундаментального принципа согласованности, это было бы существенным шагом.</p>
+
+<p>Начнём с абстрактного:</p>
+<div class="math-block">
+$$
+C(\Omega)
+$$
+</div>
+<p>— мера согласованности состояния.</p>
+
+<p>Нужно получить аналог:</p>
+<div class="math-block">
+$$
+S = \int L\,dt,
+$$
+</div>
+<p>такой, чтобы физическая динамика возникала как условие экстремума.</p>
+
+<h2>1. От состояния к траектории</h2>
+
+<p>До сих пор мы рассматривали состояние:</p>
+<div class="math-block">
+$$
+\Omega.
+$$
+</div>
+<p>Но физика описывает не отдельные состояния, а пути:</p>
+<div class="math-block">
+$$
+\Omega(t).
+$$
+</div>
+<p>То есть:</p>
+<div class="math-block">
+$$
+\gamma: t \rightarrow \Omega(t).
+$$
+</div>
+<p>Множество всех возможных путей:</p>
+<div class="math-block">
+$$
+\Gamma(\Omega_1, \Omega_2).
+$$
+</div>
+
+<p>Теперь вопрос: какой путь является естественным?</p>
+
+<h2>2. Вводим функционал согласованности пути</h2>
+
+<p>Одного состояния недостаточно. Нужно учитывать:</p>
+<ol>
+  <li>насколько состояния согласованы;</li>
+  <li>насколько плавно происходит переход.</li>
+</ol>
+
+<p>Поэтому вводим:</p>
+<div class="math-block">
+$$
+\boxed{\mathcal{C}[\Omega(t)] = \int_{t_1}^{t_2} L_C(\Omega, \dot{\Omega})\,dt},
+$$
+</div>
+<p>где:</p>
+<div class="math-block">
+$$
+L_C
+$$
+</div>
+<p>— плотность согласованности.</p>
+
+<p>Теперь ищем:</p>
+<div class="math-block">
+$$
+\Omega(t)
+$$
+</div>
+<p>такой, что:</p>
+<div class="math-block">
+$$
+\boxed{\delta\mathcal{C} = 0}.
+$$
+</div>
+
+<p>Это уже математически напоминает принцип действия.</p>
+
+<h2>3. Как получить лагранжиан?</h2>
+
+<p>Введём два требования.</p>
+
+<h3>Требование 1. Состояние должно быть согласованным</h3>
+<p>Даём вклад:</p>
+<div class="math-block">
+$$
+C(\Omega).
+$$
+</div>
+
+<h3>Требование 2. Переходы не должны быть хаотичными</h3>
+<p>Вводим скорость изменения:</p>
+<div class="math-block">
+$$
+\dot{\Omega}.
+$$
+</div>
+<p>Чем больше скорость изменения структуры, тем больше «стоимость»:</p>
+<div class="math-block">
+$$
+K(\dot{\Omega}).
+$$
+</div>
+
+<p>Тогда:</p>
+<div class="math-block">
+$$
+\boxed{L_C = C(\Omega) - K(\dot{\Omega})}.
+$$
+</div>
+
+<p>Например:</p>
+<div class="math-block">
+$$
+K = \frac{1}{2} G_{ij} \dot{\Omega}^i \dot{\Omega}^j.
+$$
+</div>
+<p>Получаем:</p>
+<div class="math-block">
+$$
+\boxed{L_C = C(\Omega) - \frac{1}{2} G_{ij} \dot{\Omega}^i \dot{\Omega}^j}.
+$$
+</div>
+
+<h2>4. Получаем уравнение движения</h2>
+
+<p>Используем вариационный принцип:</p>
+<div class="math-block">
+$$
+\delta \int L_C\,dt = 0.
+$$
+</div>
+<p>Уравнение Эйлера–Лагранжа:</p>
+<div class="math-block">
+$$
+\frac{d}{dt} \frac{\partial L_C}{\partial \dot{\Omega}^i} - \frac{\partial L_C}{\partial \Omega^i} = 0.
+$$
+</div>
+
+<p>Подставляем:</p>
+<div class="math-block">
+$$
+L_C = C(\Omega) - \frac{1}{2} G_{ij} \dot{\Omega}^i \dot{\Omega}^j.
+$$
+</div>
+<p>Получаем:</p>
+<div class="math-block">
+$$
+G_{ij} \ddot{\Omega}^j = \frac{\partial C}{\partial \Omega^i}.
+$$
+</div>
+
+<p>То есть:</p>
+<div class="math-block">
+$$
+\boxed{\text{движение направлено к увеличению согласованности}}.
+$$
+</div>
+
+<h2>5. Связь с обычной механикой</h2>
+
+<p>Теперь сравним.</p>
+
+<p>Обычная физика:</p>
+<div class="math-block">
+$$
+L = T - V,
+$$
+</div>
+<p>где:</p>
+<ul>
+  <li>$T$ — кинетическая энергия;</li>
+  <li>$V$ — потенциальная энергия.</li>
+</ul>
+
+<p>В нашей модели:</p>
+<div class="math-block">
+$$
+L_C = C - K.
+$$
+</div>
+
+<p>Можно сделать замену:</p>
+<div class="math-block">
+$$
+C = -V.
+$$
+</div>
+<p>Тогда:</p>
+<div class="math-block">
+$$
+L_C = -K - V.
+$$
+</div>
+
+<p>Меняя знак функционала:</p>
+<div class="math-block">
+$$
+S = -\mathcal{C},
+$$
+</div>
+<p>получаем:</p>
+<div class="math-block">
+$$
+\boxed{S = K - V}.
+$$
+</div>
+
+<p>То есть обычный лагранжиан появляется как отрицательная форма функционала согласованности.</p>
+
+<h2>6. Интерпретация энергии</h2>
+
+<p>В стандартной механике:</p>
+<div class="math-block">
+$$
+E = T + V.
+$$
+</div>
+
+<p>В новой схеме:</p>
+<div class="math-block">
+$$
+C = -V,
+$$
+</div>
+<p>поэтому:</p>
+<div class="math-block">
+$$
+E = K - C.
+$$
+</div>
+
+<p>Получаем:</p>
+<div class="math-block">
+$$
+\boxed{E = \text{затраты на изменение структуры} - \text{выигрыш согласованности}}.
+$$
+</div>
+
+<h2>7. Возникновение закона сохранения</h2>
+
+<p>Если:</p>
+<div class="math-block">
+$$
+L_C
+$$
+</div>
+<p>не зависит явно от времени:</p>
+<div class="math-block">
+$$
+\frac{\partial L_C}{\partial t} = 0,
+$$
+</div>
+<p>то существует инвариант:</p>
+<div class="math-block">
+$$
+H = \dot{\Omega} \frac{\partial L_C}{\partial \dot{\Omega}} - L_C.
+$$
+</div>
+
+<p>Это аналог энергии:</p>
+<div class="math-block">
+$$
+\boxed{H = \text{const}}.
+$$
+</div>
+
+<p>То есть сохранение энергии появляется как следствие:</p>
+<div class="math-block">
+$$
+\boxed{\text{неизменности структуры согласованности во времени}}.
+$$
+</div>
+
+<h2>8. Связь с принципом $V=D$</h2>
+
+<p>Теперь можно попробовать включить вашу идею соответствия.</p>
+
+<p>Пусть действие субъекта:</p>
+<div class="math-block">
+$$
+D
+$$
+</div>
+<p>изменяет состояние:</p>
+<div class="math-block">
+$$
+\Omega \rightarrow \Omega'.
+$$
+</div>
+
+<p>Но глобальная структура должна сохранять баланс:</p>
+<div class="math-block">
+$$
+C(\Omega') + R(D) = C(\Omega).
+$$
+</div>
+
+<p>То есть:</p>
+<div class="math-block">
+$$
+\boxed{D + R = 0}
+$$
+</div>
+<p>в пространстве изменений согласованности.</p>
+
+<p>Это математический аналог:</p>
+<div class="math-block">
+$$
+V = D.
+$$
+</div>
+<p>Не как зеркальное возмещение, а как сохранение общего инварианта.</p>
+
+<h2>9. Получаем фундаментальный принцип</h2>
+
+<p>Теперь можно сформулировать гипотезу:</p>
+
+<div class="math-block">
+$$\boxed{
+\begin{aligned}
+&\text{Физическая траектория является той траекторией,} \\
+&\text{которая экстремизирует интегральную согласованность.}
+\end{aligned}}
+$$
+</div>
+
+<p>Формально:</p>
+<div class="math-block">
+$$
+\boxed{\delta \int \left( C(\Omega) - \frac{1}{2} G_{ij} \dot{\Omega}^i \dot{\Omega}^j \right) dt = 0}.
+$$
+</div>
+
+<h2>10. Возможный мост к физике</h2>
+
+<p>Теперь нужно проверить, могут ли различные формы $C(\Omega)$ давать разные физические теории.</p>
+
+<h3>Геометрический сектор</h3>
+<p>Если:</p>
+<div class="math-block">
+$$
+C = C(g_{\mu\nu}),
+$$
+</div>
+<p>то возможно получить:</p>
+<div class="math-block">
+$$
+S_{GR}.
+$$
+</div>
+
+<h3>Поля</h3>
+<p>Если:</p>
+<div class="math-block">
+$$
+C = C(A_\mu),
+$$
+</div>
+<p>то возможно получить:</p>
+<div class="math-block">
+$$
+S_{EM}.
+$$
+</div>
+
+<h3>Квантовый сектор</h3>
+<p>Если:</p>
+<div class="math-block">
+$$
+C = C(\psi),
+$$
+</div>
+<p>то возможно получить:</p>
+<div class="math-block">
+$$
+S_{QFT}.
+$$
+</div>
+
+<h2>11. Что мы реально получили?</h2>
+
+<p>Пока не доказана физическая теория.</p>
+
+<p>Но появилась более строгая программа:</p>
+<div class="math-block">
+$$
+\boxed{C(\Omega) \rightarrow L_C \rightarrow S \rightarrow \text{уравнения движения}}.
+$$
+</div>
+
+<p>То есть принцип наименьшего действия перестаёт быть первичным постулатом и становится следствием более общего принципа:</p>
+<div class="math-block">
+$$
+\boxed{\text{эволюция происходит так, чтобы глобальная согласованность была экстремальной}}.
+$$
+</div>
+
+<p>Следующий математический шаг — определить конкретный вид:</p>
+<div class="math-block">
+$$
+C(\Omega)
+$$
+</div>
+<p>не в общем виде, а такой, чтобы из него действительно получались:</p>
+<div class="math-block">
+$$
+L_{GR},\quad L_{EM},\quad L_{QFT},
+$$
+</div>
+<p>и затем проверить, появляется ли из этого химия как следующий уровень устойчивых минимумов.</p>
+
+
+
+
+
+        </main>
+
+
+    <!-- Скрипты KaTeX -->
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false}
+            ],
+            throwOnError: false
+        });">
+    </script>
+</body>
+</html>

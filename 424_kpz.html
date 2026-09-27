@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Верумическая теория</title>
+
+    <!-- Подключаем KaTeX для формул -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.css">
+
+    <link rel='stylesheet' type='text/css' href='style.css'>
+
+</head>
+
+<body>
+
+    <!-- ВЕРХНЕЕ МЕНЮ (ПОСТОЯННОЕ) -->
+    <header>
+        <div class="site-title">Верумическая теория устойчивого благополучия (ВЕРУМИКА)</i></div>
+
+        <nav class="main-nav">
+            <script src="0menu.js"></script>
+        </nav>
+
+    </header>
+
+    <div class="container">
+        
+        <!-- ЛЕВАЯ КОЛОНКА (МЕНЯЕТСЯ В ЗАВИСИМОСТИ ОТ СТРАНИЦЫ) -->
+        <!-- Эту часть нужно копировать в каждый HTML файл, меняя только список ссылок -->
+        <aside class="sidebar">
+            <h3>Раздел: Теория ВСЕГО</h3>
+
+            <ul class="submenu">
+<li><a href="401_nachyeor.html">Теория теорий</a></li>
+<li><a href="402_spravteor.html">Справедливость всех теорий</a></li>
+<li><a href="403_onmatem.html">Только математика!</a></li>
+<li><a href="404_minaks.html">Минимальный набор аксиом</a></li>
+<li><a href="405_minosn.html">Проверка минимальности основания</a></li>
+<li><a href="406_strrazv.html">Универсальная структура развития</a></li>
+<li><a href="407_minsogl.html">Минимальное условие согласованности</a></li>
+<li><a href="408_urv.html">Универсальный принцип эволюции</a></li>
+<li><a href="409_gf.html">Гипотеза функционала</a></li>
+<li><a href="410_mp.html">Минимальный потенциал "V"</a></li>
+<li><a href="411_mvpo.html">Может ли "V" порождать объекты?</a></li>
+<li><a href="412_vpks.html">Возможен ли переход к субъекту?</a></li>
+<li><a href="413_pkss.html">Переход к системе субъектов</a></li>
+<li><a href="414_pksr.html">Переход к саморефлексивности</a></li>
+<li><a href="415_sps.html">Есть ли предельное состояние?</a></li>
+<li><a href="416_tsps.html">Теорема предельного состояния</a></li>
+<li><a href="417_pkfr.html">Переход к физической реальности</a></li>
+<li><a href="418_pnd.html">Принцип наименьшего действия</a></li>
+<li><a href="419_fsc.html">Функционал согласованности "C"</a></li>
+<li><a href="420_mfs.html">Минимальный функционал "C"</a></li>
+<li><a href="421_rpv.html">Размерность пространства‑времени</a></li>
+<li><a href="422_rfc.html">Размерностный функционал</a></li>
+<li><a href="423_vm.html">Выведение метрики</a></li>
+<li><a href="424_kpz.html" class="active">Калибровочные поля и заряд</a></li>
+<li><a href="425_mk.html">Механизм квантования</a></li>
+<li><a href="426_aem.html">Атомы, элементы, молекулы</a></li>
+<li><a href="427_mmh.html">Минимальная модель химии</a></li>
+<li><a href="428_evh.html">Эксперимент верумической химии</a></li>
+<li><a href="429_iss.html">Идея создания симуляции</a></li>
+<li><a href="430_mms.html">Минимальная модель симуляции</a></li>
+<li><a href="431_vs1.html">Верумическая симуляция 1.0</a></li>
+<li><a href="432_vs2.html">Верумическая симуляция 2.0</a></li>
+            </ul>
+
+        </aside>
+
+        <!-- ОСНОВНОЙ КОНТЕНТ -->
+        <main class="content">
+
+
+
+<h1>Калибровочные поля и заряд</h1>
+
+<p>Попробуем вывести калибровочные поля и заряд из той же логики, из которой мы пытались вывести метрику:</p>
+<div class="math-block">
+$$
+\boxed{C(\Omega) \rightarrow g_{\mu\nu}}
+$$
+</div>
+<p>Теперь нужно получить:</p>
+<div class="math-block">
+$$
+\boxed{C(\Omega) \rightarrow A_\mu, q}
+$$
+</div>
+<p>То есть объяснить, почему существуют поля взаимодействия и почему существуют сохраняющиеся заряды.</p>
+
+<h2>1. Главная идея</h2>
+
+<p>Метрика возникла из необходимости сравнивать <strong>состояния</strong>:</p>
+<div class="math-block">
+$$
+\Omega_1, \Omega_2.
+$$
+</div>
+
+<p>Но есть ещё более глубокая проблема: как сравнивать состояния, если они имеют разные внутренние описания?</p>
+
+<p>Например:</p>
+<div class="math-block">
+$$
+\Omega(x)
+$$
+</div>
+<p>может быть представлено различными способами:</p>
+<div class="math-block">
+$$
+\Omega(x) \rightarrow U(x)\Omega(x).
+$$
+</div>
+
+<p>Если физика не должна зависеть от выбора внутреннего описания, возникает симметрия.</p>
+
+<h2>2. Локальная симметрия согласованности</h2>
+
+<p>Пусть существует преобразование:</p>
+<div class="math-block">
+$$
+\Omega(x) \rightarrow U(x)\Omega(x),
+$$
+</div>
+<p>где:</p>
+<div class="math-block">
+$$
+U(x)
+$$
+</div>
+<p>может меняться в каждой точке. Это называется локальной симметрией.</p>
+
+<p>Проблема: обычная производная:</p>
+<div class="math-block">
+$$
+\partial_\mu\Omega
+$$
+</div>
+<p>уже не преобразуется так же:</p>
+<div class="math-block">
+$$
+\partial_\mu(U\Omega) \neq U\partial_\mu\Omega.
+$$
+</div>
+<p>Возникает нарушение согласованности.</p>
+
+<h2>3. Вводим компенсатор согласованности</h2>
+
+<p>Чтобы сохранить инвариантность, нужен новый объект:</p>
+<div class="math-block">
+$$
+D_\mu
+$$
+</div>
+<p>такой, что:</p>
+<div class="math-block">
+$$
+D_\mu\Omega \rightarrow U(D_\mu\Omega).
+$$
+</div>
+
+<p>Минимальная форма:</p>
+<div class="math-block">
+$$
+\boxed{D_\mu = \partial_\mu + i q A_\mu}.
+$$
+</div>
+
+<p>Где:</p>
+<div class="math-block">
+$$
+A_\mu
+$$
+</div>
+<p>— поле, которое компенсирует изменение внутреннего состояния.</p>
+
+<p>То есть:</p>
+
+<div class="math-block">
+$$
+\boxed{
+\begin{aligned}
+&\text{калибровочное поле = механизм сохранения согласованности} \\
+&\text{при локальных преобразованиях.}
+\end{aligned}}
+$$
+</div>
+
+<h2>4. Откуда берётся заряд?</h2>
+
+<p>Теперь рассмотрим преобразование:</p>
+<div class="math-block">
+$$
+U(x) = e^{i\alpha(x)}.
+$$
+</div>
+<p>Тогда:</p>
+<div class="math-block">
+$$
+\Omega \rightarrow e^{i\alpha}\Omega.
+$$
+</div>
+
+<p>Число $q$ показывает, насколько сильно объект реагирует на это преобразование.</p>
+
+<p>Получаем:</p>
+<div class="math-block">
+$$
+\boxed{q = \text{степень связи объекта с полем согласования}}.
+$$
+</div>
+
+<p>То есть заряд — не первичное свойство частицы. Он возникает как мера участия в симметрии.</p>
+
+<h2>5. Почему заряд сохраняется?</h2>
+
+<p>Теперь используем главный принцип:</p>
+<div class="math-block">
+$$
+C[\Omega]
+$$
+</div>
+<p>не должен меняться при преобразовании:</p>
+<div class="math-block">
+$$
+\Omega \rightarrow U\Omega.
+$$
+</div>
+<p>То есть:</p>
+<div class="math-block">
+$$
+\delta C = 0.
+$$
+</div>
+
+<p>По теореме Нётер: каждая непрерывная симметрия даёт закон сохранения.</p>
+
+<p>Для симметрии:</p>
+<div class="math-block">
+$$
+U(1)
+$$
+</div>
+<p>получаем ток:</p>
+<div class="math-block">
+$$
+J^\mu.
+$$
+</div>
+<p>И:</p>
+<div class="math-block">
+$$
+\boxed{\partial_\mu J^\mu = 0}.
+$$
+</div>
+
+<p>Интегрируем:</p>
+<div class="math-block">
+$$
+Q = \int J^0\,d^3x.
+$$
+</div>
+<p>Тогда:</p>
+<div class="math-block">
+$$
+\boxed{\frac{dQ}{dt} = 0}.
+$$
+</div>
+
+<p>Это есть сохранение заряда.</p>
+
+<h2>6. Как появляется электромагнетизм?</h2>
+
+<p>Теперь поле:</p>
+<div class="math-block">
+$$
+A_\mu
+$$
+</div>
+<p>само должно иметь согласованную структуру.</p>
+
+<p>Его изменение:</p>
+<div class="math-block">
+$$
+F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu.
+$$
+</div>
+
+<p>Минимальный инвариант:</p>
+<div class="math-block">
+$$
+C_A = -\frac{1}{4} \int F_{\mu\nu} F^{\mu\nu} \sqrt{-g}\,d^4x.
+$$
+</div>
+
+<p>Вариация:</p>
+<div class="math-block">
+$$
+\delta C_A = 0
+$$
+</div>
+<p>даёт:</p>
+<div class="math-block">
+$$
+\partial_\mu F^{\mu\nu} = J^\nu.
+$$
+</div>
+
+<p>То есть:</p>
+<div class="math-block">
+$$
+\boxed{\text{электромагнитное поле возникает как поле восстановления локальной согласованности}}.
+$$
+</div>
+
+<h2>7. Связь с принципом $V=D$</h2>
+
+<p>Теперь можно попробовать выразить ваш принцип.</p>
+
+<p>Пусть действие субъекта меняет внутреннее состояние:</p>
+<div class="math-block">
+$$
+D: \Omega \rightarrow \Omega'.
+$$
+</div>
+<p>Это создаёт изменение локальной согласованности:</p>
+<div class="math-block">
+$$
+\Delta C_D.
+$$
+</div>
+<p>Поле взаимодействия отвечает:</p>
+<div class="math-block">
+$$
+\Delta C_A.
+$$
+</div>
+<p>Требуем:</p>
+<div class="math-block">
+$$
+\boxed{\Delta C_D + \Delta C_A = 0}.
+$$
+</div>
+
+<p>То есть: действие создаёт нарушение баланса, а поле взаимодействия перестраивает связи так, чтобы глобальный инвариант сохранился.</p>
+
+<h2>8. Обобщение на все взаимодействия</h2>
+
+<p>Если внутренняя симметрия:</p>
+<div class="math-block">
+$$
+U(1)
+$$
+</div>
+<p>получаем:</p>
+<div class="math-block">
+$$
+A_\mu
+$$
+</div>
+<p>и электрический заряд.</p>
+
+<p>Если:</p>
+<div class="math-block">
+$$
+SU(2)
+$$
+</div>
+<p>получаем слабое взаимодействие.</p>
+
+<p>Если:</p>
+<div class="math-block">
+$$
+SU(3)
+$$
+</div>
+<p>получаем сильное взаимодействие.</p>
+
+<p>Общий принцип:</p>
+<div class="math-block">
+$$
+\boxed{\text{каждая фундаментальная симметрия согласованности порождает своё поле связи}}.
+$$
+</div>
+
+<h2>9. Полная цепочка</h2>
+
+<p>Теперь получается:</p>
+
+<div class="math-block">
+$$
+\begin{aligned}
+&\boxed{C(\Omega)} \\
+&\downarrow \\
+&\boxed{\text{локальная различимость: } \Omega(x)} \\
+&\downarrow \\
+&\boxed{\text{необходимость сравнения состояний: } D_\mu} \\
+&\downarrow \\
+&\boxed{\text{связность: } A_\mu} \\
+&\downarrow \\
+&\boxed{\text{калибровочная симметрия: } G} \\
+&\downarrow \\
+&\boxed{\text{заряды: } q} \\
+&\downarrow \\
+&\boxed{\text{законы сохранения: } Q = \text{const}.}
+\end{aligned}
+$$
+</div>
+
+<h2>10. Главный результат этой конструкции</h2>
+
+<p>В этой программе обычная физика говорит:</p>
+<blockquote>существуют частицы с зарядами, которые создают поля.</blockquote>
+
+<p>А эта схема предлагает обратную логику:</p>
+
+<div class="math-block">
+$$
+\begin{aligned}
+&\boxed{\text{существует необходимость согласовать локальные описания}} \\
+&\downarrow \\
+&\boxed{\text{возникает поле связи}} \\
+&\downarrow \\
+&\boxed{\text{возникает заряд как мера связи}} \\
+&\downarrow \\
+&\boxed{\text{возникает закон сохранения}}
+\end{aligned}
+$$
+</div>
+
+
+<p>Следующий наиболее трудный шаг в этой линии — попытаться вывести <strong>квантование</strong>:</p>
+
+<div class="math-block">
+$$\boxed{
+\begin{aligned}
+&\text{почему состояния поля согласованности становятся дискретными} \\
+&\text{и почему появляются квантовые числа?}
+\end{aligned}}
+$$
+</div>
+
+<p>Именно там будет переход от классической геометрии и полей к квантовой физике.</p>
+
+
+
+
+
+        </main>
+
+
+    <!-- Скрипты KaTeX -->
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false}
+            ],
+            throwOnError: false
+        });">
+    </script>
+</body>
+</html>

@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Верумическая теория</title>
+
+    <!-- Подключаем KaTeX для формул -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.css">
+
+    <link rel='stylesheet' type='text/css' href='style.css'>
+
+</head>
+
+<body>
+
+    <!-- ВЕРХНЕЕ МЕНЮ (ПОСТОЯННОЕ) -->
+    <header>
+        <div class="site-title">Верумическая теория устойчивого благополучия (ВЕРУМИКА)</i></div>
+
+        <nav class="main-nav">
+           <script src="0menu.js"></script>
+        </nav>
+
+    </header>
+
+    <div class="container">
+        
+        <!-- ЛЕВАЯ КОЛОНКА (МЕНЯЕТСЯ В ЗАВИСИМОСТИ ОТ СТРАНИЦЫ) -->
+        <!-- Эту часть нужно копировать в каждый HTML файл, меняя только список ссылок -->
+        <aside class="sidebar">
+            <h3>Раздел: Теория ВСЕГО</h3>
+
+            <ul class="submenu">
+<li><a href="401_nachyeor.html">Теория теорий</a></li>
+<li><a href="402_spravteor.html">Справедливость всех теорий</a></li>
+<li><a href="403_onmatem.html">Только математика!</a></li>
+<li><a href="404_minaks.html">Минимальный набор аксиом</a></li>
+<li><a href="405_minosn.html">Проверка минимальности основания</a></li>
+<li><a href="406_strrazv.html">Универсальная структура развития</a></li>
+<li><a href="407_minsogl.html">Минимальное условие согласованности</a></li>
+<li><a href="408_urv.html">Универсальный принцип эволюции</a></li>
+<li><a href="409_gf.html">Гипотеза функционала</a></li>
+<li><a href="410_mp.html">Минимальный потенциал "V"</a></li>
+<li><a href="411_mvpo.html">Может ли "V" порождать объекты?</a></li>
+<li><a href="412_vpks.html">Возможен ли переход к субъекту?</a></li>
+<li><a href="413_pkss.html">Переход к системе субъектов</a></li>
+<li><a href="414_pksr.html">Переход к саморефлексивности</a></li>
+<li><a href="415_sps.html">Есть ли предельное состояние?</a></li>
+<li><a href="416_tsps.html">Теорема предельного состояния</a></li>
+<li><a href="417_pkfr.html">Переход к физической реальности</a></li>
+<li><a href="418_pnd.html">Принцип наименьшего действия</a></li>
+<li><a href="419_fsc.html">Функционал согласованности "C"</a></li>
+<li><a href="420_mfs.html">Минимальный функционал "C"</a></li>
+<li><a href="421_rpv.html">Размерность пространства‑времени</a></li>
+<li><a href="422_rfc.html">Размерностный функционал</a></li>
+<li><a href="423_vm.html">Выведение метрики</a></li>
+<li><a href="424_kpz.html">Калибровочные поля и заряд</a></li>
+<li><a href="425_mk.html">Механизм квантования</a></li>
+<li><a href="426_aem.html">Атомы, элементы, молекулы</a></li>
+<li><a href="427_mmh.html" class="active">Минимальная модель химии</a></li>
+<li><a href="428_evh.html">Эксперимент верумической химии</a></li>
+<li><a href="429_iss.html">Идея создания симуляции</a></li>
+<li><a href="430_mms.html">Минимальная модель симуляции</a></li>
+<li><a href="431_vs1.html">Верумическая симуляция 1.0</a></li>
+<li><a href="432_vs2.html">Верумическая симуляция 2.0</a></li>
+            </ul>
+
+        </aside>
+
+        <!-- ОСНОВНОЙ КОНТЕНТ -->
+        <main class="content">
+
+
+
+<h1>Минимальная модель химии</h1>
+
+<p>Попробуем построить <strong>первую минимальную математическую модель верумической химии</strong>. Сразу уточню: это будет не готовая физическая теория, а <strong>исследовательская модель</strong>, в которой проверяется принцип: могут ли атомы и молекулы рассматриваться как минимумы единого функционала согласованности.</p>
+
+<p>Задача:</p>
+<div class="math-block">
+$$
+\boxed{V(\Omega) \Rightarrow \text{частицы} \Rightarrow \text{атомы} \Rightarrow \text{молекулы}}.
+$$
+</div>
+
+<h2>1. Разложение фундаментального поля</h2>
+
+<p>Возьмём многоуровневое поле:</p>
+<div class="math-block">
+$$
+\boxed{\Omega = (\phi, \chi, \psi)}.
+$$
+</div>
+<p>где:</p>
+<ul>
+  <li><div class="math-block">$$\phi$$</div> — элементарные носители свойств (аналог частиц);</li>
+  <li><div class="math-block">$$\chi$$</div> — поля связей;</li>
+  <li><div class="math-block">$$\psi$$</div> — структурная организация (атомы, молекулы).</li>
+</ul>
+
+<p>Полный функционал:</p>
+<div class="math-block">
+$$
+C[\Omega] = \int \left( K(\Omega) - V(\Omega) \right) d^4x.
+$$
+</div>
+<p>где:</p>
+<ul>
+  <li><div class="math-block">$$K$$</div> — цена изменения;</li>
+  <li><div class="math-block">$$V$$</div> — потенциал устойчивых структур.</li>
+</ul>
+
+<h2>2. Потенциал элементарных структур</h2>
+
+<p>Начнём с поля:</p>
+<div class="math-block">
+$$
+\phi.
+$$
+</div>
+<p>Минимальный потенциал:</p>
+<div class="math-block">
+$$
+\boxed{V_\phi = \lambda_\phi (\phi^2 - v^2)^2}.
+$$
+</div>
+
+<p>Минимумы:</p>
+<div class="math-block">
+$$
+\phi = \pm v.
+$$
+</div>
+<p>То есть существуют устойчивые состояния:</p>
+<div class="math-block">
+$$
+\phi_1, \phi_2.
+$$
+</div>
+<p>Это аналог появления элементарных различий.</p>
+
+<h2>3. Вводим зарядовую структуру</h2>
+
+<p>Пусть поле имеет фазу:</p>
+<div class="math-block">
+$$
+\phi = \rho e^{i\theta}.
+$$
+</div>
+<p>Тогда:</p>
+<div class="math-block">
+$$
+\theta
+$$
+</div>
+<p>определяет внутреннее состояние.</p>
+
+<p>Топологический индекс:</p>
+<div class="math-block">
+$$
+q = \frac{1}{2\pi} \oint \nabla\theta \cdot dl.
+$$
+</div>
+
+<p>Получаем:</p>
+<div class="math-block">
+$$
+\boxed{q \in \mathbb{Z}}.
+$$
+</div>
+<p>То есть заряд возникает как класс устойчивости поля.</p>
+
+<h2>4. Потенциал связей</h2>
+
+<p>Теперь вводим поле:</p>
+<div class="math-block">
+$$
+\chi.
+$$
+</div>
+<p>Оно отвечает за согласование элементов.</p>
+
+<p>Потенциал:</p>
+<div class="math-block">
+$$
+\boxed{V_\chi = \lambda_\chi (\chi^2 - \chi_0^2)^2}.
+$$
+</div>
+
+<p>Есть два состояния:</p>
+<ul>
+  <li><div class="math-block">$$\chi = 0$$</div> — нет связи;</li>
+  <li><div class="math-block">$$\chi = \chi_0$$</div> — устойчивая связь.</li>
+</ul>
+
+<p>Но нужна зависимость от элементов:</p>
+<div class="math-block">
+$$
+V_{\phi\chi} = -g\chi\phi_1\phi_2.
+$$
+</div>
+
+<p>Полный элемент связи:</p>
+<div class="math-block">
+$$
+\boxed{V_{\phi\chi} = \lambda_\chi(\chi^2 - \chi_0^2)^2 - g\chi\phi_1\phi_2}.
+$$
+</div>
+
+<p>Если связь уменьшает общий функционал:</p>
+<div class="math-block">
+$$
+\Delta C < 0,
+$$
+</div>
+<p>она становится устойчивой.</p>
+
+<h2>5. Возникновение атома</h2>
+
+<p>Теперь атом:</p>
+<div class="math-block">
+$$
+A = (\phi_N, \phi_e, \chi_{Ne}).
+$$
+</div>
+
+<p>Пишем:</p>
+<div class="math-block">
+$$
+\boxed{V_A = V_N + V_e + V_{Ne}},
+$$
+</div>
+<p>где:</p>
+<div class="math-block">
+$$
+V_N = \lambda_N (N^2 - v_N^2)^2.
+$$
+</div>
+
+<p>Электронное поле:</p>
+<div class="math-block">
+$$
+V_e = \lambda_e (e^2 - v_e^2)^2.
+$$
+</div>
+
+<p>Связь:</p>
+<div class="math-block">
+$$
+V_{Ne} = -g_{Ne}\chi Ne.
+$$
+</div>
+
+<p>Минимум:</p>
+<div class="math-block">
+$$
+\frac{\partial V_A}{\partial N} = 0,
+\quad
+\frac{\partial V_A}{\partial e} = 0,
+\quad
+\frac{\partial V_A}{\partial \chi} = 0.
+$$
+</div>
+<p>Даёт устойчивую атомную конфигурацию.</p>
+
+<h2>6. Почему разные элементы?</h2>
+
+<p>Добавляем зарядовый индекс:</p>
+<div class="math-block">
+$$
+Z.
+$$
+</div>
+<p>Потенциал ядра:</p>
+<div class="math-block">
+$$
+V_N(Z).
+$$
+</div>
+
+<p>Разные минимумы:</p>
+<div class="math-block">
+$$
+Z = 1, 2, 3, \dots
+$$
+</div>
+<p>дают разные устойчивые структуры:</p>
+<div class="math-block">
+$$
+A_1, A_2, A_3, \dots
+$$
+</div>
+
+<p>То есть:</p>
+<div class="math-block">
+$$
+\boxed{\text{химические элементы} = \text{различные минимумы } V(\Omega)}.
+$$
+</div>
+
+<h2>7. Появление электронных оболочек</h2>
+
+<p>Вводим радиальную структуру:</p>
+<div class="math-block">
+$$
+\psi(r).
+$$
+</div>
+
+<p>Энергия:</p>
+<div class="math-block">
+$$
+E[\psi] = \int \left[ |\nabla\psi|^2 - V_A(\psi) \right] d^3r.
+$$
+</div>
+
+<p>Минимальные решения:</p>
+<div class="math-block">
+$$
+\psi_n(r)
+$$
+</div>
+<p>образуют спектр:</p>
+<div class="math-block">
+$$
+n = 1, 2, 3, \dots
+$$
+</div>
+
+<p>Это аналог атомных орбиталей.</p>
+
+<h2>8. Молекула как новый минимум</h2>
+
+<p>Теперь два атома:</p>
+<div class="math-block">
+$$
+A + B.
+$$
+</div>
+
+<p>Есть два состояния:</p>
+
+<h3>Раздельное:</h3>
+<div class="math-block">
+$$
+\Omega_1 = A + B.
+$$
+</div>
+
+<h3>Связанное:</h3>
+<div class="math-block">
+$$
+\Omega_2 = AB.
+$$
+</div>
+
+<p>Определяем:</p>
+<div class="math-block">
+$$
+\Delta C = C(AB) - C(A) - C(B).
+$$
+</div>
+
+<p>Если:</p>
+<div class="math-block">
+$$
+\boxed{\Delta C > 0},
+$$
+</div>
+<p>то молекула устойчивее.</p>
+
+<p>Добавляем:</p>
+<div class="math-block">
+$$
+V_{AB} = -g_{AB}\chi_{AB}AB.
+$$
+</div>
+
+<p>Получаем:</p>
+<div class="math-block">
+$$
+\boxed{V_{\text{chem}} = V_A + V_B + V_{AB}}.
+$$
+</div>
+
+<h2>9. Возникновение валентности</h2>
+
+<p>Теперь число возможных связей:</p>
+<div class="math-block">
+$$
+n_v.
+$$
+</div>
+<p>Оно определяется количеством доступных каналов согласования:</p>
+<div class="math-block">
+$$
+\chi_i.
+$$
+</div>
+
+<p>То есть:</p>
+<div class="math-block">
+$$
+\boxed{\text{валентность} = \text{число устойчивых каналов связи}}.
+$$
+</div>
+
+<h2>10. Первая формула кандидата</h2>
+
+<p>Получаем общий потенциал:</p>
+<div class="math-block">
+$$
+\boxed{V(\Omega) = V_\phi + V_\chi + V_{\phi\chi} + V_A + V_{AB}}.
+$$
+</div>
+
+<p>Или:</p>
+<div class="math-block">
+$$
+\boxed{
+\begin{aligned}
+V(\Omega) =& \sum_i \lambda_i(\phi_i^2 - v_i^2)^2 \\
+&+ \sum_{ij} \lambda_{ij}(\chi_{ij}^2 - \chi_0^2)^2 \\
+&- \sum_{ij} g_{ij}\chi_{ij}\phi_i\phi_j
+\end{aligned}
+}.
+$$
+</div>
+
+<h2>11. Что эта модель уже объясняет на уровне принципа?</h2>
+
+<p>Она даёт:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Структура</th>
+      <th>Математический объект</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>частица</td>
+      <td>локальный минимум <var>(ϕ)</var></td>
+    </tr>
+    <tr>
+      <td>заряд</td>
+      <td>топологический индекс фазы</td>
+    </tr>
+    <tr>
+      <td>поле связи</td>
+      <td><var>(χ)</var></td>
+    </tr>
+    <tr>
+      <td>атом</td>
+      <td>связанный минимум нескольких полей</td>
+    </tr>
+    <tr>
+      <td>элемент</td>
+      <td>класс устойчивого <var>(Z)</var></td>
+    </tr>
+    <tr>
+      <td>молекула</td>
+      <td>новый минимум совместной системы</td>
+    </tr>
+    <tr>
+      <td>валентность</td>
+      <td>число каналов связи</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>12. Главная проверка</h2>
+
+<p>Теперь возникает настоящий физический тест.</p>
+
+<p>Нужно не просто написать:</p>
+<div class="math-block">
+$$
+V(\Omega),
+$$
+</div>
+<p>а найти такие параметры:</p>
+<div class="math-block">
+$$
+\lambda_i, v_i, g_{ij},
+$$
+</div>
+<p>чтобы автоматически получилось:</p>
+<ul>
+  <li>масса электрона;</li>
+  <li>масса протона;</li>
+  <li>постоянная тонкой структуры;</li>
+  <li>спектр водорода;</li>
+  <li>периодическая таблица;</li>
+  <li>энергия связи молекул.</li>
+</ul>
+
+<p>То есть следующий этап:</p>
+
+<div class="math-block">
+$$
+\boxed{
+\begin{aligned}
+&\text{численно исследовать минимумы } V(\Omega) \text{ и проверить,} \\
+&\text{возникают ли структуры, похожие на атомы.}
+\end{aligned}}
+$$
+</div>
+
+<p>Это уже можно рассматривать как переход от философской конструкции к вычислительной верумической химии: построение <strong>искусственного «химического мира»</strong>, где атомы и молекулы появляются не из заранее заданных правил химии, а из одного принципа согласованности.</p>
+
+
+
+
+        </main>
+
+
+    <!-- Скрипты KaTeX -->
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false}
+            ],
+            throwOnError: false
+        });">
+    </script>
+</body>
+</html>

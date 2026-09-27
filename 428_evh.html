@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Верумическая теория</title>
+
+    <!-- Подключаем KaTeX для формул -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.css">
+
+    <link rel='stylesheet' type='text/css' href='style.css'>
+
+</head>
+
+<body>
+
+    <!-- ВЕРХНЕЕ МЕНЮ (ПОСТОЯННОЕ) -->
+    <header>
+        <div class="site-title">Верумическая теория устойчивого благополучия (ВЕРУМИКА)</i></div>
+
+        <nav class="main-nav">
+            <script src="0menu.js"></script>
+        </nav>
+
+    </header>
+
+    <div class="container">
+        
+        <!-- ЛЕВАЯ КОЛОНКА (МЕНЯЕТСЯ В ЗАВИСИМОСТИ ОТ СТРАНИЦЫ) -->
+        <!-- Эту часть нужно копировать в каждый HTML файл, меняя только список ссылок -->
+        <aside class="sidebar">
+            <h3>Раздел: Теория ВСЕГО</h3>
+
+            <ul class="submenu">
+<li><a href="401_nachyeor.html">Теория теорий</a></li>
+<li><a href="402_spravteor.html">Справедливость всех теорий</a></li>
+<li><a href="403_onmatem.html">Только математика!</a></li>
+<li><a href="404_minaks.html">Минимальный набор аксиом</a></li>
+<li><a href="405_minosn.html">Проверка минимальности основания</a></li>
+<li><a href="406_strrazv.html">Универсальная структура развития</a></li>
+<li><a href="407_minsogl.html">Минимальное условие согласованности</a></li>
+<li><a href="408_urv.html">Универсальный принцип эволюции</a></li>
+<li><a href="409_gf.html">Гипотеза функционала</a></li>
+<li><a href="410_mp.html">Минимальный потенциал "V"</a></li>
+<li><a href="411_mvpo.html">Может ли "V" порождать объекты?</a></li>
+<li><a href="412_vpks.html">Возможен ли переход к субъекту?</a></li>
+<li><a href="413_pkss.html">Переход к системе субъектов</a></li>
+<li><a href="414_pksr.html">Переход к саморефлексивности</a></li>
+<li><a href="415_sps.html">Есть ли предельное состояние?</a></li>
+<li><a href="416_tsps.html">Теорема предельного состояния</a></li>
+<li><a href="417_pkfr.html">Переход к физической реальности</a></li>
+<li><a href="418_pnd.html">Принцип наименьшего действия</a></li>
+<li><a href="419_fsc.html">Функционал согласованности "C"</a></li>
+<li><a href="420_mfs.html">Минимальный функционал "C"</a></li>
+<li><a href="421_rpv.html">Размерность пространства‑времени</a></li>
+<li><a href="422_rfc.html">Размерностный функционал</a></li>
+<li><a href="423_vm.html">Выведение метрики</a></li>
+<li><a href="424_kpz.html">Калибровочные поля и заряд</a></li>
+<li><a href="425_mk.html">Механизм квантования</a></li>
+<li><a href="426_aem.html">Атомы, элементы, молекулы</a></li>
+<li><a href="427_mmh.html">Минимальная модель химии</a></li>
+<li><a href="428_evh.html" class="active">Эксперимент верумической химии</a></li>
+<li><a href="429_iss.html">Идея создания симуляции</a></li>
+<li><a href="430_mms.html">Минимальная модель симуляции</a></li>
+<li><a href="431_vs1.html">Верумическая симуляция 1.0</a></li>
+<li><a href="432_vs2.html">Верумическая симуляция 2.0</a></li>
+            </ul>
+
+        </aside>
+
+        <!-- ОСНОВНОЙ КОНТЕНТ -->
+        <main class="content">
+
+
+
+<h1>Эксперимент верумической химии</h1>
+
+<p>Строим <strong>первый вычислительный эксперимент верумической химии</strong>.</p>
+
+<p>Цель эксперимента:</p>
+<p>не задать атомы заранее, а проверить, возникают ли они как устойчивые минимумы единого функционала:</p>
+<div class="math-block">
+$$
+C[\Omega].
+$$
+</div>
+
+<h2>1. Минимальная вычислительная модель</h2>
+
+<p>Берём двумерную или трёхмерную решётку:</p>
+<div class="math-block">
+$$
+x_i.
+$$
+</div>
+<p>На каждой ячейке находится поле:</p>
+<div class="math-block">
+$$
+\Omega_i = (\phi_i, \chi_i),
+$$
+</div>
+<p>где:</p>
+<ul>
+  <li><div class="math-block">$$\phi_i$$</div> — локальное состояние элемента;</li>
+  <li><div class="math-block">$$\chi_i$$</div> — сила связи между соседними элементами.</li>
+</ul>
+
+<h2>2. Функционал согласованности</h2>
+
+<p>Определим:</p>
+<div class="math-block">
+$$
+\boxed{
+C[\phi, \chi] =
+\sum_i V_\phi(\phi_i)
++ \sum_{ij} V_\chi(\chi_{ij})
++ \sum_{ij} V_{\text{int}}(\phi_i, \phi_j, \chi_{ij})
+}.
+$$
+</div>
+
+<h3>Первый член: устойчивость элементов</h3>
+<div class="math-block">
+$$
+V_\phi = \lambda (\phi_i^2 - v^2)^2.
+$$
+</div>
+<p>Он создаёт предпочтительные состояния:</p>
+<div class="math-block">
+$$
+\phi = +v
+\quad\text{и}\quad
+\phi = -v.
+$$
+</div>
+
+<h3>Второй член: устойчивость связей</h3>
+<div class="math-block">
+$$
+V_\chi = \mu (\chi_{ij}^2 - \chi_0^2)^2.
+$$
+</div>
+<p>Связь имеет два режима:</p>
+<ul>
+  <li><div class="math-block">$$\chi = 0$$</div> — нет связи;</li>
+  <li><div class="math-block">$$\chi = \chi_0$$</div> — устойчивая связь.</li>
+</ul>
+
+<h3>Третий член: взаимодействие</h3>
+<div class="math-block">
+$$
+V_{\text{int}} = -g \chi_{ij} \phi_i \phi_j.
+$$
+</div>
+<p>Если два элемента согласованы, связь становится выгодной:</p>
+<div class="math-block">
+$$
+C_{\text{связь}} < C_{\text{раздельно}}.
+$$
+</div>
+
+<h2>3. Алгоритм моделирования</h2>
+
+<p>Начальное состояние:</p>
+<p>случайное поле:</p>
+<div class="math-block">
+$$
+\phi_i \in [-1, 1],
+\quad
+\chi_{ij} \in [0, 1].
+$$
+</div>
+
+<p>Затем выполняем минимизацию:</p>
+<div class="math-block">
+$$
+\frac{d\phi_i}{dt} = -\frac{\partial C}{\partial\phi_i},
+\quad
+\frac{d\chi_{ij}}{dt} = -\frac{\partial C}{\partial\chi_{ij}}.
+$$
+</div>
+<p>То есть система постепенно уменьшает несогласованность.</p>
+
+<h2>4. Что мы должны наблюдать?</h2>
+
+<p>Если идея верна, после эволюции должны появиться:</p>
+
+<h3>Уровень 1. Элементарные устойчивые структуры</h3>
+<p>Локальные минимумы:</p>
+<div class="math-block">
+$$
+\phi(x) \approx \text{const}.
+$$
+</div>
+<p>Аналог:</p>
+<div class="math-block">
+$$
+\text{частицы}.
+$$
+</div>
+
+<h3>Уровень 2. Связанные структуры</h3>
+<p>Несколько минимумов объединяются:</p>
+<div class="math-block">
+$$
+\phi_1 + \phi_2 + \phi_3.
+$$
+</div>
+<p>Аналог:</p>
+<div class="math-block">
+$$
+\text{атомы}.
+$$
+</div>
+
+<h3>Уровень 3. Иерархия</h3>
+<p>Некоторые объединения становятся устойчивее:</p>
+<div class="math-block">
+$$
+C(ABC) > C(A) + C(B) + C(C).
+$$
+</div>
+<p>Аналог:</p>
+<div class="math-block">
+$$
+\text{молекулы}.
+$$
+</div>
+
+<h2>5. Как определить «атом» в модели?</h2>
+
+<p>Нужно не смотреть на внешний вид, а ввести критерии.</p>
+<p>Структура считается атомоподобной, если:</p>
+
+<h3>1. Локальность</h3>
+<p>Она имеет конечный размер:</p>
+<div class="math-block">
+$$
+R < \infty.
+$$
+</div>
+
+<h3>2. Устойчивость</h3>
+<p>После малого возмущения:</p>
+<div class="math-block">
+$$
+\Omega + \delta\Omega
+$$
+</div>
+<p>она возвращается:</p>
+<div class="math-block">
+$$
+\Omega(t) \rightarrow \Omega.
+$$
+</div>
+
+<h3>3. Дискретность</h3>
+<p>Существуют отдельные классы:</p>
+<div class="math-block">
+$$
+A_1, A_2, A_3, \dots
+$$
+</div>
+<p>между которыми нельзя перейти без энергетического барьера.</p>
+
+<h2>6. Как получить аналог химических элементов?</h2>
+
+<p>Вводим топологический индекс:</p>
+<div class="math-block">
+$$
+Z = \frac{1}{2\pi} \oint \nabla\theta \cdot dl.
+$$
+</div>
+
+<p>Разные значения:</p>
+<div class="math-block">
+$$
+Z = 1, 2, 3, \dots
+$$
+</div>
+<p>дают разные устойчивые конфигурации.</p>
+
+<p>Тогда таблица элементов становится:</p>
+<div class="math-block">
+$$
+\boxed{\text{таблица минимумов } C[\Omega]}.
+$$
+</div>
+
+<h2>7. Как проверить появление молекул?</h2>
+
+<p>Берём два устойчивых объекта:</p>
+<div class="math-block">
+$$
+A, B.
+$$
+</div>
+<p>Считаем:</p>
+<div class="math-block">
+$$
+C(A) + C(B)
+$$
+</div>
+<p>и:</p>
+<div class="math-block">
+$$
+C(AB).
+$$
+</div>
+
+<p>Если:</p>
+<div class="math-block">
+$$
+\boxed{C(AB) > C(A) + C(B)},
+$$
+</div>
+<p>то возникает аналог химической связи.</p>
+
+<h2>8. Что будет первым серьёзным результатом?</h2>
+
+<p>Даже если модель не даст настоящую химию, она может дать важный результат:</p>
+
+<h3>Вариант А</h3>
+<p>Возникают только простые структуры.</p>
+<p>Тогда:</p>
+<div class="math-block">
+$$
+V(\Omega)
+$$
+</div>
+<p>слишком беден.</p>
+
+<h3>Вариант Б</h3>
+<p>Возникают:</p>
+<ul>
+  <li>устойчивые объекты;</li>
+  <li>классы зарядов;</li>
+  <li>связи;</li>
+  <li>иерархия.</li>
+</ul>
+<p>Тогда появляется доказательство принципа:</p>
+<div class="math-block">
+$$
+\boxed{\text{сложность может возникать из одного принципа согласованности}}.
+$$
+</div>
+
+<h2>9. Более физичная версия</h2>
+
+<p>Следующий уровень модели:</p>
+<div class="math-block">
+$$
+\Omega = (\phi, \chi, \psi),
+$$
+</div>
+<p>где:</p>
+<div class="math-block">
+$$
+\psi
+$$
+</div>
+<p>— поле памяти структуры.</p>
+
+<p>Тогда:</p>
+<div class="math-block">
+$$
+V(\Omega) = V_\phi + V_\chi + V_\psi + V_{\phi\chi} + V_{\chi\psi}.
+$$
+</div>
+
+<p>Тогда можно искать:</p>
+<div class="math-block">
+$$
+\text{частицы} \rightarrow \text{атомы} \rightarrow \text{молекулы} \rightarrow \text{самовоспроизводящиеся структуры}.
+$$
+</div>
+
+<h2>10. Первый вычислительный эксперимент можно сформулировать так</h2>
+
+<p><strong>Гипотеза ВХ‑1:</strong></p>
+<p>Если функционал</p>
+<div class="math-block">
+$$
+\boxed{C[\Omega] = \int \left( |\nabla\Omega|^2 + V(\Omega) \right) d^3x}
+$$
+</div>
+<p>имеет нелинейную структуру с конкурирующими минимумами, то его динамическая минимизация должна порождать иерархию устойчивых состояний.</p>
+
+<p>Проверяемые выходы:</p>
+<ol>
+  <li>число типов устойчивых структур;</li>
+  <li>их размеры;</li>
+  <li>энергия связи;</li>
+  <li>возможность объединения;</li>
+  <li>наличие периодичности.</li>
+</ol>
+
+<p>Следующий шаг можно сделать ещё конкретнее: <strong>записать настоящий минимальный код симуляции (C[Ω]), запустить эволюцию поля и посмотреть, возникают ли устойчивые «частицы» и «молекулы» в искусственном мире.</strong></p>
+
+
+
+
+        </main>
+
+
+    <!-- Скрипты KaTeX -->
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false}
+            ],
+            throwOnError: false
+        });">
+    </script>
+</body>
+</html>

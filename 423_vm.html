@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Верумическая теория</title>
+
+    <!-- Подключаем KaTeX для формул -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.css">
+
+    <link rel='stylesheet' type='text/css' href='style.css'>
+
+</head>
+
+<body>
+
+    <!-- ВЕРХНЕЕ МЕНЮ (ПОСТОЯННОЕ) -->
+    <header>
+        <div class="site-title">Верумическая теория устойчивого благополучия (ВЕРУМИКА)</i></div>
+
+        <nav class="main-nav">
+            <script src="0menu.js"></script>
+        </nav>
+
+    </header>
+
+    <div class="container">
+        
+        <!-- ЛЕВАЯ КОЛОНКА (МЕНЯЕТСЯ В ЗАВИСИМОСТИ ОТ СТРАНИЦЫ) -->
+        <!-- Эту часть нужно копировать в каждый HTML файл, меняя только список ссылок -->
+        <aside class="sidebar">
+            <h3>Раздел: Теория ВСЕГО</h3>
+
+            <ul class="submenu">
+<li><a href="401_nachyeor.html">Теория теорий</a></li>
+<li><a href="402_spravteor.html">Справедливость всех теорий</a></li>
+<li><a href="403_onmatem.html">Только математика!</a></li>
+<li><a href="404_minaks.html">Минимальный набор аксиом</a></li>
+<li><a href="405_minosn.html">Проверка минимальности основания</a></li>
+<li><a href="406_strrazv.html">Универсальная структура развития</a></li>
+<li><a href="407_minsogl.html">Минимальное условие согласованности</a></li>
+<li><a href="408_urv.html">Универсальный принцип эволюции</a></li>
+<li><a href="409_gf.html">Гипотеза функционала</a></li>
+<li><a href="410_mp.html">Минимальный потенциал "V"</a></li>
+<li><a href="411_mvpo.html">Может ли "V" порождать объекты?</a></li>
+<li><a href="412_vpks.html">Возможен ли переход к субъекту?</a></li>
+<li><a href="413_pkss.html">Переход к системе субъектов</a></li>
+<li><a href="414_pksr.html">Переход к саморефлексивности</a></li>
+<li><a href="415_sps.html">Есть ли предельное состояние?</a></li>
+<li><a href="416_tsps.html">Теорема предельного состояния</a></li>
+<li><a href="417_pkfr.html">Переход к физической реальности</a></li>
+<li><a href="418_pnd.html">Принцип наименьшего действия</a></li>
+<li><a href="419_fsc.html">Функционал согласованности "C"</a></li>
+<li><a href="420_mfs.html">Минимальный функционал "C"</a></li>
+<li><a href="421_rpv.html">Размерность пространства‑времени</a></li>
+<li><a href="422_rfc.html">Размерностный функционал</a></li>
+<li><a href="423_vm.html" class="active">Выведение метрики</a></li>
+<li><a href="424_kpz.html">Калибровочные поля и заряд</a></li>
+<li><a href="425_mk.html">Механизм квантования</a></li>
+<li><a href="426_aem.html">Атомы, элементы, молекулы</a></li>
+<li><a href="427_mmh.html">Минимальная модель химии</a></li>
+<li><a href="428_evh.html">Эксперимент верумической химии</a></li>
+<li><a href="429_iss.html">Идея создания симуляции</a></li>
+<li><a href="430_mms.html">Минимальная модель симуляции</a></li>
+<li><a href="431_vs1.html">Верумическая симуляция 1.0</a></li>
+<li><a href="432_vs2.html">Верумическая симуляция 2.0</a></li>
+            </ul>
+
+        </aside>
+
+        <!-- ОСНОВНОЙ КОНТЕНТ -->
+        <main class="content">
+
+
+
+<h1>Выведение метрики $g_{\mu\nu}$</h1>
+
+<p>Попробуем построить следующий уровень: <strong>вывод метрики $g_{\mu\nu}$ из принципа согласованности</strong>, а не вводить её как исходный объект.</p>
+
+<p>Цель:</p>
+<div class="math-block">
+$$
+\boxed{C[\Omega] \rightarrow g_{\mu\nu} \rightarrow G_{\mu\nu} = 8\pi G T_{\mu\nu}}
+$$
+</div>
+<p>То есть получить геометрию как следствие структуры согласованности.</p>
+
+<h2>1. До появления расстояния</h2>
+
+<p>Начинаем без пространства.</p>
+
+<p>Есть только множество возможных состояний:</p>
+<div class="math-block">
+$$
+\mathcal{M}.
+$$
+</div>
+
+<p>И функционал:</p>
+<div class="math-block">
+$$
+C(\Omega).
+$$
+</div>
+
+<p>Но чтобы сравнивать два состояния, нужно понятие различия:</p>
+<div class="math-block">
+$$
+\Delta(\Omega_1, \Omega_2).
+$$
+</div>
+<p>Пока это не расстояние. Это просто мера несогласованности.</p>
+
+<p>Вводим:</p>
+<div class="math-block">
+$$
+\boxed{\Delta C(\Omega_1, \Omega_2)}
+$$
+</div>
+<p>— сколько согласованности теряется при переходе между состояниями.</p>
+
+<h2>2. От различия к локальной структуре</h2>
+
+<p>Рассмотрим малое изменение:</p>
+<div class="math-block">
+$$
+\Omega \rightarrow \Omega + \delta\Omega.
+$$
+</div>
+
+<p>Разложение:</p>
+<div class="math-block">
+$$
+C(\Omega + \delta\Omega) = C(\Omega) + \frac{\partial C}{\partial\Omega}\delta\Omega + \frac{1}{2} \frac{\partial^2 C}{\partial\Omega^2} (\delta\Omega)^2 + \dots
+$$
+</div>
+
+<p>В максимуме согласованности:</p>
+<div class="math-block">
+$$
+\frac{\partial C}{\partial\Omega} = 0.
+$$
+</div>
+
+<p>Остаётся:</p>
+<div class="math-block">
+$$
+\Delta C = \frac{1}{2} H_{AB} \delta\Omega^A \delta\Omega^B.
+$$
+</div>
+<p>Где:</p>
+<div class="math-block">
+$$
+H_{AB} = \frac{\partial^2 C}{\partial\Omega^A \partial\Omega^B}
+$$
+</div>
+<p>— матрица вторых производных.</p>
+
+<p>Теперь важный момент. Эта матрица задаёт естественное измерение различий:</p>
+<div class="math-block">
+$$
+\boxed{ds^2 = H_{AB} d\Omega^A d\Omega^B}.
+$$
+</div>
+
+<p>То есть:</p>
+<div class="math-block">
+$$
+\boxed{\text{метрика возникает как локальная мера изменения согласованности}}.
+$$
+</div>
+
+<h2>3. Переход к физическому пространству</h2>
+
+<p>Но $H_{AB}$ — метрика пространства состояний.</p>
+
+<p>Нужно получить обычную:</p>
+<div class="math-block">
+$$
+g_{\mu\nu}.
+$$
+</div>
+
+<p>Для этого выделяем коллективные координаты:</p>
+<div class="math-block">
+$$
+x^\mu = x^\mu(\Omega).
+$$
+</div>
+<p>То есть пространство — это не фундаментальное множество, а эффективное описание больших классов состояний.</p>
+
+<p>Тогда:</p>
+<div class="math-block">
+$$
+d\Omega^A = \frac{\partial\Omega^A}{\partial x^\mu} dx^\mu.
+$$
+</div>
+
+<p>Подставляем:</p>
+<div class="math-block">
+$$
+ds^2 = H_{AB} \frac{\partial\Omega^A}{\partial x^\mu} \frac{\partial\Omega^B}{\partial x^\nu} dx^\mu dx^\nu.
+$$
+</div>
+
+<p>Получаем:</p>
+<div class="math-block">
+$$
+\boxed{g_{\mu\nu} = H_{AB} \frac{\partial\Omega^A}{\partial x^\mu} \frac{\partial\Omega^B}{\partial x^\nu}}.
+$$
+</div>
+
+<p>Это ключевой результат:</p>
+<div class="math-block">
+$$
+\boxed{\text{метрика = проекция структуры согласованности на макроскопические координаты}}.
+$$
+</div>
+
+<h2>4. Почему геометрия должна быть динамической?</h2>
+
+<p>Поскольку:</p>
+<div class="math-block">
+$$
+\Omega
+$$
+</div>
+<p>изменяется:</p>
+<div class="math-block">
+$$
+\Omega = \Omega(t),
+$$
+</div>
+<p>то изменяется и:</p>
+<div class="math-block">
+$$
+g_{\mu\nu}.
+$$
+</div>
+
+<p>Следовательно:</p>
+<div class="math-block">
+$$
+\boxed{g_{\mu\nu} \neq \text{const}}.
+$$
+</div>
+
+<p>Геометрия становится полем.</p>
+
+<h2>5. Как получить действие Эйнштейна?</h2>
+
+<p>Теперь ищем наиболее простой скаляр из метрики.</p>
+
+<p>Требования:</p>
+<ol>
+  <li>локальность;</li>
+  <li>инвариантность координат;</li>
+  <li>зависимость только от геометрии.</li>
+</ol>
+
+<p>Самый простой объект:</p>
+<div class="math-block">
+$$
+R(g)
+$$
+</div>
+<p>— скалярная кривизна.</p>
+
+<p>Поэтому минимальный функционал согласованности геометрии:</p>
+<div class="math-block">
+$$
+\boxed{C_g = \alpha \int R(g) \sqrt{-g}\,d^4x}.
+$$
+</div>
+
+<p>Это форма действия Эйнштейна–Гильберта.</p>
+
+<h2>6. Получение уравнений поля</h2>
+
+<p>Требуем:</p>
+<div class="math-block">
+$$
+\delta C_g = 0.
+$$
+</div>
+
+<p>Варьируем по:</p>
+<div class="math-block">
+$$
+g_{\mu\nu}.
+$$
+</div>
+
+<p>Получаем:</p>
+<div class="math-block">
+$$
+R_{\mu\nu} - \frac{1}{2} R g_{\mu\nu} = 0.
+$$
+</div>
+
+<p>При наличии материи:</p>
+<div class="math-block">
+$$
+C = C_g + C_m.
+$$
+</div>
+
+<p>Тогда:</p>
+<div class="math-block">
+$$
+\boxed{R_{\mu\nu} - \frac{1}{2} R g_{\mu\nu} = 8\pi G T_{\mu\nu}}.
+$$
+</div>
+
+<p>То есть уравнения Эйнштейна возникают как условие максимальной согласованности геометрии.</p>
+
+<h2>7. Интерпретация через $V=D$</h2>
+
+<p>Теперь связываем с вашим принципом.</p>
+
+<p>Пусть изменение материи:</p>
+<div class="math-block">
+$$
+D
+$$
+</div>
+<p>создаёт изменение геометрии:</p>
+<div class="math-block">
+$$
+\Delta g_{\mu\nu}.
+$$
+</div>
+
+<p>Но глобальная согласованность требует:</p>
+<div class="math-block">
+$$
+\Delta C_g + \Delta C_m = 0.
+$$
+</div>
+
+<p>То есть:</p>
+<div class="math-block">
+$$
+\boxed{\text{изменение вещества и изменение геометрии компенсируют друг друга}}.
+$$
+</div>
+
+<p>Это похоже на:</p>
+<div class="math-block">
+$$
+\boxed{V = D}
+$$
+</div>
+<p>не как зеркальное возмещение, а как сохранение общего инварианта.</p>
+
+<h2>8. Почему возникает искривление?</h2>
+
+<p>Если присутствует локальная несогласованность:</p>
+<div class="math-block">
+$$
+\Delta C \neq 0,
+$$
+</div>
+<p>то минимизация требует изменить структуру расстояний.</p>
+
+<p>То есть:</p>
+<div class="math-block">
+$$
+g_{\mu\nu} \rightarrow g_{\mu\nu} + \delta g_{\mu\nu}.
+$$
+</div>
+
+<p>Следовательно:</p>
+<div class="math-block">
+$$
+\boxed{\text{гравитация = изменение геометрии для восстановления согласованности}}.
+$$
+</div>
+
+<h2>9. Полная цепочка вывода</h2>
+
+<p>Получается:</p>
+
+<div class="math-block">
+$$
+\begin{aligned}
+&\boxed{C(\Omega)} \\
+&\downarrow \\
+&\boxed{\text{вторые вариации: } H_{AB}} \\
+&\downarrow \\
+&\boxed{\text{метрика пространства состояний: } ds^2 = H_{AB} d\Omega^A d\Omega^B} \\
+&\downarrow \\
+&\boxed{\text{проекция на наблюдаемые координаты: } g_{\mu\nu}} \\
+&\downarrow \\
+&\boxed{\text{геометрический инвариант: } R(g)} \\
+&\downarrow \\
+&\boxed{\text{вариационный принцип: } \delta C = 0} \\
+&\downarrow \\
+&\boxed{\text{уравнения Эйнштейна: } \boxed{G_{\mu\nu} = 8\pi G T_{\mu\nu}}.}
+\end{aligned}
+$$
+</div>
+
+<h2>10. Что здесь является новым относительно обычной физики?</h2>
+
+<p>В стандартной ОТО:</p>
+<div class="math-block">
+$$
+g_{\mu\nu}
+$$
+</div>
+<p>— фундаментальный объект.</p>
+
+<p>Здесь предлагается:</p>
+<div class="math-block">
+$$
+\boxed{g_{\mu\nu} \text{ является производным объектом}}
+$$
+</div>
+<p>возникающим из:</p>
+<div class="math-block">
+$$
+\boxed{\text{структуры согласованности возможных состояний}}.
+$$
+</div>
+
+<p>Следующий ещё более трудный шаг — проверить, можно ли тем же механизмом вывести <strong>калибровочные поля и заряд</strong>:</p>
+<div class="math-block">
+$$
+\boxed{\text{почему существуют поля взаимодействий и почему заряд сохраняется?}}
+$$
+</div>
+<p>Это будет переход от возникновения пространства к возникновению физических сил.</p>
+
+
+
+
+
+
+        </main>
+
+
+    <!-- Скрипты KaTeX -->
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false}
+            ],
+            throwOnError: false
+        });">
+    </script>
+</body>
+</html>
