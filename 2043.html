@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Верумическая теория</title>
+
+    <!-- Подключаем KaTeX для формул -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.css">
+
+    <link rel='stylesheet' type='text/css' href='style.css'>
+
+</head>
+
+<body>
+
+    <!-- ВЕРХНЕЕ МЕНЮ (ПОСТОЯННОЕ) -->
+    <header>
+        <div class="site-title">Верумическая теория устойчивого благополучия (ВЕРУМИКА)</i></div>
+
+        <nav class="main-nav">
+            <script src="0menu.js"></script>
+        </nav>
+
+    </header>
+
+    <div class="container">
+        
+        <!-- ЛЕВАЯ КОЛОНКА (МЕНЯЕТСЯ В ЗАВИСИМОСТИ ОТ СТРАНИЦЫ) -->
+        <!-- Эту часть нужно копировать в каждый HTML файл, меняя только список ссылок -->
+        <aside class="sidebar">
+            <h3>Раздел: ТЛР</h3>
+
+            <ul class="submenu">
+                <script src="2000smenu.js"></script>
+            </ul>
+
+        </aside>
+
+        <!-- ОСНОВНОЙ КОНТЕНТ -->
+        <main class="content">
+
+
+
+<h1>43. P37 — необходимость локальной связности</h1>
+
+<p>Теперь проверяем центральный вопрос:</p>
+
+<div class="math-block">$$\boxed{Canonicality\stackrel{?}{\Rightarrow}LC.}$$</div>
+
+<p>На предыдущем этапе доказано:</p>
+
+<div class="math-block">$$Finite+LC\Rightarrow Canonicality.$$</div>
+
+<p>Поэтому осталось установить обратное направление либо построить контрпример.</p>
+
+
+
+<h2>1. Сначала точно фиксируем $LC$</h2>
+
+<p>Для интервала $[S,T]$ определим граф:</p>
+
+<div class="math-block">$$C(S,T).$$</div>
+
+<p>Его вершины:</p>
+
+<div class="math-block">$$V(C(S,T))=\{X\mid S\prec X\le T\}.$$</div>
+
+<p>Две вершины $X,Y$ соединены тогда и только тогда, когда существует $Z\le T$, такое что:</p>
+
+<div class="math-block">$$X\prec Z, \qquad Y\prec Z.$$</div>
+
+<p>То есть ребро означает существование локального ромба:</p>
+
+<div class="math-block">$$S\to X\to Z$$</div>
+
+<p>и:</p>
+
+<div class="math-block">$$S\to Y\to Z.$$</div>
+
+<p>Условие $LC$:</p>
+
+<div class="math-block">$$\boxed{C(S,T)\text{ связен для каждого }S\lt T.}$$</div>
+
+
+
+<h2>2. Что даёт каноничность?</h2>
+
+<p>Пусть:</p>
+
+<div class="math-block">$$Canonicality(S,T).$$</div>
+
+<p>Это означает:</p>
+
+<div class="math-block">$$\forall h,k\in\mathcal H(S,T): \qquad h\equiv_I k.$$</div>
+
+<p>То есть между любыми двумя историями существует конечная последовательность локальных обменов.</p>
+
+<p>Каждый локальный обмен меняет <strong>два соседних шага</strong>.</p>
+
+<p>Следовательно, возникает вопрос:</p>
+
+<blockquote>
+<p>Может ли последовательность локальных обменов изменить первый шаг истории $S\to X$ на $S\to Y$, если $X$ и $Y$ не соединены ребром в $C(S,T)$?</p>
+</blockquote>
+
+
+
+<h2>3. Инвариант первого шага</h2>
+
+<p>Рассмотрим историю:</p>
+
+<div class="math-block">$$h= (S,X_1,X_2,\ldots,T).$$</div>
+
+<p>Локальный обмен имеет вид:</p>
+
+<div class="math-block">$$\ldots,A,B,\ldots \longleftrightarrow \ldots,A',B,\ldots$$</div>
+
+<p>или, в терминах трёх состояний,</p>
+
+<div class="math-block">$$A\prec B_1\prec C$$</div>
+
+<p>заменяется на:</p>
+
+<div class="math-block">$$A\prec B_2\prec C.$$</div>
+
+<p>Если $A=S$, такой обмен изменяет первый шаг.</p>
+
+<p>Если же обмен происходит позже, первый шаг не изменяется.</p>
+
+<p>Отсюда следует важное наблюдение.</p>
+
+
+
+<h2>4. Лемма L41 — первый шаг изменяется только через локальное ребро</h2>
+
+<p>Пусть две истории $h,k\in\mathcal H(S,T)$ отличаются одним локальным обменом.</p>
+
+<p>Если их первые состояния различны:</p>
+
+<div class="math-block">$$X_1(h)\ne X_1(k),$$</div>
+
+<p>то:</p>
+
+<div class="math-block">$$X_1(h)$$</div>
+
+<p>и:</p>
+
+<div class="math-block">$$X_1(k)$$</div>
+
+<p>соединены ребром в $C(S,T)$.</p>
+
+<h3>Доказательство</h3>
+
+<p>Если первый шаг изменился, локальный обмен должен иметь вид:</p>
+
+<div class="math-block">$$S\prec X\prec Z$$</div>
+
+<p>на:</p>
+
+<div class="math-block">$$S\prec Y\prec Z.$$</div>
+
+<p>Следовательно:</p>
+
+<div class="math-block">$$X\prec Z, \qquad Y\prec Z,$$</div>
+
+<p>и:</p>
+
+<div class="math-block">$$Z\le T.$$</div>
+
+<p>По определению $C(S,T)$:</p>
+
+<div class="math-block">$$X\sim Y.$$</div>
+
+<div class="math-block">$$\Box$$</div>
+
+
+
+<h2>5. Теорема T127 — каноничность влечёт локальную связность</h2>
+
+<p>Предположим:</p>
+
+<div class="math-block">$$Canonicality(S,T).$$</div>
+
+<p>Возьмём любые два первых шага:</p>
+
+<div class="math-block">$$S\prec X, \qquad S\prec Y.$$</div>
+
+<p>Поскольку $X,Y\le T$, существуют истории:</p>
+
+<div class="math-block">$$h_X:S\to X\leadsto T,$$</div>
+
+<div class="math-block">$$h_Y:S\to Y\leadsto T.$$</div>
+
+<p>По каноничности:</p>
+
+<div class="math-block">$$h_X\equiv_I h_Y.$$</div>
+
+<p>Следовательно, существует последовательность локальных обменов:</p>
+
+<div class="math-block">$$h_X=h_0,h_1,\ldots,h_m=h_Y.$$</div>
+
+<p>Рассмотрим первые вершины:</p>
+
+<div class="math-block">$$X_0,X_1,\ldots,X_m.$$</div>
+
+<p>По L41 каждый переход, при котором:</p>
+
+<div class="math-block">$$X_i\ne X_{i+1},$$</div>
+
+<p>является ребром:</p>
+
+<div class="math-block">$$X_i\sim X_{i+1}$$</div>
+
+<p>в $C(S,T)$.</p>
+
+<p>Следовательно:</p>
+
+<div class="math-block">$$X=X_0,\ldots,X_m=Y$$</div>
+
+<p>— путь в $C(S,T)$.</p>
+
+<p>Так как $X,Y$ произвольны:</p>
+
+<div class="math-block">$$C(S,T)$$</div>
+
+<p>связен.</p>
+
+<div class="math-block">$$\boxed{\Box}$$</div>
+
+
+
+<h2>6. Получаем точную эквивалентность</h2>
+
+<p>Мы уже имели:</p>
+
+<div class="math-block">$$Finite+LC\Rightarrow Canonicality.$$</div>
+
+<p>Теперь доказано:</p>
+
+<div class="math-block">$$Canonicality\Rightarrow LC.$$</div>
+
+<p>Следовательно:</p>
+
+<div class="math-block">$$\boxed{\textbf{Finite+LC} \iff \textbf{Canonicality}.}$$</div>
+
+<p>Это один из центральных результатов всей теории локальных расширений.</p>
+
+
+
+<h2>7. Теорема T128 — локальный критерий канонической реконструкции</h2>
+
+<p>Для конечного частичного порядка $P$ эквивалентны:</p>
+
+<h3>(A)</h3>
+
+<p>Для каждого интервала $[S,T]$:</p>
+
+<div class="math-block">$$\kappa_{\mathrm{can}}(S,T)=1.$$</div>
+
+<h3>(B)</h3>
+
+<p>Для каждого интервала $[S,T]$:</p>
+
+<div class="math-block">$$C(S,T)$$</div>
+
+<p>связен.</p>
+
+<p>То есть:</p>
+
+<div class="math-block">$$\boxed{Canonicality \iff LocalConnectivity.}$$</div>
+
+
+
+<h2>8. Это позволяет удалить $IR$</h2>
+
+<p>Мы ранее имели:</p>
+
+<div class="math-block">$$IR\Rightarrow LC.$$</div>
+
+<p>Но теперь:</p>
+
+<div class="math-block">$$LC\iff Canonicality.$$</div>
+
+<p>Следовательно, $IR$ не является минимальным условием.</p>
+
+<p>Окончательно:</p>
+
+<div class="math-block">$$\boxed{IR\text{ исключается из минимальной аксиоматизации}.}$$</div>
+
+
+
+<h2>9. Что остаётся фундаментальным?</h2>
+
+<p>Для конечной версии теории достаточно:</p>
+
+<div class="math-block">$$\boxed{LC.}$$</div>
+
+<p>Но здесь нужно быть осторожным.</p>
+
+<p>$LC$ — не произвольная глобальная аксиома. Оно выражается через:</p>
+
+<ol>
+<li>локальные расширения;</li>
+<li>локальные совместимости;</li>
+<li>связность конечного графа.</li>
+</ol>
+
+<p>То есть это <strong>вычислимое структурное свойство</strong>.</p>
+
+
+
+<h2>10. Градуированность тоже исчезает</h2>
+
+<p>Ранее доказано:</p>
+
+<div class="math-block">$$Finite+IR\Rightarrow Graded.$$</div>
+
+<p>Но теперь $IR$ удалён.</p>
+
+<p>Вопрос:</p>
+
+<div class="math-block">$$LC\Rightarrow Graded?$$</div>
+
+<p>Да.</p>
+
+
+
+<h2>11. Теорема T129 — локальная связность влечёт градуированность</h2>
+
+<p>Пусть $P$ конечен и $LC$ выполняется.</p>
+
+<p>Тогда каждый интервал является градуированным.</p>
+
+<h3>Доказательство</h3>
+
+<p>Используем индукцию по размеру интервала.</p>
+
+<p>Пусть две максимальные цепи:</p>
+
+<div class="math-block">$$S\prec X\leadsto T$$</div>
+
+<p>и:</p>
+
+<div class="math-block">$$S\prec Y\leadsto T.$$</div>
+
+<p>По $LC$ существует цепочка:</p>
+
+<div class="math-block">$$X=X_0,X_1,\ldots,X_m=Y,$$</div>
+
+<p>где каждый соседний переход образует ромб:</p>
+
+<div class="math-block">$$X_i\prec Z_i, \qquad X_{i+1}\prec Z_i.$$</div>
+
+<p>В каждом ромбе две ветви имеют одинаковую длину:</p>
+
+<div class="math-block">$$X_i\to Z_i$$</div>
+
+<p>и:</p>
+
+<div class="math-block">$$X_{i+1}\to Z_i.$$</div>
+
+<p>По индукционной гипотезе соответствующие хвосты до $T$ имеют одинаковую длину.</p>
+
+<p>Следовательно, переход:</p>
+
+<div class="math-block">$$X_i\leftrightarrow X_{i+1}$$</div>
+
+<p>не меняет длину максимальной истории.</p>
+
+<p>Последовательно применяя это к:</p>
+
+<div class="math-block">$$X_0,\ldots,X_m,$$</div>
+
+<p>получаем равенство длин исходных цепей.</p>
+
+<div class="math-block">$$\Box$$</div>
+
+<p>Следовательно:</p>
+
+<div class="math-block">$$\boxed{Finite+LC\Rightarrow Graded.}$$</div>
+
+
+
+<h2>12. Таким образом, найдено минимальное ядро</h2>
+
+<p>Имеем:</p>
+
+<div class="math-block">$$\boxed{LC \Rightarrow Graded}$$</div>
+
+<p>и:</p>
+
+<div class="math-block">$$\boxed{LC \Rightarrow Canonicality.}$$</div>
+
+<p>А обратное:</p>
+
+<div class="math-block">$$Canonicality \Rightarrow LC.$$</div>
+
+<p>Следовательно:</p>
+
+<div class="math-block">$$\boxed{LC \iff Canonicality \iff Graded+\text{локальная связность историй}.}$$</div>
+
+
+
+<h2>13. Но здесь возникает важнейшая тонкость</h2>
+
+<p>Нужно различать:</p>
+
+<div class="math-block">$$LC$$</div>
+
+<p>как <strong>свойство структуры</strong></p>
+
+<p>и:</p>
+
+<div class="math-block">$$Canonicality$$</div>
+
+<p>как <strong>свойство системы локальных расширений</strong>.</p>
+
+<p>Первое проверяется локально:</p>
+
+<div class="math-block">$$C(S,T).$$</div>
+
+<p>Второе определяется через всё пространство историй:</p>
+
+<div class="math-block">$$\Gamma(S,T).$$</div>
+
+<p>Полученная теорема утверждает:</p>
+
+<div class="math-block">$$\boxed{\text{глобальная связность историй полностью определяется локальной связностью первых расширений}.}$$</div>
+
+<p>Это и есть принцип локальной реконструкции.</p>
+
+
+
+<h2>14. Теперь можно отказаться от перебора историй</h2>
+
+<p>Это имеет огромное значение для симулятора.</p>
+
+<p>Наивный алгоритм требует:</p>
+
+<ol>
+<li>перечислить все истории;</li>
+<li>построить $\Gamma(S,T)$;</li>
+<li>проверить его связность.</li>
+</ol>
+
+<p>Число историй может расти факториально.</p>
+
+<p>Но T128 даёт другой алгоритм:</p>
+
+<ol>
+<li>построить граф локальных расширений;</li>
+<li>построить $C(S,T)$;</li>
+<li>проверить его связность.</li>
+</ol>
+
+<p>То есть вместо пространства всех историй можно работать с локальными переходами.</p>
+
+
+
+<h2>15. Алгоритм A1 — проверка каноничности</h2>
+
+<p>Для каждого интервала $[S,T]$:</p>
+
+<h3>Шаг 1</h3>
+
+<p>Найти:</p>
+
+<div class="math-block">$$E_S(T)=\{X:S\prec X\le T\}.$$</div>
+
+<h3>Шаг 2</h3>
+
+<p>Построить граф:</p>
+
+<div class="math-block">$$C(S,T).$$</div>
+
+<h3>Шаг 3</h3>
+
+<p>Для каждой пары:</p>
+
+<div class="math-block">$$X,Y\in E_S(T)$$</div>
+
+<p>найти:</p>
+
+<div class="math-block">$$Z\le T$$</div>
+
+<p>такое, что:</p>
+
+<div class="math-block">$$X\prec Z,\qquad Y\prec Z.$$</div>
+
+<h3>Шаг 4</h3>
+
+<p>Проверить связность $C(S,T)$.</p>
+
+<h3>Шаг 5</h3>
+
+<p>Если граф связен, интервал каноничен.</p>
+
+
+
+<h2>16. Автоматическая проверка</h2>
+
+<p>Для конечной структуры это полностью вычислимо.</p>
+
+<p>Связность графа проверяется за:</p>
+
+<div class="math-block">$$O(|V|+|E|)$$</div>
+
+<p>после построения графа.</p>
+
+<p>Поэтому критерий пригоден непосредственно для симулятора.</p>
+
+
+
+<h2>17. Контрпример к $LC$</h2>
+
+<p>Если:</p>
+
+<div class="math-block">$$C(S,T)$$</div>
+
+<p>несвязен, выбираем две его компоненты:</p>
+
+<div class="math-block">$$K_1,\ K_2.$$</div>
+
+<p>Берём:</p>
+
+<div class="math-block">$$X\in K_1, \qquad Y\in K_2.$$</div>
+
+<p>Строим истории:</p>
+
+<div class="math-block">$$h_X:S\to X\leadsto T,$$</div>
+
+<div class="math-block">$$h_Y:S\to Y\leadsto T.$$</div>
+
+<p>По L41 никакой последовательностью локальных обменов первый шаг не может перейти из $K_1$ в $K_2$.</p>
+
+<p>Следовательно:</p>
+
+<div class="math-block">$$h_X\not\equiv_I h_Y.$$</div>
+
+<p>Поэтому:</p>
+
+<div class="math-block">$$\boxed{\kappa_{\mathrm{can}}(S,T)\gt 1.}$$</div>
+
+<p>То есть несвязность $C(S,T)$ автоматически даёт <strong>конструктивный контрпример каноничности</strong>.</p>
+
+
+
+<h2>18. Это даёт полный критерий фальсификации</h2>
+
+<p>Для конечной структуры:</p>
+
+<div class="math-block">$$\boxed{C(S,T)\text{ несвязен}}$$</div>
+
+<p>не просто является подозрением.</p>
+
+<p>Это непосредственно означает:</p>
+
+<div class="math-block">$$\boxed{\text{существуют две неэквивалентные истории построения}.}$$</div>
+
+<p>Таким образом, критерий одновременно:</p>
+
+<ul>
+<li>проверяет каноничность;</li>
+<li>строит контрпример;</li>
+<li>локализует источник нарушения;</li>
+<li>выдаёт конкретные компоненты историй.</li>
+</ul>
+
+
+
+<h2>19. Новая формулировка минимальной теории</h2>
+
+<p>Теперь вместо множества отдельных требований:</p>
+
+<div class="math-block">$$Termination,$$</div>
+
+<div class="math-block">$$Confluence,$$</div>
+
+<div class="math-block">$$SemanticCompleteness,$$</div>
+
+<div class="math-block">$$Graded,$$</div>
+
+<div class="math-block">$$IR$$</div>
+
+<p>можно использовать одно структурное условие:</p>
+
+<div class="math-block">$$\boxed{LC.}$$</div>
+
+<p>А остальные свойства выводятся:</p>
+
+<div class="math-block">$$\boxed{LC \Rightarrow Graded,}$$</div>
+
+<div class="math-block">$$\boxed{LC \Rightarrow Canonicality,}$$</div>
+
+<div class="math-block">$$\boxed{Canonicality \Rightarrow LC.}$$</div>
+
+
+
+<h2>20. Статус P37</h2>
+
+<p>Получен результат:</p>
+
+<h3>Теорема T128</h3>
+
+<div class="math-block">$$\boxed{\text{Finite Canonicality} \iff \text{Local Connectivity}.}$$</div>
+
+<h3>Следствие C37.1</h3>
+
+<p>Градуированность не является независимой аксиомой.</p>
+
+<h3>Следствие C37.2</h3>
+
+<p>Интервальное ромбовое свойство $IR$ не является минимальным условием.</p>
+
+<h3>Следствие C37.3</h3>
+
+<p>Перечисление всех историй не требуется для проверки каноничности.</p>
+
+<h3>Следствие C37.4</h3>
+
+<p>Несвязность локального графа даёт конструктивный контрпример.</p>
+
+
+
+<h2>21. Следующий критический вопрос P38</h2>
+
+<p>Теперь мы дошли до действительно интересной границы.</p>
+
+<p>Мы нашли:</p>
+
+<div class="math-block">$$\boxed{LC\iff Canonicality.}$$</div>
+
+<p>Но $LC$ само определено через <strong>каждый интервал</strong> $[S,T]$.</p>
+
+<p>Возникает вопрос:</p>
+
+<div class="math-block">$$\boxed{\textbf{можно ли проверить }LC\textbf{ только на элементарных локальных конфигурациях?}}$$</div>
+
+<p>То есть существует ли ещё более минимальный критерий:</p>
+
+<div class="math-block">$$Local_0$$</div>
+
+<p>такой, что:</p>
+
+<div class="math-block">$$\boxed{Local_0 \Rightarrow LC}$$</div>
+
+<p>и при этом $Local_0$ проверяется только на ограниченном размере окрестности, например на квадратах, без перебора всех интервалов.</p>
+
+<p>Если да, мы получим настоящую <strong>локальную аксиоматику локальных расширений</strong>.</p>
+
+<p>Если нет, будет доказано, что каноничность принципиально требует интервальной, а не элементарной локальной информации.</p>
+
+<p>Именно это должно стать следующим этапом:</p>
+
+<div class="math-block">$$\boxed{\textbf{P38 — локализация критерия }LC.}$$</div>
+
+
+        </main>
+
+
+    <!-- Скрипты KaTeX -->
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false}
+            ],
+            throwOnError: false
+        });">
+    </script>
+</body>
+</html>

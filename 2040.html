@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Верумическая теория</title>
+
+    <!-- Подключаем KaTeX для формул -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.css">
+
+    <link rel='stylesheet' type='text/css' href='style.css'>
+
+</head>
+
+<body>
+
+    <!-- ВЕРХНЕЕ МЕНЮ (ПОСТОЯННОЕ) -->
+    <header>
+        <div class="site-title">Верумическая теория устойчивого благополучия (ВЕРУМИКА)</i></div>
+
+        <nav class="main-nav">
+            <script src="0menu.js"></script>
+        </nav>
+
+    </header>
+
+    <div class="container">
+        
+        <!-- ЛЕВАЯ КОЛОНКА (МЕНЯЕТСЯ В ЗАВИСИМОСТИ ОТ СТРАНИЦЫ) -->
+        <!-- Эту часть нужно копировать в каждый HTML файл, меняя только список ссылок -->
+        <aside class="sidebar">
+            <h3>Раздел: ТЛР</h3>
+
+            <ul class="submenu">
+                <script src="2000smenu.js"></script>
+            </ul>
+
+        </aside>
+
+        <!-- ОСНОВНОЙ КОНТЕНТ -->
+        <main class="content">
+
+
+
+<h1>40. P34 — результат поиска контрпримеров и уточнение теоремы</h1>
+
+<p>Проведён конечный перебор для проверки гипотезы H33. Результат оказался содержательным: <strong>контрпримеров не обнаружено для всех частичных порядков до 6 элементов</strong>, удовлетворяющих проверяемым условиям.</p>
+
+<p>Но ещё важнее другое: анализ попытки доказательства показывает, что прежнее определение $Diamond_2$ было недостаточно точным для нужной теоремы. Поэтому сейчас необходимо не добавлять аксиому «на глаз», а строго исправить формулировку.</p>
+
+
+
+<h2>1. Результат вычислительного эксперимента</h2>
+
+<p>Для размеров</p>
+
+<div class="math-block">$$|P|=1,2,3,4,5,6$$</div>
+
+<p>проверялись конечные частичные порядки на фиксированном множестве вершин, включая все транзитивные замыкания ориентированных ациклических графов.</p>
+
+<p>Для каждого порядка проверялись:</p>
+
+<div class="math-block">$$Graded(P),$$</div>
+
+<div class="math-block">$$Diamond_2(P),$$</div>
+
+<p>а затем для всех интервалов:</p>
+
+<div class="math-block">$$[S,T]$$</div>
+
+<p>строился граф историй</p>
+
+<div class="math-block">$$\Gamma(S,T)$$</div>
+
+<p>и вычислялось:</p>
+
+<div class="math-block">$$\kappa_{\mathrm{can}}(S,T)=|\pi_0(\Gamma(S,T))|.$$</div>
+
+<p>Результат:</p>
+
+<div class="math-block">$$\boxed{\text{контрпримеров до }6\text{ состояний не найдено}.}$$</div>
+
+<p>Это <strong>не доказательство H33</strong>.</p>
+
+<p>Статус H33 остаётся:</p>
+
+<div class="math-block">$$\boxed{\text{Гипотеза}.}$$</div>
+
+
+
+<h2>2. Где ломается прежнее доказательство</h2>
+
+<p>Мы рассматривали:</p>
+
+<div class="math-block">$$S\prec X_1, \qquad S\prec Y_1$$</div>
+
+<p>и из $Diamond_2$ получали $Z$:</p>
+
+<div class="math-block">$$X_1\prec Z, \qquad Y_1\prec Z.$$</div>
+
+<p>Хотели заменить:</p>
+
+<div class="math-block">$$S\to X_1\to Z$$</div>
+
+<p>на:</p>
+
+<div class="math-block">$$S\to Y_1\to Z.$$</div>
+
+<p>Но есть проблема:</p>
+
+<div class="math-block">$$Z$$</div>
+
+<p>может находиться <strong>вне интервала $[S,T]$</strong>.</p>
+
+<p>А наши истории должны оставаться историями из $S$ в $T$.</p>
+
+<p>Следовательно, условие</p>
+
+<div class="math-block">$$Diamond_2(P)$$</div>
+
+<p>на всём порядке недостаточно для непосредственного доказательства связности конкретного интервала.</p>
+
+
+
+<h2>3. Это позволяет точно определить недостающий объект</h2>
+
+<p>Нам нужно ромбовое свойство не всего порядка вообще, а <strong>внутри каждого интервала</strong>.</p>
+
+
+
+<h2>4. Определение D116 — интервальное ромбовое свойство</h2>
+
+<p>Пусть:</p>
+
+<div class="math-block">$$S\le T.$$</div>
+
+<p>Пусть:</p>
+
+<div class="math-block">$$S\prec A,\qquad S\prec B,$$</div>
+
+<p>где:</p>
+
+<div class="math-block">$$A,B\le T.$$</div>
+
+<p>Тогда требуется существование $C$, такого что:</p>
+
+<div class="math-block">$$A\prec C,$$</div>
+
+<div class="math-block">$$B\prec C,$$</div>
+
+<p>и одновременно:</p>
+
+<div class="math-block">$$C\le T.$$</div>
+
+<p>Это условие должно выполняться для каждого интервала.</p>
+
+<p>Обозначим:</p>
+
+<div class="math-block">$$\boxed{IR(P)}$$</div>
+
+<p>— <strong>интервальное ромбовое свойство</strong>.</p>
+
+
+
+<h2>5. Почему это принципиально отличается от старого Diamond</h2>
+
+<p>Старое условие:</p>
+
+<div class="math-block">$$A\prec C,\quad B\prec C$$</div>
+
+<p>не требовало:</p>
+
+<div class="math-block">$$C\le T.$$</div>
+
+<p>Новое требует:</p>
+
+<div class="math-block">$$\boxed{C\in[S,T].}$$</div>
+
+<p>Именно это позволяет использовать ромб непосредственно внутри истории, соединяющей $S$ и $T$.</p>
+
+
+
+<h2>6. Теперь появляется возможность строгого доказательства</h2>
+
+<p>Сформулируем:</p>
+
+<h3>Теорема T122</h3>
+
+<p>Пусть $P$ — конечный градуированный частичный порядок.</p>
+
+<p>Пусть каждый интервал удовлетворяет $IR(P)$.</p>
+
+<p>Тогда для любых:</p>
+
+<div class="math-block">$$S\le T$$</div>
+
+<p>граф максимальных историй</p>
+
+<div class="math-block">$$\Gamma(S,T)$$</div>
+
+<p>связен.</p>
+
+<p>То есть:</p>
+
+<div class="math-block">$$\boxed{Finite+Graded+IR \Rightarrow \kappa_{\mathrm{can}}(S,T)=1.}$$</div>
+
+
+
+<h2>7. Доказательство T122</h2>
+
+<p>Используем индукцию по рангу интервала:</p>
+
+<div class="math-block">$$n=r(T)-r(S).$$</div>
+
+<h3>База</h3>
+
+<p>При:</p>
+
+<div class="math-block">$$n=0$$</div>
+
+<p>существует только история:</p>
+
+<div class="math-block">$$S=T.$$</div>
+
+<p>Очевидно:</p>
+
+<div class="math-block">$$\Gamma(S,T)$$</div>
+
+<p>связен.</p>
+
+<p>При:</p>
+
+<div class="math-block">$$n=1$$</div>
+
+<p>есть только одно покрытие:</p>
+
+<div class="math-block">$$S\prec T.$$</div>
+
+<p>Следовательно, история также единственна.</p>
+
+
+
+<h2>8. Индукционный переход</h2>
+
+<p>Пусть:</p>
+
+<div class="math-block">$$n\ge 2.$$</div>
+
+<p>Возьмём две произвольные истории:</p>
+
+<div class="math-block">$$h: S=X_0\prec X_1\prec\cdots\prec X_n=T,$$</div>
+
+<div class="math-block">$$k: S=Y_0\prec Y_1\prec\cdots\prec Y_n=T.$$</div>
+
+
+
+<h2>Случай 1</h2>
+
+<p>Если:</p>
+
+<div class="math-block">$$X_1=Y_1,$$</div>
+
+<p>то хвосты</p>
+
+<div class="math-block">$$X_1\leadsto T$$</div>
+
+<p>имеют ранг:</p>
+
+<div class="math-block">$$n-1.$$</div>
+
+<p>По индукционной гипотезе они связаны локальными обменами.</p>
+
+<p>Следовательно:</p>
+
+<div class="math-block">$$h\equiv_I k.$$</div>
+
+
+
+<h2>9. Случай 2</h2>
+
+<p>Пусть:</p>
+
+<div class="math-block">$$X_1\ne Y_1.$$</div>
+
+<p>Имеем:</p>
+
+<div class="math-block">$$S\prec X_1, \qquad S\prec Y_1,$$</div>
+
+<p>причём:</p>
+
+<div class="math-block">$$X_1,Y_1\le T.$$</div>
+
+<p>По $IR(P)$ существует:</p>
+
+<div class="math-block">$$Z\le T$$</div>
+
+<p>такой, что:</p>
+
+<div class="math-block">$$X_1\prec Z, \qquad Y_1\prec Z.$$</div>
+
+<p>Получаем настоящий ромб <strong>внутри $[S,T]$</strong>:</p>
+
+<div class="math-block">$$\begin{array}{ccc}
+&S&\\
+\swarrow&&\searrow\\
+X_1&&Y_1\\
+\searrow&&\swarrow\\
+&Z&
+\end{array}$$</div>
+
+
+
+<h2>10. Продолжаем первую историю через $Z$</h2>
+
+<p>Поскольку:</p>
+
+<div class="math-block">$$X_1\prec Z\le T,$$</div>
+
+<p>существует история:</p>
+
+<div class="math-block">$$X_1\to Z\leadsto T.$$</div>
+
+<p>Её длина на один шаг меньше исходной.</p>
+
+<p>По индукционной гипотезе:</p>
+
+<div class="math-block">$$X_1\leadsto T$$</div>
+
+<p>в первой истории можно преобразовать локальными обменами в историю, начинающуюся:</p>
+
+<div class="math-block">$$X_1\to Z.$$</div>
+
+<p>Следовательно:</p>
+
+<div class="math-block">$$h \equiv_I S\to X_1\to Z\leadsto T.$$</div>
+
+
+
+<h2>11. Применяем один локальный обмен</h2>
+
+<p>Из ромба:</p>
+
+<div class="math-block">$$S\to X_1\to Z$$</div>
+
+<p>можно заменить на:</p>
+
+<div class="math-block">$$S\to Y_1\to Z.$$</div>
+
+<p>Поэтому:</p>
+
+<div class="math-block">$$h \equiv_I S\to Y_1\to Z\leadsto T.$$</div>
+
+
+
+<h2>12. Сравниваем со второй историей</h2>
+
+<p>У второй истории хвост начинается:</p>
+
+<div class="math-block">$$Y_1\leadsto T.$$</div>
+
+<p>А альтернативный хвост:</p>
+
+<div class="math-block">$$Y_1\to Z\leadsto T.$$</div>
+
+<p>По индукционной гипотезе они локально эквивалентны.</p>
+
+<p>Следовательно:</p>
+
+<div class="math-block">$$S\to Y_1\to Z\leadsto T \equiv_I k.$$</div>
+
+<p>Таким образом:</p>
+
+<div class="math-block">$$\boxed{h\equiv_I k.}$$</div>
+
+<p>Теорема доказана.</p>
+
+<div class="math-block">$$\Box$$</div>
+
+
+
+<h2>13. Получаем гораздо более сильный результат</h2>
+
+<p>Теперь:</p>
+
+<div class="math-block">$$\boxed{Finite+Graded+IR \Rightarrow \Gamma(S,T)\text{ связен}.}$$</div>
+
+<p>Следовательно:</p>
+
+<div class="math-block">$$\boxed{\kappa_{\mathrm{can}}(S,T)=1.}$$</div>
+
+<p>А значит:</p>
+
+<div class="math-block">$$\boxed{\operatorname{end}(h)=\operatorname{end}(k) \Rightarrow h\equiv_I k.}$$</div>
+
+<p>То есть <strong>Semantic Completeness уже не требуется как самостоятельная аксиома</strong>.</p>
+
+
+
+<h2>14. Это важнейший результат минимизации</h2>
+
+<p>Ранее у нас была схема:</p>
+
+<div class="math-block">$$Termination+ LocalConfluence+ SemanticCompleteness.$$</div>
+
+<p>Теперь для конечного градуированного порядка получена другая схема:</p>
+
+<div class="math-block">$$\boxed{Graded+IR \Rightarrow Canonicality.}$$</div>
+
+<p>Причём терминальность здесь отдельно вводить не требуется.</p>
+
+<p>Она автоматически следует из конечности интервала.</p>
+
+
+
+<h2>15. Что произошло с терминальностью?</h2>
+
+<p>В конечном интервале любая строгая последовательность локальных перестроек, ориентированных по хорошо основанной мере, конечна.</p>
+
+<p>Поэтому:</p>
+
+<div class="math-block">$$Finite$$</div>
+
+<p>уже обеспечивает возможность использовать конечную индукцию по рангу.</p>
+
+<p>Таким образом, отдельная аксиома:</p>
+
+<div class="math-block">$$Termination$$</div>
+
+<p>для конечной версии теории избыточна.</p>
+
+
+
+<h2>16. Что произошло с Semantic Completeness?</h2>
+
+<p>Она стала теоремой:</p>
+
+<div class="math-block">$$\boxed{Finite+Graded+IR \Rightarrow SemanticCompleteness.}$$</div>
+
+<p>Следовательно, включать её в минимальную аксиоматику нельзя.</p>
+
+
+
+<h2>17. Что произошло с глобальной каноничностью?</h2>
+
+<p>Она также стала теоремой:</p>
+
+<div class="math-block">$$\boxed{Finite+Graded+IR \Rightarrow CanonicalReconstruction.}$$</div>
+
+<p>То есть исходное глобальное требование:</p>
+
+<div class="math-block">$$\kappa_{\mathrm{can}}=1$$</div>
+
+<p>не нужно аксиоматизировать.</p>
+
+
+
+<h2>18. Но теперь возникает новый вопрос минимальности</h2>
+
+<p>Мы получили достаточный набор:</p>
+
+<div class="math-block">$$\boxed{Finite+Graded+IR.}$$</div>
+
+<p>Однако он ещё не является минимальным.</p>
+
+<p>Нужно проверить:</p>
+
+<h3>Можно ли убрать градуированность?</h3>
+
+<div class="math-block">$$IR \stackrel{?}{\Rightarrow} Canonicality.$$</div>
+
+<h3>Можно ли ослабить $IR$?</h3>
+
+<p>Например:</p>
+
+<div class="math-block">$$IR'\subsetneq IR.$$</div>
+
+<h3>Можно ли заменить $IR$ ещё более слабым условием?</h3>
+
+<p>Это следующий уровень минимизации.</p>
+
+
+
+<h2>19. Особенно важно исследовать градуированность</h2>
+
+<p>В нашем доказательстве она использовалась для двух вещей:</p>
+
+<ol>
+<li>все истории имеют одинаковую длину;</li>
+<li>индукция по:
+<div class="math-block">$$r(T)-r(S)$$</div>
+уменьшается после первого шага.</li>
+</ol>
+
+<p>Но, возможно, достаточно другой хорошо основанной меры:</p>
+
+<div class="math-block">$$\mu(S,T)\in W.$$</div>
+
+<p>Если после локального обмена мера строго уменьшается, градуированность может оказаться техническим удобством, а не фундаментальным требованием.</p>
+
+
+
+<h2>20. Новая проблема P35</h2>
+
+<div class="math-block">$$\boxed{\textbf{P35: является ли градуированность необходимой?}}$$</div>
+
+<p>Нужно установить, существует ли конечный частичный порядок, который:</p>
+
+<div class="math-block">$$IR(P)$$</div>
+
+<p>удовлетворяет, но не является градуированным и при этом:</p>
+
+<div class="math-block">$$\kappa_{\mathrm{can}}\gt 1.$$</div>
+
+<p>Если такой контрпример существует:</p>
+
+<div class="math-block">$$\boxed{Graded \text{ необходимо}.}$$</div>
+
+<p>Если нет, необходимо искать более общую теорему.</p>
+
+
+
+<h2>21. Ещё более важный вопрос — минимальность $IR$</h2>
+
+<p>Наше новое условие:</p>
+
+<div class="math-block">$$IR$$</div>
+
+<p>может быть сильнее необходимого.</p>
+
+<p>Фактически в доказательстве использовалось только следующее:</p>
+
+<blockquote>
+<p>две первые ветви любой пары историй должны иметь возможность быть сведены к одной общей второй вершине внутри того же интервала.</p>
+</blockquote>
+
+<p>Это можно попытаться сформулировать как:</p>
+
+<div class="math-block">$$\boxed{\text{локальная сопряжённость ветвей}.}$$</div>
+
+<p>Возможно, именно она является минимальным условием.</p>
+
+
+
+<h2>22. Предварительная архитектура окончательной теории</h2>
+
+<p>На данный момент структура выглядит так:</p>
+
+<div class="math-block">$$\boxed{\begin{array}{c}
+\text{конечная структура}\\
+\downarrow\\
+\text{локальные расширения = покрытия}\\
+\downarrow\\
+\text{градуированность}\\
+\downarrow\\
+\text{интервальная локальная сопряжённость}\\
+\downarrow\\
+\text{локальные обмены}\\
+\downarrow\\
+\text{связность пространства историй}\\
+\downarrow\\
+\text{единственный класс историй}\\
+\downarrow\\
+\text{каноническая реконструкция}
+\end{array}}$$</div>
+
+<p>Это уже значительно более строгая конструкция, чем первоначальная схема.</p>
+
+
+
+<h2>23. Статусы результатов</h2>
+
+<p>На текущем этапе:</p>
+
+<h3>Доказано</h3>
+
+<div class="math-block">$$\boxed{\kappa_{\mathrm{can}}=|\pi_0(\Gamma)|}$$</div>
+
+<p>и:</p>
+
+<div class="math-block">$$\boxed{Finite+Graded+IR \Rightarrow \kappa_{\mathrm{can}}=1.}$$</div>
+
+<h3>Экспериментально проверено</h3>
+
+<p>Для всех перебранных конечных порядков до шести элементов не обнаружен контрпример к исходной более слабой гипотезе.</p>
+
+<h3>Остаётся открытым</h3>
+
+<p>$Graded$ либо необходимо, либо заменимо более общим условием.</p>
+
+<p>Также открыто:</p>
+
+<p>$IR$ либо минимально, либо может быть ослаблено.</p>
+
+
+
+<h2>24. Следующий этап P35</h2>
+
+<p>Теперь наиболее правильный следующий шаг — <strong>не вводить новые аксиомы</strong>, а атаковать уже полученный результат снизу:</p>
+
+<div class="math-block">$$\boxed{\textbf{P35: устранение градуированности}.}$$</div>
+
+<p>Нужно построить либо:</p>
+
+<div class="math-block">$$\boxed{\text{контрпример }IR+\neg Graded+\kappa_{\mathrm{can}}\gt 1,}$$</div>
+
+<p>либо более общую теорему, заменяющую градуированность условием существования хорошо основанной меры на интервалах.</p>
+
+<p>Если удастся убрать градуированность, мы приблизимся к действительно минимальной теории локальных расширений.</p>
+
+
+        </main>
+
+
+    <!-- Скрипты KaTeX -->
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false}
+            ],
+            throwOnError: false
+        });">
+    </script>
+</body>
+</html>

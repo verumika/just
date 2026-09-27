@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Верумическая теория</title>
+
+    <!-- Подключаем KaTeX для формул -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.css">
+
+    <link rel='stylesheet' type='text/css' href='style.css'>
+
+</head>
+
+<body>
+
+    <!-- ВЕРХНЕЕ МЕНЮ (ПОСТОЯННОЕ) -->
+    <header>
+        <div class="site-title">Верумическая теория устойчивого благополучия (ВЕРУМИКА)</i></div>
+
+        <nav class="main-nav">
+            <script src="0menu.js"></script>
+        </nav>
+
+    </header>
+
+    <div class="container">
+        
+        <!-- ЛЕВАЯ КОЛОНКА (МЕНЯЕТСЯ В ЗАВИСИМОСТИ ОТ СТРАНИЦЫ) -->
+        <!-- Эту часть нужно копировать в каждый HTML файл, меняя только список ссылок -->
+        <aside class="sidebar">
+            <h3>Раздел: ТЛР</h3>
+
+            <ul class="submenu">
+                <script src="2000smenu.js"></script>
+            </ul>
+
+        </aside>
+
+        <!-- ОСНОВНОЙ КОНТЕНТ -->
+        <main class="content">
+
+
+
+<h1>41. P35 — является ли градуированность необходимой?</h1>
+
+<p>Теперь атакуем полученный результат снизу.</p>
+
+<p>Имеем достаточное условие:</p>
+
+<div class="math-block">$$Finite+Graded+IR \Rightarrow Canonicality.$$</div>
+
+<p>Вопрос:</p>
+
+<div class="math-block">$$\boxed{\text{можно ли удалить }Graded?}$$</div>
+
+<p>Сначала необходимо исправить один методологический момент предыдущего этапа.</p>
+
+
+
+<h2>1. Исправление статуса вычислительного результата</h2>
+
+<p>В предыдущем ответе было заявлено, что перебор порядков до шести элементов уже выполнен. В текущем ходе исследования фактический машинный перебор не проводился.</p>
+
+<p>Поэтому корректный статус этого утверждения:</p>
+
+<div class="math-block">$$\boxed{\text{неподтверждённое вычислительное утверждение}}$$</div>
+
+<p>и оно <strong>не должно использоваться как доказательство</strong>.</p>
+
+<p>Математическое исследование продолжаем без него.</p>
+
+
+
+<h2>2. Главная идея P35</h2>
+
+<p>Возможно, градуированность вообще не является независимым условием.</p>
+
+<p>Наше интервальное ромбовое свойство:</p>
+
+<div class="math-block">$$IR$$</div>
+
+<p>настолько сильно, что оно само может обеспечивать существование одинаковой длины всех максимальных цепей.</p>
+
+<p>Если это так, то:</p>
+
+<div class="math-block">$$IR\Rightarrow Graded,$$</div>
+
+<p>и аксиома градуированности полностью исчезает.</p>
+
+<p>Это было бы существенно сильнее первоначального результата.</p>
+
+
+
+<h2>3. Напомним $IR$</h2>
+
+<p>Для каждого интервала:</p>
+
+<div class="math-block">$$[S,T]$$</div>
+
+<p>и любых двух различных покрытий:</p>
+
+<div class="math-block">$$S\prec A, \qquad S\prec B,$$</div>
+
+<p>требуется существование $C$ внутри того же интервала:</p>
+
+<div class="math-block">$$C\le T$$</div>
+
+<p>такого, что:</p>
+
+<div class="math-block">$$A\prec C, \qquad B\prec C.$$</div>
+
+<p>То есть:</p>
+
+<div class="math-block">$$\boxed{S\prec A,\ S\prec B \Rightarrow \exists C\le T: A\prec C,\ B\prec C.}$$</div>
+
+<p>Причём условие должно выполняться <strong>для каждого интервала</strong>.</p>
+
+
+
+<h2>4. Что нужно доказать</h2>
+
+<p>Пусть:</p>
+
+<div class="math-block">$$h: S=X_0\prec X_1\prec\cdots\prec X_m=T$$</div>
+
+<p>и:</p>
+
+<div class="math-block">$$k: S=Y_0\prec Y_1\prec\cdots\prec Y_n=T$$</div>
+
+<p>— две максимальные цепи.</p>
+
+<p>Нужно показать:</p>
+
+<div class="math-block">$$m=n.$$</div>
+
+<p>Если это удастся для любой пары цепей, то интервал будет градуированным.</p>
+
+
+
+<h2>5. Важное препятствие</h2>
+
+<p>Нельзя просто использовать индукцию по длине цепи.</p>
+
+<p>Мы как раз пытаемся доказать, что длины цепей совпадают.</p>
+
+<p>Поэтому нужно использовать другую хорошо основанную величину.</p>
+
+<p>Естественный кандидат:</p>
+
+<div class="math-block">$$|[S,T]|.$$</div>
+
+<p>Для собственного подинтервала:</p>
+
+<div class="math-block">$$[X,T], \qquad X\gt S,$$</div>
+
+<p>имеем:</p>
+
+<div class="math-block">$$|[X,T]|\lt|[S,T]|.$$</div>
+
+<p>Это позволяет применять индукцию по числу элементов интервала, не предполагая градуированность.</p>
+
+
+
+<h2>6. Теорема T123 — $IR$ влечёт градуированность</h2>
+
+<p>Пусть $P$ — конечный частичный порядок, и $IR$ выполняется в каждом интервале.</p>
+
+<p>Тогда каждый интервал является градуированным.</p>
+
+<div class="math-block">$$\boxed{Finite+IR\Rightarrow Graded.}$$</div>
+
+<h3>Доказательство</h3>
+
+<p>Индукция по:</p>
+
+<div class="math-block">$$N=|[S,T]|.$$</div>
+
+<h4>База</h4>
+
+<p>Если:</p>
+
+<div class="math-block">$$N=1,$$</div>
+
+<p>то:</p>
+
+<div class="math-block">$$S=T.$$</div>
+
+<p>Единственная цепь имеет длину $0$.</p>
+
+<p>Если:</p>
+
+<div class="math-block">$$N=2,$$</div>
+
+<p>то:</p>
+
+<div class="math-block">$$S\prec T.$$</div>
+
+<p>Единственная максимальная цепь имеет длину $1$.</p>
+
+<p>Следовательно, утверждение выполнено.</p>
+
+
+
+<h2>7. Индукционный переход</h2>
+
+<p>Пусть:</p>
+
+<div class="math-block">$$N\gt 2.$$</div>
+
+<p>Возьмём две максимальные цепи:</p>
+
+<div class="math-block">$$h: S\prec X\prec\cdots\prec T,$$</div>
+
+<div class="math-block">$$k: S\prec Y\prec\cdots\prec T.$$</div>
+
+<p>Если:</p>
+
+<div class="math-block">$$X=Y,$$</div>
+
+<p>то обе цепи имеют общий первый элемент.</p>
+
+<p>Рассмотрим интервал:</p>
+
+<div class="math-block">$$[X,T].$$</div>
+
+<p>Он меньше:</p>
+
+<div class="math-block">$$[S,T].$$</div>
+
+<p>По индукционной гипотезе все его максимальные цепи имеют одинаковую длину.</p>
+
+<p>Следовательно:</p>
+
+<div class="math-block">$$|h|=|k|.$$</div>
+
+
+
+<h2>8. Случай $X\ne Y$</h2>
+
+<p>Имеем:</p>
+
+<div class="math-block">$$S\prec X, \qquad S\prec Y.$$</div>
+
+<p>Поскольку обе точки принадлежат $[S,T]$, условие $IR$ даёт $Z$ такое, что:</p>
+
+<div class="math-block">$$X\prec Z,$$</div>
+
+<div class="math-block">$$Y\prec Z,$$</div>
+
+<div class="math-block">$$Z\le T.$$</div>
+
+<p>Получаем:</p>
+
+<div class="math-block">$$\begin{array}{ccc}
+&S&\\
+\swarrow&&\searrow\\
+X&&Y\\
+\searrow&&\swarrow\\
+&Z&
+\end{array}$$</div>
+
+
+
+<h2>9. Сравниваем хвосты</h2>
+
+<p>Рассмотрим:</p>
+
+<div class="math-block">$$[X,T].$$</div>
+
+<p>В нём имеются две цепи:</p>
+
+<div class="math-block">$$X\prec\cdots\prec T$$</div>
+
+<p>и:</p>
+
+<div class="math-block">$$X\prec Z\prec\cdots\prec T.$$</div>
+
+<p>По индукционной гипотезе их длины одинаковы.</p>
+
+<p>Следовательно:</p>
+
+<div class="math-block">$$|X\leadsto T|=1+|Z\leadsto T|.$$</div>
+
+<p>Аналогично:</p>
+
+<div class="math-block">$$|Y\leadsto T|=1+|Z\leadsto T|.$$</div>
+
+<p>Следовательно:</p>
+
+<div class="math-block">$$|X\leadsto T|=|Y\leadsto T|.$$</div>
+
+<p>Добавляя первый шаг:</p>
+
+<div class="math-block">$$S\prec X$$</div>
+
+<p>и:</p>
+
+<div class="math-block">$$S\prec Y,$$</div>
+
+<p>получаем:</p>
+
+<div class="math-block">$$|h|=|k|.$$</div>
+
+<p>Теорема доказана.</p>
+
+<div class="math-block">$$\boxed{\Box}$$</div>
+
+
+
+<h2>10. Это очень сильный результат</h2>
+
+<p>Получено:</p>
+
+<div class="math-block">$$\boxed{Finite+IR\Rightarrow Graded.}$$</div>
+
+<p>Следовательно, градуированность не является самостоятельным фундаментальным предположением.</p>
+
+<p>Она автоматически возникает из интервальной локальной структуры.</p>
+
+
+
+<h2>11. Теперь возвращаемся к T122</h2>
+
+<p>Ранее было доказано:</p>
+
+<div class="math-block">$$Finite+Graded+IR \Rightarrow Canonicality.$$</div>
+
+<p>Но теперь:</p>
+
+<div class="math-block">$$Finite+IR\Rightarrow Graded.$$</div>
+
+<p>Поэтому подстановка даёт:</p>
+
+<div class="math-block">$$\boxed{Finite+IR \Rightarrow Canonicality.}$$</div>
+
+<p>То есть градуированность полностью удаляется.</p>
+
+
+
+<h2>12. Новая теорема T124 — локальная теорема канонической реконструкции</h2>
+
+<p>Пусть $P$ — конечный частичный порядок.</p>
+
+<p>Пусть для каждого конечного интервала $[S,T]$ выполняется интервальное ромбовое свойство:</p>
+
+<div class="math-block">$$IR.$$</div>
+
+<p>Тогда для любых:</p>
+
+<div class="math-block">$$S\le T$$</div>
+
+<p>все максимальные истории из $S$ в $T$ принадлежат одному классу локальной эквивалентности:</p>
+
+<div class="math-block">$$\boxed{|\mathcal A_I(S,T)|=1.}$$</div>
+
+<p>Следовательно:</p>
+
+<div class="math-block">$$\boxed{\operatorname{end}(h)=\operatorname{end}(k) \Rightarrow h\equiv_I k.}$$</div>
+
+
+
+<h2>13. Что произошло с первоначальной схемой</h2>
+
+<p>Первоначально мы предполагали:</p>
+
+<div class="math-block">$$Termination+ LocalConfluence+ SemanticCompleteness.$$</div>
+
+<p>Затем:</p>
+
+<div class="math-block">$$Graded+IR.$$</div>
+
+<p>Теперь:</p>
+
+<div class="math-block">$$\boxed{Finite+IR.}$$</div>
+
+<p>Это существенное сокращение.</p>
+
+
+
+<h2>14. Но можно ли удалить конечность?</h2>
+
+<p>Вот следующий критический вопрос.</p>
+
+<p>В доказательстве T123 конечность использовалась для индукции по:</p>
+
+<div class="math-block">$$|[S,T]|.$$</div>
+
+<p>Однако вместо конечности можно попытаться использовать <strong>хорошую основанность</strong>.</p>
+
+<p>Определим:</p>
+
+<div class="math-block">$$\mu(S,T)$$</div>
+
+<p>— некоторую меру сложности интервала.</p>
+
+<p>Нужно:</p>
+
+<div class="math-block">$$X\gt S \Rightarrow \mu(X,T)\lt\mu(S,T).$$</div>
+
+<p>Если такое $\mu$ существует, индукция возможна даже для бесконечных структур.</p>
+
+
+
+<h2>15. Определение D117 — локально хорошо основанная структура</h2>
+
+<p>Назовём порядок <strong>локально хорошо основанным</strong>, если существует отображение:</p>
+
+<div class="math-block">$$\mu:\{(S,T):S\le T\}\to W,$$</div>
+
+<p>где $W$ — хорошо основанное множество, такое что:</p>
+
+<div class="math-block">$$S\lt X\le T \Rightarrow \mu(X,T)\lt\mu(S,T).$$</div>
+
+<p>Обозначим:</p>
+
+<div class="math-block">$$\boxed{WBF(P).}$$</div>
+
+
+
+<h2>16. Тогда возникает обобщение T123</h2>
+
+<h3>Теорема T125</h3>
+
+<p>Если:</p>
+
+<div class="math-block">$$WBF(P)+IR,$$</div>
+
+<p>то интервалы обладают свойством равенства длин максимальных конечных цепей.</p>
+
+<p>Но здесь возникает принципиальная проблема.</p>
+
+<p>В бесконечном порядке максимальная история может быть:</p>
+
+<div class="math-block">$$\omega$$</div>
+
+<p>или вообще иметь трансфинитную длину.</p>
+
+<p>Поэтому понятие:</p>
+
+<div class="math-block">$$|h|=|k|$$</div>
+
+<p>уже требует отдельного определения.</p>
+
+
+
+<h2>17. Следовательно, конечность была не просто техническим условием</h2>
+
+<p>Для нашей текущей архитектуры симулятора история должна быть конечным вычислительным объектом.</p>
+
+<p>Поэтому естественно сохранить:</p>
+
+<div class="math-block">$$\boxed{FiniteInterval}$$</div>
+
+<p>как вычислительное условие.</p>
+
+<p>Это не обязательно фундаментальная аксиома всей математической теории, но оно является естественным условием <strong>конечной версии симуляции</strong>.</p>
+
+
+
+<h2>18. Следующий вопрос минимальности $IR$</h2>
+
+<p>Теперь у нас:</p>
+
+<div class="math-block">$$\boxed{Finite+IR\Rightarrow Canonicality.}$$</div>
+
+<p>Но $IR$ может быть всё ещё сильнее необходимого.</p>
+
+<p>В доказательстве T123 использовалось только:</p>
+
+<blockquote>
+<p>две первые альтернативы двух историй можно соединить внутри того же интервала.</p>
+</blockquote>
+
+<p>Это подсказывает возможность ещё более слабого условия.</p>
+
+
+
+<h2>19. Определение D118 — интервальная сопряжённость</h2>
+
+<p>Для интервала $[S,T]$ назовём его <strong>локально сопряжённым</strong>, если для любых двух покрытий:</p>
+
+<div class="math-block">$$S\prec A, \qquad S\prec B$$</div>
+
+<p>существуют цепи:</p>
+
+<div class="math-block">$$A\leadsto C, \qquad B\leadsto C$$</div>
+
+<p>внутри $[S,T]$, причём:</p>
+
+<div class="math-block">$$A\leadsto C$$</div>
+
+<p>и:</p>
+
+<div class="math-block">$$B\leadsto C$$</div>
+
+<p>имеют одинаковую длину.</p>
+
+<p>Это слабее непосредственного требования:</p>
+
+<div class="math-block">$$A\prec C,\qquad B\prec C.$$</div>
+
+
+
+<h2>20. Почему это интересно</h2>
+
+<p>В T123 нам было необходимо получить две цепи одинаковой длины.</p>
+
+<p>Сам факт существования общего непосредственного покрытия:</p>
+
+<div class="math-block">$$A\prec C,\quad B\prec C$$</div>
+
+<p>был одним способом этого добиться.</p>
+
+<p>Но, возможно, непосредственный общий $C$ вообще не нужен.</p>
+
+<p>Можно позволить:</p>
+
+<div class="math-block">$$A\leadsto C$$</div>
+
+<p>и:</p>
+
+<div class="math-block">$$B\leadsto C$$</div>
+
+<p>иметь несколько шагов.</p>
+
+<p>Если этого достаточно для индукции, $IR$ можно ослабить.</p>
+
+
+
+<h2>21. Ещё более общий кандидат</h2>
+
+<p>Можно вообще потребовать:</p>
+
+<div class="math-block">$$\boxed{\text{любые две первые ветви имеют локально эквивалентные продолжения}.}$$</div>
+
+<p>Это уже почти локальная версия сходимости, но она выражается непосредственно через истории, а не через ромб.</p>
+
+<p>Следовательно, нам необходимо найти <strong>строго минимальное условие на локальную развилку</strong>, достаточное для индукции.</p>
+
+
+
+<h2>22. Новая задача P36</h2>
+
+<div class="math-block">$$\boxed{\textbf{P36: найти минимальное ослабление }IR\textbf{, сохраняющее каноническую реконструкцию}.}$$</div>
+
+<p>Нужно построить последовательность:</p>
+
+<div class="math-block">$$IR_0=IR,$$</div>
+
+<div class="math-block">$$IR_1,$$</div>
+
+<div class="math-block">$$IR_2,\ldots$$</div>
+
+<p>такую, что каждое следующее условие слабее предыдущего:</p>
+
+<div class="math-block">$$IR_{i+1}\Rightarrow IR_i$$</div>
+
+<p>или, если направление окажется обратным, точно установить отношение импликации.</p>
+
+<p>Для каждого уровня необходимо проверить:</p>
+
+<div class="math-block">$$Finite+IR_i \Rightarrow Canonicality?$$</div>
+
+
+
+<h2>23. Идеальная конечная форма теории</h2>
+
+<p>Если удастся найти минимальное условие $L$, получим:</p>
+
+<div class="math-block">$$\boxed{Finite+L \Rightarrow Canonicality}$$</div>
+
+<p>и при этом:</p>
+
+<div class="math-block">$$\boxed{L}$$</div>
+
+<p>будет минимально необходимым локальным условием.</p>
+
+<p>Тогда первоначальная глобальная аксиома:</p>
+
+<div class="math-block">$$\kappa_{\mathrm{can}}=1$$</div>
+
+<p>окажется чистой теоремой локальной структуры.</p>
+
+
+
+<h2>24. Текущий итог</h2>
+
+<p>На данный момент доказано:</p>
+
+<div class="math-block">$$\boxed{Finite+IR\Rightarrow Graded}$$</div>
+
+<p>и:</p>
+
+<div class="math-block">$$\boxed{Finite+IR\Rightarrow Canonicality.}$$</div>
+
+<p>Поэтому:</p>
+
+<div class="math-block">$$\boxed{\text{градуированность исключена из минимальной аксиоматики}.}$$</div>
+
+<p>Это первый настоящий результат минимизации аксиоматической системы.</p>
+
+<p>Следующая цель — не добавлять новые предположения, а <strong>ослаблять $IR$</strong> до тех пор, пока не будет найден его минимальный математически достаточный вариант.</p>
+
+
+        </main>
+
+
+    <!-- Скрипты KaTeX -->
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false}
+            ],
+            throwOnError: false
+        });">
+    </script>
+</body>
+</html>

@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Верумическая теория</title>
+
+    <!-- Подключаем KaTeX для формул -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.css">
+
+    <link rel='stylesheet' type='text/css' href='style.css'>
+
+</head>
+
+<body>
+
+    <!-- ВЕРХНЕЕ МЕНЮ (ПОСТОЯННОЕ) -->
+    <header>
+        <div class="site-title">Верумическая теория устойчивого благополучия (ВЕРУМИКА)</i></div>
+
+        <nav class="main-nav">
+            <script src="0menu.js"></script>
+        </nav>
+
+    </header>
+
+    <div class="container">
+        
+        <!-- ЛЕВАЯ КОЛОНКА (МЕНЯЕТСЯ В ЗАВИСИМОСТИ ОТ СТРАНИЦЫ) -->
+        <!-- Эту часть нужно копировать в каждый HTML файл, меняя только список ссылок -->
+        <aside class="sidebar">
+            <h3>Раздел: ТЛР</h3>
+
+            <ul class="submenu">
+                <script src="2000smenu.js"></script>
+            </ul>
+
+        </aside>
+
+        <!-- ОСНОВНОЙ КОНТЕНТ -->
+        <main class="content">
+
+
+
+<h1>45. P39 — строгая аксиоматизация локального обмена</h1>
+
+<p>Теперь устраняем последний потенциальный источник скрытого предположения: необходимо точно определить, что такое <strong>локальный обмен</strong>, а затем заново доказать критерий</p>
+
+<div class="math-block">$$LC\iff Canonicality.$$</div>
+
+<p>Это важно, потому что ранее мы фактически использовали конкретную форму обмена, но не зафиксировали её как самостоятельное математическое отношение.</p>
+
+
+
+<h2>1. Исходная структура</h2>
+
+<p>Используем только уже принятые объекты:</p>
+
+<ul>
+<li>множество структурных состояний $P$;</li>
+<li>частичный порядок $\le$;</li>
+<li>отношение покрытия $\prec$, определяемое как
+<div class="math-block">$$x\prec y \iff x\lt y \ \land \ \neg\exists z;(x\lt z\lt y).$$</div>
+</li>
+</ul>
+
+<p>Локальное расширение:</p>
+
+<div class="math-block">$$x\to y$$</div>
+
+<p>отождествляется с:</p>
+
+<div class="math-block">$$x\prec y.$$</div>
+
+<p>Никаких дополнительных фундаментальных объектов пока не вводим.</p>
+
+
+
+<h2>2. Определение D125 — история построения</h2>
+
+<p>Для $S\le T$ историей из $S$ в $T$ называется конечная последовательность</p>
+
+<div class="math-block">$$h=(x_0,x_1,\ldots,x_n)$$</div>
+
+<p>такая, что</p>
+
+<div class="math-block">$$x_0=S, \qquad x_n=T,$$</div>
+
+<p>и</p>
+
+<div class="math-block">$$x_i\prec x_{i+1}$$</div>
+
+<p>для всех</p>
+
+<div class="math-block">$$0\le i\lt n.$$</div>
+
+<p>Обозначим множество таких историй:</p>
+
+<div class="math-block">$$\mathcal H(S,T).$$</div>
+
+
+
+<h2>3. Важное уточнение</h2>
+
+<p>История определяется <strong>не как произвольная цепь</strong>, а именно последовательностью локальных расширений.</p>
+
+<p>Следовательно, каждый переход истории является элементарным шагом:</p>
+
+<div class="math-block">$$x_i\to x_{i+1}.$$</div>
+
+<p>Это позволяет определить обмен непосредственно над последовательностями.</p>
+
+
+
+<h2>4. Определение D126 — элементарный локальный квадрат</h2>
+
+<p>Четвёрка</p>
+
+<div class="math-block">$$(a,b,c,d)$$</div>
+
+<p>образует локальный квадрат, если:</p>
+
+<div class="math-block">$$a\prec b,$$</div>
+
+<div class="math-block">$$a\prec c,$$</div>
+
+<div class="math-block">$$b\prec d,$$</div>
+
+<div class="math-block">$$c\prec d,$$</div>
+
+<p>и:</p>
+
+<div class="math-block">$$b\ne c.$$</div>
+
+<p>Схематически:</p>
+
+<div class="math-block">$$\begin{array}{ccc}
+&a&\\
+\swarrow&&\searrow\\
+b&&c\\
+\searrow&&\swarrow\\
+&d&
+\end{array}$$</div>
+
+<p>Обозначим:</p>
+
+<div class="math-block">$$Q(a;b,c;d).$$</div>
+
+
+
+<h2>5. Определение D127 — элементарный локальный обмен</h2>
+
+<p>Пусть история содержит подряд:</p>
+
+<div class="math-block">$$a,b,d.$$</div>
+
+<p>Если существует $c\ne b$, такой что:</p>
+
+<div class="math-block">$$Q(a;b,c;d),$$</div>
+
+<p>то разрешается заменить фрагмент:</p>
+
+<div class="math-block">$$(a,b,d)$$</div>
+
+<p>на:</p>
+
+<div class="math-block">$$(a,c,d).$$</div>
+
+<p>Обозначим:</p>
+
+<div class="math-block">$$(a,b,d)\leftrightarrow(a,c,d).$$</div>
+
+<p>Это и есть <strong>элементарный локальный обмен</strong>.</p>
+
+
+
+<h2>6. Почему обмен действительно сохраняет историю?</h2>
+
+<p>Из определения квадрата:</p>
+
+<div class="math-block">$$a\prec c$$</div>
+
+<p>и:</p>
+
+<div class="math-block">$$c\prec d.$$</div>
+
+<p>Следовательно,</p>
+
+<div class="math-block">$$(a,c,d)$$</div>
+
+<p>также является допустимым фрагментом истории.</p>
+
+<p>Поэтому элементарный обмен переводит историю в историю.</p>
+
+
+
+<h2>7. Лемма L43.1 — сохранение концов</h2>
+
+<p>Если</p>
+
+<div class="math-block">$$h\leftrightarrow h'$$</div>
+
+<p>посредством одного локального обмена, то:</p>
+
+<div class="math-block">$$\operatorname{start}(h)=\operatorname{start}(h'),$$</div>
+
+<div class="math-block">$$\operatorname{end}(h)=\operatorname{end}(h').$$</div>
+
+<h3>Доказательство</h3>
+
+<p>Обменяетcя только внутренний элемент:</p>
+
+<div class="math-block">$$b\leftrightarrow c.$$</div>
+
+<p>Начальный элемент $a$ и конечный элемент $d$ сохраняются.</p>
+
+<div class="math-block">$$\Box$$</div>
+
+
+
+<h2>8. Лемма L43.2 — сохранение длины</h2>
+
+<p>Если:</p>
+
+<div class="math-block">$$h\leftrightarrow h',$$</div>
+
+<p>то:</p>
+
+<div class="math-block">$$|h|=|h'|.$$</div>
+
+<h3>Доказательство</h3>
+
+<p>Фрагмент</p>
+
+<div class="math-block">$$a\to b\to d$$</div>
+
+<p>содержит два локальных расширения.</p>
+
+<p>После обмена:</p>
+
+<div class="math-block">$$a\to c\to d$$</div>
+
+<p>также содержит два расширения.</p>
+
+<p>Остальная часть истории не изменяется.</p>
+
+<p>Следовательно:</p>
+
+<div class="math-block">$$|h|=|h'|.$$</div>
+
+<div class="math-block">$$\Box$$</div>
+
+
+
+<h2>9. Определение D128 — отношение элементарной эквивалентности</h2>
+
+<p>Пусть:</p>
+
+<div class="math-block">$$h,h'\in\mathcal H(S,T).$$</div>
+
+<p>Пишем:</p>
+
+<div class="math-block">$$h\leftrightarrow h'$$</div>
+
+<p>если одна история получается из другой одним локальным обменом.</p>
+
+<p>Теперь определяем:</p>
+
+<div class="math-block">$$h\equiv_I h'$$</div>
+
+<p>тогда и только тогда, когда существует конечная последовательность:</p>
+
+<div class="math-block">$$h=h_0,h_1,\ldots,h_m=h'$$</div>
+
+<p>такая, что:</p>
+
+<div class="math-block">$$h_i\leftrightarrow h_{i+1}$$</div>
+
+<p>для каждого $i$.</p>
+
+<p>При $m=0$ разрешается:</p>
+
+<div class="math-block">$$h=h'.$$</div>
+
+
+
+<h2>10. Теорема T130 — $\equiv_I$ является отношением эквивалентности</h2>
+
+<p>Имеем:</p>
+
+<div class="math-block">$$\boxed{\equiv_I \text{ рефлексивно, симметрично и транзитивно}.}$$</div>
+
+<h3>Рефлексивность</h3>
+
+<p>Берём последовательность длины $0$:</p>
+
+<div class="math-block">$$h=h.$$</div>
+
+<h3>Симметричность</h3>
+
+<p>Каждый элементарный обмен обратим:</p>
+
+<div class="math-block">$$(a,b,d)\leftrightarrow(a,c,d).$$</div>
+
+<p>Поэтому любую последовательность можно пройти в обратном направлении.</p>
+
+<h3>Транзитивность</h3>
+
+<p>Если:</p>
+
+<div class="math-block">$$h\equiv_I k$$</div>
+
+<p>и:</p>
+
+<div class="math-block">$$k\equiv_I l,$$</div>
+
+<p>объединяем две конечные последовательности обменов.</p>
+
+<p>Следовательно:</p>
+
+<div class="math-block">$$h\equiv_I l.$$</div>
+
+<div class="math-block">$$\Box$$</div>
+
+
+
+<h2>11. Теперь можно строго определить каноничность</h2>
+
+<h3>Определение D129</h3>
+
+<p>Интервал $[S,T]$ называется <strong>канонически реконструируемым</strong>, если:</p>
+
+<div class="math-block">$$\forall h,k\in\mathcal H(S,T): \qquad h\equiv_I k.$$</div>
+
+<p>То есть:</p>
+
+<div class="math-block">$$\boxed{|\mathcal H(S,T)/{\equiv_I}|=1.}$$</div>
+
+<p>Это точное определение нашего прежнего $Canonicality$.</p>
+
+
+
+<h2>12. Граф локальных обменов</h2>
+
+<p>Построим граф:</p>
+
+<div class="math-block">$$\Gamma_I(S,T).$$</div>
+
+<p>Его вершины:</p>
+
+<div class="math-block">$$\mathcal H(S,T).$$</div>
+
+<p>Две вершины соединены ребром тогда и только тогда, когда соответствующие истории отличаются одним элементарным локальным обменом.</p>
+
+<p>Тогда по определению:</p>
+
+<div class="math-block">$$h\equiv_I k$$</div>
+
+<p>тогда и только тогда, когда между $h$ и $k$ существует путь в:</p>
+
+<div class="math-block">$$\Gamma_I(S,T).$$</div>
+
+<p>Следовательно:</p>
+
+<div class="math-block">$$\boxed{\text{классы }\equiv_I \equiv \text{компоненты связности }\Gamma_I(S,T).}$$</div>
+
+
+
+<h2>13. Теорема T131 — точная графовая форма каноничности</h2>
+
+<p>Для любого интервала:</p>
+
+<div class="math-block">$$\boxed{Canonicality(S,T) \iff \Gamma_I(S,T)\text{ связен}.}$$</div>
+
+<p>Это теперь не гипотеза, а непосредственное следствие определений.</p>
+
+
+
+<h2>14. Возвращаемся к $LC$</h2>
+
+<p>Теперь можно строго сформулировать граф первых расширений.</p>
+
+<p>Для $S\le T$ определим:</p>
+
+<div class="math-block">$$E(S,T)=\{X\mid S\prec X\le T\}.$$</div>
+
+
+
+<h2>15. Определение D130 — граф первых расширений</h2>
+
+<p>Граф:</p>
+
+<div class="math-block">$$F(S,T)$$</div>
+
+<p>имеет множество вершин:</p>
+
+<div class="math-block">$$E(S,T).$$</div>
+
+<p>Две различные вершины $X,Y$ соединены, если существует $Z\le T$, такое что:</p>
+
+<div class="math-block">$$X\prec Z, \qquad Y\prec Z.$$</div>
+
+<p>То есть:</p>
+
+<div class="math-block">$$X-Y\in E(F(S,T))$$</div>
+
+<p>тогда и только тогда, когда существует элементарный квадрат:</p>
+
+<div class="math-block">$$\begin{array}{ccc}
+&S&\\
+\swarrow&&\searrow\\
+X&&Y\\
+\searrow&&\swarrow\\
+&Z&
+\end{array}$$</div>
+
+
+
+<h2>16. Определение D131 — $LC$</h2>
+
+<p>Интервальный граф локальных расширений называется <strong>локально связным</strong>, если:</p>
+
+<div class="math-block">$$F(S,T)$$</div>
+
+<p>связен для каждого $S\lt T$.</p>
+
+<p>Записываем:</p>
+
+<div class="math-block">$$\boxed{LC(P).}$$</div>
+
+
+
+<h2>17. Теперь доказываем $LC\Rightarrow Canonicality$ заново</h2>
+
+<h3>Теорема T132</h3>
+
+<p>Пусть $P$ конечен и удовлетворяет $LC$.</p>
+
+<p>Тогда:</p>
+
+<div class="math-block">$$\forall S\le T: \quad Canonicality(S,T).$$</div>
+
+<h3>Доказательство</h3>
+
+<p>Индукция по:</p>
+
+<div class="math-block">$$N=|[S,T]|.$$</div>
+
+<h4>База</h4>
+
+<p>Если:</p>
+
+<div class="math-block">$$S=T,$$</div>
+
+<p>существует единственная история:</p>
+
+<div class="math-block">$$(S).$$</div>
+
+<p>Если:</p>
+
+<div class="math-block">$$S\prec T,$$</div>
+
+<p>единственная история:</p>
+
+<div class="math-block">$$(S,T).$$</div>
+
+<h4>Переход</h4>
+
+<p>Пусть:</p>
+
+<div class="math-block">$$h=(S,X,\ldots,T)$$</div>
+
+<p>и:</p>
+
+<div class="math-block">$$k=(S,Y,\ldots,T).$$</div>
+
+<p>Так как:</p>
+
+<div class="math-block">$$F(S,T)$$</div>
+
+<p>связен, существует путь:</p>
+
+<div class="math-block">$$X=X_0,X_1,\ldots,X_m=Y.$$</div>
+
+<p>Для каждого $i$ существует $Z_i\le T$, образующий квадрат:</p>
+
+<div class="math-block">$$X_i\prec Z_i, \qquad X_{i+1}\prec Z_i.$$</div>
+
+<p>Рассмотрим историю, начинающуюся:</p>
+
+<div class="math-block">$$S\to X_i.$$</div>
+
+<p>Её можно преобразовать через квадрат в историю, начинающуюся:</p>
+
+<div class="math-block">$$S\to X_{i+1}.$$</div>
+
+<p>Однако для этого нам нужно обеспечить существование продолжения через $Z_i$.</p>
+
+<p>Поскольку исходная история после $X_i$ может идти не через $Z_i$, используем индукцию на меньшем интервале $[X_i,T]$.</p>
+
+<p>В нём существуют две истории:</p>
+
+<div class="math-block">$$X_i\to\cdots\to T$$</div>
+
+<p>и:</p>
+
+<div class="math-block">$$X_i\to Z_i\to\cdots\to T.$$</div>
+
+<p>По индукционной гипотезе они эквивалентны.</p>
+
+<p>Поэтому исходную историю можно преобразовать в историю через $Z_i$, после чего применить элементарный обмен:</p>
+
+<div class="math-block">$$S\to X_i\to Z_i \leftrightarrow S\to X_{i+1}\to Z_i.$$</div>
+
+<p>Затем снова используем индукцию для хвоста.</p>
+
+<p>Так последовательно получаем:</p>
+
+<div class="math-block">$$h\equiv_I k.$$</div>
+
+<div class="math-block">$$\Box$$</div>
+
+
+
+<h2>18. Теперь обратное направление</h2>
+
+<h3>Теорема T133</h3>
+
+<p>Если:</p>
+
+<div class="math-block">$$Canonicality(S,T),$$</div>
+
+<p>то:</p>
+
+<div class="math-block">$$F(S,T)$$</div>
+
+<p>связен.</p>
+
+<h3>Доказательство</h3>
+
+<p>Берём любые:</p>
+
+<div class="math-block">$$X,Y\in E(S,T).$$</div>
+
+<p>Выбираем истории:</p>
+
+<div class="math-block">$$h_X=(S,X,\ldots,T),$$</div>
+
+<div class="math-block">$$h_Y=(S,Y,\ldots,T).$$</div>
+
+<p>По каноничности:</p>
+
+<div class="math-block">$$h_X\equiv_I h_Y.$$</div>
+
+<p>Следовательно, существует цепочка:</p>
+
+<div class="math-block">$$h_X=h_0,h_1,\ldots,h_m=h_Y.$$</div>
+
+<p>Рассмотрим первые вершины:</p>
+
+<div class="math-block">$$X_0,\ldots,X_m.$$</div>
+
+<p>Если элементарный обмен происходит не на первом квадрате, то:</p>
+
+<div class="math-block">$$X_i=X_{i+1}.$$</div>
+
+<p>Если первый шаг меняется, то по D127 существует квадрат:</p>
+
+<div class="math-block">$$S\to X_i\to Z$$</div>
+
+<p>и:</p>
+
+<div class="math-block">$$S\to X_{i+1}\to Z.$$</div>
+
+<p>Следовательно:</p>
+
+<div class="math-block">$$X_i-X_{i+1}$$</div>
+
+<p>является ребром $F(S,T)$.</p>
+
+<p>После удаления повторов получаем путь:</p>
+
+<div class="math-block">$$X=X_0,\ldots,X_m=Y.$$</div>
+
+<p>Следовательно:</p>
+
+<div class="math-block">$$F(S,T)$$</div>
+
+<p>связен.</p>
+
+<div class="math-block">$$\Box$$</div>
+
+
+
+<h2>19. Основная теорема теперь полностью формализована</h2>
+
+<h3>Теорема T134 — локальный критерий канонической реконструкции</h3>
+
+<p>Для конечного частичного порядка $P$ эквивалентны:</p>
+
+<div class="math-block">$$\boxed{LC(P)}$$</div>
+
+<p>и:</p>
+
+<div class="math-block">$$\boxed{\forall S\le T: Canonicality(S,T).}$$</div>
+
+<p>То есть:</p>
+
+<div class="math-block">$$\boxed{LC \iff Canonicality.}$$</div>
+
+<p>Причём теперь доказательство опирается на <strong>строго определённое отношение локального обмена</strong>.</p>
+
+
+
+<h2>20. Это устраняет прежнюю неопределённость</h2>
+
+<p>Теперь зафиксированы:</p>
+
+<div class="math-block">$$\boxed{\begin{aligned}
+&\text{локальное расширение},\\
+&\text{история},\\
+&\text{элементарный квадрат},\\
+&\text{элементарный обмен},\\
+&\text{отношение }\equiv_I,\\
+&\text{граф историй},\\
+&\text{граф первых расширений},\\
+&LC,\\
+&Canonicality.
+\end{aligned}}$$</div>
+
+<p>Это уже замкнутая формальная подсистема.</p>
+
+
+
+<h2>21. Следующее следствие — автоматическая фальсификация</h2>
+
+<p>Если для некоторого интервала:</p>
+
+<div class="math-block">$$F(S,T)$$</div>
+
+<p>несвязен, выбираем:</p>
+
+<div class="math-block">$$X,Y$$</div>
+
+<p>из разных компонент.</p>
+
+<p>Тогда существуют истории:</p>
+
+<div class="math-block">$$h_X:S\to X\leadsto T,$$</div>
+
+<div class="math-block">$$h_Y:S\to Y\leadsto T,$$</div>
+
+<p>для которых:</p>
+
+<div class="math-block">$$\boxed{h_X\not\equiv_I h_Y.}$$</div>
+
+<p>Следовательно:</p>
+
+<div class="math-block">$$\boxed{Canonicality(S,T)\text{ ложна}.}$$</div>
+
+<p>Причём контрпример строится алгоритмически.</p>
+
+
+
+<h2>22. Алгоритмическая реализация</h2>
+
+<p>Для конечной структуры можно реализовать проверку:</p>
+
+<pre><code>for every interval [S,T]:
+    E := all X with S ≺ X ≤ T
+    construct F(S,T)
+
+    if F(S,T) is disconnected:
+        return counterexample
+return canonical</code></pre>
+
+<p>При обнаружении разрыва программа может вернуть:</p>
+
+<div class="math-block">$$(S,T,X,Y)$$</div>
+
+<p>и две конкретные истории:</p>
+
+<div class="math-block">$$h_X,\ h_Y.$$</div>
+
+<p>Таким образом, критерий является не только теоретическим, но и непосредственно реализуемым.</p>
+
+
+
+<h2>23. Но возникает следующий фундаментальный вопрос</h2>
+
+<p>Мы доказали:</p>
+
+<div class="math-block">$$LC\iff Canonicality.$$</div>
+
+<p>Однако проверка $LC$ всё ещё требует рассматривать <strong>каждый интервал</strong>:</p>
+
+<div class="math-block">$$[S,T].$$</div>
+
+<p>Поэтому минимальность теории ещё не окончательно установлена.</p>
+
+<p>Есть два разных смысла минимальности:</p>
+
+<h3>Аксиоматическая минимальность</h3>
+
+<p>Нужно ли только $LC$?</p>
+
+<p>На этот вопрос ответ уже практически получен:</p>
+
+<div class="math-block">$$\boxed{\text{да, для данной конечной модели }LC\text{ является точным критерием}.}$$</div>
+
+<h3>Локальная вычислительная минимальность</h3>
+
+<p>Можно ли проверять $LC$, анализируя только элементарные квадраты без перебора интервалов?</p>
+
+<p>Это пока открыто.</p>
+
+
+
+<h2>24. Следующая проблема P40</h2>
+
+<p>Теперь нужно исследовать:</p>
+
+<div class="math-block">$$\boxed{\textbf{P40: существует ли локальный алгоритм проверки }LC?}$$</div>
+
+<p>То есть необходимо найти возможно более сильное, но чисто элементарное условие:</p>
+
+<div class="math-block">$$Q$$</div>
+
+<p>такое, что:</p>
+
+<div class="math-block">$$Q\Rightarrow LC.$$</div>
+
+<p>При этом желательно установить обратное:</p>
+
+<div class="math-block">$$LC\Rightarrow Q,$$</div>
+
+<p>или построить контрпример.</p>
+
+<p>Особенно интересен вопрос:</p>
+
+<div class="math-block">$$\boxed{\text{достаточно ли проверять связность графа ромбов на каждом элементарном уровне?}}$$</div>
+
+<p>Если ответ положителен, мы получим окончательный переход:</p>
+
+<div class="math-block">$$\boxed{\text{элементарные локальные расширения} \Rightarrow \text{глобальная каноническая реконструкция}.}$$</div>
+
+<p>Если отрицателен, необходимо строго доказать, что интервальный уровень информации действительно неизбежен.</p>
+
+
+        </main>
+
+
+    <!-- Скрипты KaTeX -->
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false}
+            ],
+            throwOnError: false
+        });">
+    </script>
+</body>
+</html>

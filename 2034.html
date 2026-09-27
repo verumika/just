@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Верумическая теория</title>
+
+    <!-- Подключаем KaTeX для формул -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.css">
+
+    <link rel='stylesheet' type='text/css' href='style.css'>
+
+</head>
+
+<body>
+
+    <!-- ВЕРХНЕЕ МЕНЮ (ПОСТОЯННОЕ) -->
+    <header>
+        <div class="site-title">Верумическая теория устойчивого благополучия (ВЕРУМИКА)</i></div>
+
+        <nav class="main-nav">
+            <script src="0menu.js"></script>
+        </nav>
+
+    </header>
+
+    <div class="container">
+        
+        <!-- ЛЕВАЯ КОЛОНКА (МЕНЯЕТСЯ В ЗАВИСИМОСТИ ОТ СТРАНИЦЫ) -->
+        <!-- Эту часть нужно копировать в каждый HTML файл, меняя только список ссылок -->
+        <aside class="sidebar">
+            <h3>Раздел: ТЛР</h3>
+
+            <ul class="submenu">
+                <script src="2000smenu.js"></script>
+            </ul>
+
+        </aside>
+
+        <!-- ОСНОВНОЙ КОНТЕНТ -->
+        <main class="content">
+
+
+
+<h1>34. P28 — алгебра историй локальных расширений</h1>
+
+<p>Теперь переходим от графа допустимых расширений к более фундаментальному объекту — <strong>пространству историй</strong>.</p>
+
+<p>Это необходимо, поскольку локальное расширение описывает один шаг, а каноническая реконструкция относится уже ко всей последовательности шагов.</p>
+
+<p>Главный вопрос:</p>
+
+<div class="math-block">$$\boxed{\text{когда две различные истории являются одним и тем же способом построения структуры?}}$$</div>
+
+
+
+<h2>1. Определение D93 — история</h2>
+
+<p>Пусть $G=(V,E)$ — граф допустимых локальных расширений.</p>
+
+<p>Историей из $S$ в $T$ называется конечная последовательность рёбер</p>
+
+<div class="math-block">$$h=e_1e_2\cdots e_n$$</div>
+
+<p>такая, что существует путь</p>
+
+<div class="math-block">$$S=S_0\xrightarrow{e_1}S_1 \xrightarrow{e_2}\cdots \xrightarrow{e_n}S_n=T.$$</div>
+
+<p>Обозначим множество всех таких историй:</p>
+
+<div class="math-block">$$\boxed{\mathcal H(S,T).}$$</div>
+
+
+
+<h2>2. Пустая история</h2>
+
+<p>Для каждого состояния $S$ существует пустая история:</p>
+
+<div class="math-block">$$\varepsilon_S.$$</div>
+
+<p>Она имеет длину:</p>
+
+<div class="math-block">$$|\varepsilon_S|=0$$</div>
+
+<p>и:</p>
+
+<div class="math-block">$$\varepsilon_S:S\leadsto S.$$</div>
+
+
+
+<h2>3. Композиция историй</h2>
+
+<p>Пусть:</p>
+
+<div class="math-block">$$h:S\leadsto T,$$</div>
+
+<div class="math-block">$$k:T\leadsto U.$$</div>
+
+<p>Тогда их последовательное выполнение образует историю:</p>
+
+<div class="math-block">$$hk:S\leadsto U.$$</div>
+
+<p>Определим:</p>
+
+<div class="math-block">$$\boxed{\circ:\mathcal H(S,T)\times\mathcal H(T,U) \to \mathcal H(S,U)}$$</div>
+
+<p>формулой конкатенации:</p>
+
+<div class="math-block">$$h\circ k=hk.$$</div>
+
+
+
+<h2>4. Теорема T100 — ассоциативность композиции</h2>
+
+<p>Для любых совместимых историй:</p>
+
+<div class="math-block">$$(hk)l=h(kl).$$</div>
+
+<h3>Доказательство</h3>
+
+<p>Обе части являются одной и той же последовательностью рёбер:</p>
+
+<div class="math-block">$$e_1\ldots e_m f_1\ldots f_n g_1\ldots g_r.$$</div>
+
+<p>Следовательно:</p>
+
+<div class="math-block">$$(hk)l=h(kl).$$</div>
+
+<div class="math-block">$$\Box$$</div>
+
+
+
+<h2>5. Теорема T101 — единица</h2>
+
+<p>Для любой истории:</p>
+
+<div class="math-block">$$h:S\leadsto T$$</div>
+
+<p>имеем:</p>
+
+<div class="math-block">$$\varepsilon_S h=h,$$</div>
+
+<div class="math-block">$$h\varepsilon_T=h.$$</div>
+
+<p>Следовательно, истории вместе с состояниями образуют категориальную структуру:</p>
+
+<div class="math-block">$$\boxed{\mathsf H_G.}$$</div>
+
+<p>Её объекты — структурные состояния, морфизмы — истории.</p>
+
+<p>Пока это просто свободная категория путей графа.</p>
+
+
+
+<h2>6. Локальные квадраты как отношения</h2>
+
+<p>Пусть имеется коммутативный квадрат:</p>
+
+<div class="math-block">$$\begin{array}{ccc}
+&S&\\
+\swarrow^e&&\searrow^f\\
+S_e&&S_f\\
+\searrow^f&&\swarrow^e\\
+&T&
+\end{array}$$</div>
+
+<p>Тогда две истории:</p>
+
+<div class="math-block">$$ef:S\leadsto T$$</div>
+
+<p>и:</p>
+
+<div class="math-block">$$fe:S\leadsto T$$</div>
+
+<p>объявляются локально эквивалентными:</p>
+
+<div class="math-block">$$\boxed{ef\sim_\square fe.}$$</div>
+
+
+
+<h2>7. Определение D94 — локальная конгруэнция</h2>
+
+<p>Пусть $\equiv_I$ — наименьшее отношение эквивалентности на историях, содержащее все локальные обмены:</p>
+
+<div class="math-block">$$ef\sim_\square fe,$$</div>
+
+<p>и замкнутое относительно композиции:</p>
+
+<div class="math-block">$$h\equiv_I h' \Rightarrow kh\equiv_I kh',$$</div>
+
+<div class="math-block">$$h\equiv_I h' \Rightarrow hk\equiv_I h'k.$$</div>
+
+<p>Это принципиально важно.</p>
+
+<p>Локальное равенство должно сохраняться при добавлении одинакового контекста до и после него.</p>
+
+
+
+<h2>8. Теорема T102 — $\equiv_I$ является конгруэнцией</h2>
+
+<p>Отношение $\equiv_I$ является:</p>
+
+<ol>
+<li>рефлексивным;</li>
+<li>симметричным;</li>
+<li>транзитивным;</li>
+<li>совместимым с композицией историй.</li>
+</ol>
+
+<h3>Доказательство</h3>
+
+<p>По определению $\equiv_I$ является наименьшим отношением эквивалентности, содержащим локальные обмены и замкнутым относительно композиции.</p>
+
+<p>Следовательно, все четыре свойства выполняются.</p>
+
+<div class="math-block">$$\Box$$</div>
+
+
+
+<h2>9. Фактор-алгебра историй</h2>
+
+<p>Теперь можно факторизовать пространство историй:</p>
+
+<div class="math-block">$$\boxed{\mathcal A_I(S,T)=\mathcal H(S,T)/{\equiv_I}.}$$</div>
+
+<p>Её элементы:</p>
+
+<div class="math-block">$$[h]_I$$</div>
+
+<p>— классы историй относительно локальных перестановок.</p>
+
+<p>Это уже существенно более содержательный объект, чем отдельная история.</p>
+
+
+
+<h2>10. Композиция классов</h2>
+
+<p>Определим:</p>
+
+<div class="math-block">$$[h]_I,[k]_I \mapsto [hk]_I.$$</div>
+
+<p>Нужно проверить корректность.</p>
+
+
+
+<h2>11. Теорема T103 — композиция классов корректна</h2>
+
+<p>Если:</p>
+
+<div class="math-block">$$h\equiv_I h',$$</div>
+
+<p>и:</p>
+
+<div class="math-block">$$k\equiv_I k',$$</div>
+
+<p>то:</p>
+
+<div class="math-block">$$hk\equiv_I h'k'.$$</div>
+
+<h3>Доказательство</h3>
+
+<p>Из совместимости с композицией:</p>
+
+<div class="math-block">$$h\equiv_I h' \Rightarrow hk\equiv_I h'k.$$</div>
+
+<p>А:</p>
+
+<div class="math-block">$$k\equiv_I k' \Rightarrow h'k\equiv_I h'k'.$$</div>
+
+<p>По транзитивности:</p>
+
+<div class="math-block">$$hk\equiv_I h'k'.$$</div>
+
+<div class="math-block">$$\Box$$</div>
+
+<p>Следовательно, композиция классов определена однозначно.</p>
+
+
+
+<h2>12. Получаем фактор-категорию</h2>
+
+<p>Таким образом:</p>
+
+<div class="math-block">$$\boxed{\mathsf A_I=\mathsf H_G/{\equiv_I}}$$</div>
+
+<p>— категория историй, в которой локально переставляемые последовательности считаются одинаковыми.</p>
+
+<p>Это естественный кандидат на <strong>алгебру локальных расширений</strong>.</p>
+
+
+
+<h2>13. Теперь вводим семантическое отображение</h2>
+
+<p>Пусть:</p>
+
+<div class="math-block">$$\operatorname{End}: \mathcal H(S,T)\to\mathcal S$$</div>
+
+<p>отображает историю в её конечную структуру.</p>
+
+<p>Для фиксированных концов $S,T$ фактически:</p>
+
+<div class="math-block">$$\operatorname{End}: \mathcal H(S,T)\to\{T\},$$</div>
+
+<p>если конечное состояние полностью определяет семантический результат.</p>
+
+<p>Но для общей теории удобнее сохранить более абстрактное отображение:</p>
+
+<div class="math-block">$$\Phi:\mathcal H\to\mathcal S.$$</div>
+
+
+
+<h2>14. Необходимое условие семантической корректности</h2>
+
+<p>Локальный обмен не должен менять результат.</p>
+
+<p>То есть:</p>
+
+<div class="math-block">$$ef\equiv_I fe$$</div>
+
+<p>должно влечь:</p>
+
+<div class="math-block">$$\Phi(ef)=\Phi(fe).$$</div>
+
+<p>Это уже является содержанием ранее принятого A3.</p>
+
+
+
+<h2>15. Теорема T104 — факторизация семантики</h2>
+
+<p>Если A3 выполнена, существует единственное отображение:</p>
+
+<div class="math-block">$$\boxed{\bar\Phi: \mathcal A_I \to \mathcal S}$$</div>
+
+<p>такое, что:</p>
+
+<div class="math-block">$$\Phi=\bar\Phi\circ\pi,$$</div>
+
+<p>где:</p>
+
+<div class="math-block">$$\pi(h)=[h]_I.$$</div>
+
+<h3>Доказательство</h3>
+
+<p>Если:</p>
+
+<div class="math-block">$$h\equiv_I h',$$</div>
+
+<p>то $h$ и $h'$ связаны конечной последовательностью локальных обменов.</p>
+
+<p>Каждый обмен сохраняет $\Phi$ по A3.</p>
+
+<p>Следовательно:</p>
+
+<div class="math-block">$$\Phi(h)=\Phi(h').$$</div>
+
+<p>Поэтому значение $\Phi$ зависит только от класса $[h]_I$.</p>
+
+<p>Определяем:</p>
+
+<div class="math-block">$$\bar\Phi([h]_I)=\Phi(h).$$</div>
+
+<p>Корректность следует из установленной независимости от представителя.</p>
+
+<p>Единственность очевидна.</p>
+
+<div class="math-block">$$\Box$$</div>
+
+
+
+<h2>16. Это фундаментальная диаграмма</h2>
+
+<p>Получаем:</p>
+
+<div class="math-block">$$\boxed{\mathcal H \xrightarrow{\pi} \mathcal A_I \xrightarrow{\bar\Phi} \mathcal S}$$</div>
+
+<p>и:</p>
+
+<div class="math-block">$$\Phi=\bar\Phi\circ\pi.$$</div>
+
+<p>То есть:</p>
+
+<div class="math-block">$$\text{история} \longrightarrow \text{локальный класс истории} \longrightarrow \text{структурный результат}.$$</div>
+
+
+
+<h2>17. Теперь каноническая реконструкция получает точное определение</h2>
+
+<p>Для фиксированных $S,T$ определим:</p>
+
+<div class="math-block">$$\mathcal A_I(S,T)=\mathcal H(S,T)/{\equiv_I}.$$</div>
+
+<h3>Определение D95 — каноническая реконструкция</h3>
+
+<p>Каноническая реконструкция существует на интервале $(S,T)$, если отображение:</p>
+
+<div class="math-block">$$\boxed{\bar\Phi_{S,T}: \mathcal A_I(S,T) \to \mathcal S(S,T)}$$</div>
+
+<p>является инъективным.</p>
+
+<p>То есть:</p>
+
+<div class="math-block">$$\bar\Phi([h])=\bar\Phi([k]) \Rightarrow [h]=[k].$$</div>
+
+
+
+<h2>18. Смысл инъективности</h2>
+
+<p>Если:</p>
+
+<div class="math-block">$$[h]\ne[k],$$</div>
+
+<p>но:</p>
+
+<div class="math-block">$$\bar\Phi([h])=\bar\Phi([k]),$$</div>
+
+<p>то существуют две локально неэквивалентные истории, создающие одну и ту же структуру.</p>
+
+<p>Это и есть точная форма:</p>
+
+<div class="math-block">$$\boxed{\text{неоднозначности реконструкции}.}$$</div>
+
+
+
+<h2>19. Теорема T105 — критерий каноничности</h2>
+
+<p>Для фиксированных $S,T$ следующие утверждения эквивалентны:</p>
+
+<ol>
+<li>каноническая реконструкция существует;</li>
+<li>$\bar\Phi_{S,T}$ инъективно;</li>
+<li>любые две семантически эквивалентные истории локально эквивалентны:
+<div class="math-block">$$\Phi(h)=\Phi(k) \Rightarrow h\equiv_I k.$$</div>
+</li>
+</ol>
+
+<h3>Доказательство</h3>
+
+<p>$1\Leftrightarrow 2$ — определение канонической реконструкции.</p>
+
+<p>$2\Rightarrow 3$.</p>
+
+<p>Если:</p>
+
+<div class="math-block">$$\Phi(h)=\Phi(k),$$</div>
+
+<p>то:</p>
+
+<div class="math-block">$$\bar\Phi([h])=\bar\Phi([k]).$$</div>
+
+<p>Инъективность даёт:</p>
+
+<div class="math-block">$$[h]=[k].$$</div>
+
+<p>Следовательно:</p>
+
+<div class="math-block">$$h\equiv_I k.$$</div>
+
+<p>Обратно:</p>
+
+<p>$3\Rightarrow 2$.</p>
+
+<p>Если:</p>
+
+<div class="math-block">$$\bar\Phi([h])=\bar\Phi([k]),$$</div>
+
+<p>то:</p>
+
+<div class="math-block">$$\Phi(h)=\Phi(k).$$</div>
+
+<p>По условию:</p>
+
+<div class="math-block">$$h\equiv_I k,$$</div>
+
+<p>следовательно:</p>
+
+<div class="math-block">$$[h]=[k].$$</div>
+
+<p>Таким образом, $\bar\Phi$ инъективно.</p>
+
+<div class="math-block">$$\Box$$</div>
+
+
+
+<h2>20. Связь с $\kappa$</h2>
+
+<p>Теперь предыдущий инвариант можно интерпретировать точнее.</p>
+
+<p>Если все истории $S\leadsto T$ имеют один и тот же конечный структурный результат $T$, то:</p>
+
+<div class="math-block">$$\kappa(S,T)=|\mathcal A_I(S,T)|.$$</div>
+
+<p>Поэтому:</p>
+
+<div class="math-block">$$\boxed{\kappa(S,T)=1}$$</div>
+
+<p>эквивалентно каноничности реконструкции данного результата.</p>
+
+
+
+<h2>21. Но появляется важное уточнение</h2>
+
+<p>Ранее мы использовали:</p>
+
+<div class="math-block">$$\kappa=|\pi_0(\Gamma)|.$$</div>
+
+<p>Теперь:</p>
+
+<div class="math-block">$$\pi_0(\Gamma)$$</div>
+
+<p>точно совпадает с классами эквивалентности, порождёнными локальными обменами.</p>
+
+<p>Следовательно:</p>
+
+<div class="math-block">$$\boxed{\mathcal A_I(S,T) \cong \pi_0(\Gamma(S,T))}$$</div>
+
+<p>как множества.</p>
+
+<p>Это не новое предположение, а непосредственное следствие определений.</p>
+
+
+
+<h2>22. Теорема T106 — точная связь алгебры и графа историй</h2>
+
+<p>Для конечного интервала:</p>
+
+<div class="math-block">$$\boxed{|\mathcal A_I(S,T)|=\kappa(S,T).}$$</div>
+
+<h3>Доказательство</h3>
+
+<p>Вершины $\Gamma(S,T)$ — максимальные истории.</p>
+
+<p>Рёбра — элементарные локальные обмены.</p>
+
+<p>Связность в $\Gamma$ порождает ровно отношение $\equiv_I$.</p>
+
+<p>Следовательно, компоненты связности взаимно однозначны с классами $\equiv_I$.</p>
+
+<div class="math-block">$$\Box$$</div>
+
+
+
+<h2>23. Теперь можно строго связать P27 с алгеброй историй</h2>
+
+<p>Наш контрпример T99 удовлетворяет:</p>
+
+<div class="math-block">$$\kappa(\bot,\top)\ge 2.$$</div>
+
+<p>Следовательно:</p>
+
+<div class="math-block">$$|\mathcal A_I(\bot,\top)|\ge 2.$$</div>
+
+<p>При этом конечный структурный результат один:</p>
+
+<div class="math-block">$$\mathcal S(\bot,\top)=\{\top\}.$$</div>
+
+<p>Поэтому:</p>
+
+<div class="math-block">$$\bar\Phi: \mathcal A_I(\bot,\top) \to \{\top\}$$</div>
+
+<p>неинъективно.</p>
+
+<p>Таким образом, T99 является <strong>строгим контрпримером канонической реконструкции</strong>.</p>
+
+
+
+<h2>24. Возникает второе свойство — полнота</h2>
+
+<p>Инъективность отвечает за отсутствие неоднозначности.</p>
+
+<p>Но есть и противоположный вопрос:</p>
+
+<blockquote>
+<p>всякая структура должна быть достижима некоторой историей?</p>
+</blockquote>
+
+<p>Это сюръективность.</p>
+
+<h3>Определение D96 — реконструктивная полнота</h3>
+
+<p>Отображение:</p>
+
+<div class="math-block">$$\bar\Phi_{S,T}$$</div>
+
+<p>называется полным, если оно сюръективно.</p>
+
+
+
+<h2>25. Две независимые характеристики</h2>
+
+<p>Теперь получаем:</p>
+
+<div class="math-block">$$\boxed{\text{инъективность} \equiv \text{однозначность},}$$</div>
+
+<div class="math-block">$$\boxed{\text{сюръективность} \equiv \text{полнота представления}.}$$</div>
+
+<p>Если выполнены обе:</p>
+
+<div class="math-block">$$\boxed{\bar\Phi_{S,T} \text{ — биекция}.}$$</div>
+
+<p>Тогда:</p>
+
+<div class="math-block">$$\mathcal A_I(S,T) \cong \mathcal S(S,T).$$</div>
+
+
+
+<h2>26. Это существенно уточняет понятие канонической реконструкции</h2>
+
+<p>Полная каноническая реконструкция означает не просто:</p>
+
+<div class="math-block">$$\text{одна структура}\Rightarrow\text{один класс истории},$$</div>
+
+<p>а:</p>
+
+<div class="math-block">$$\boxed{\text{структуры} \longleftrightarrow \text{классы локально эквивалентных историй}.}$$</div>
+
+<p>То есть имеется точное соответствие.</p>
+
+
+
+<h2>27. Следующая важная проверка — композиция канонических классов</h2>
+
+<p>Пусть:</p>
+
+<div class="math-block">$$S\to T\to U.$$</div>
+
+<p>Если:</p>
+
+<div class="math-block">$$[h]\in\mathcal A_I(S,T),$$</div>
+
+<p>и:</p>
+
+<div class="math-block">$$[k]\in\mathcal A_I(T,U),$$</div>
+
+<p>то:</p>
+
+<div class="math-block">$$[h][k]=[hk].$$</div>
+
+<p>Таким образом, канонические классы историй сами наследуют композицию.</p>
+
+<p>Это означает, что будущая каноническая теория может быть не просто множеством классов, а полноценной категорией:</p>
+
+<div class="math-block">$$\boxed{\mathsf A_I.}$$</div>
+
+
+
+<h2>28. Центральный результат P28</h2>
+
+<p>Теперь построена строгая цепочка:</p>
+
+<div class="math-block">$$\boxed{\text{локальные расширения} \to \text{истории} \to \text{локальная конгруэнция} \to \text{алгебра историй} \to \text{семантическое отображение}.}$$</div>
+
+<p>И каноничность определяется исключительно свойством этого отображения:</p>
+
+<div class="math-block">$$\boxed{\bar\Phi\text{ инъективно}.}$$</div>
+
+
+
+<h2>29. Что теперь является теоремой, а что — условием модели</h2>
+
+<h3>Уже доказано</h3>
+
+<p>$\mathcal H$ образует категорию путей.</p>
+
+<p>$\equiv_I$ является конгруэнцией.</p>
+
+<p>$\mathcal A_I=\mathcal H/\equiv_I$ корректно определена.</p>
+
+<p>При A3 семантика факторизуется:</p>
+
+<div class="math-block">$$\Phi=\bar\Phi\circ\pi.$$</div>
+
+<p>Каноничность эквивалентна инъективности $\bar\Phi$.</p>
+
+
+
+<h3>Не доказано автоматически</h3>
+
+<p>$\bar\Phi$ инъективно.</p>
+
+<p>$\bar\Phi$ сюръективно.</p>
+
+<p>$\bar\Phi$ биективно.</p>
+
+<p>Это свойства конкретной модели.</p>
+
+
+
+<h2>30. Это позволяет окончательно разделить две проблемы</h2>
+
+<h3>Проблема локальной алгебры</h3>
+
+<p>Построить:</p>
+
+<div class="math-block">$$\mathcal A_I.$$</div>
+
+<h3>Проблема канонической реконструкции</h3>
+
+<p>Доказать:</p>
+
+<div class="math-block">$$\bar\Phi$$</div>
+
+<p>инъективность.</p>
+
+<h3>Проблема полноты модели</h3>
+
+<p>Доказать:</p>
+
+<div class="math-block">$$\bar\Phi$$</div>
+
+<p>сюръективность.</p>
+
+<p>Это три различных математических вопроса, которые раньше частично смешивались.</p>
+
+
+
+<h2>31. Следующий этап P29</h2>
+
+<p>Теперь естественно исследовать ядро семантического отображения:</p>
+
+<div class="math-block">$$\boxed{\ker\Phi.}$$</div>
+
+<p>Вопрос:</p>
+
+<blockquote>
+<p>когда вся семантическая эквивалентность порождается локальными квадратами?</p>
+</blockquote>
+
+<p>Формально:</p>
+
+<div class="math-block">$$\boxed{\ker\Phi=\equiv_I\ ?}$$</div>
+
+<p>Если да, то:</p>
+
+<div class="math-block">$$\bar\Phi$$</div>
+
+<p>инъективно.</p>
+
+<p>Если нет, существует дополнительное отношение между историями, которое <strong>не выводится из локальной алгебры</strong>.</p>
+
+<p>Следовательно, P29 должен установить:</p>
+
+<div class="math-block">$$\boxed{\textbf{минимальный набор отношений между историями, необходимый для совпадения семантической эквивалентности с локальной конгруэнцией}.}$$</div>
+
+<p>Это следующий критический шаг к окончательной минимальной аксиоматике локальных расширений.</p>
+
+
+        </main>
+
+
+    <!-- Скрипты KaTeX -->
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false}
+            ],
+            throwOnError: false
+        });">
+    </script>
+</body>
+</html>

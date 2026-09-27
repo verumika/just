@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Верумическая теория</title>
+
+    <!-- Подключаем KaTeX для формул -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.css">
+
+    <link rel='stylesheet' type='text/css' href='style.css'>
+
+</head>
+
+<body>
+
+    <!-- ВЕРХНЕЕ МЕНЮ (ПОСТОЯННОЕ) -->
+    <header>
+        <div class="site-title">Верумическая теория устойчивого благополучия (ВЕРУМИКА)</i></div>
+
+        <nav class="main-nav">
+            <script src="0menu.js"></script>
+        </nav>
+
+    </header>
+
+    <div class="container">
+        
+        <!-- ЛЕВАЯ КОЛОНКА (МЕНЯЕТСЯ В ЗАВИСИМОСТИ ОТ СТРАНИЦЫ) -->
+        <!-- Эту часть нужно копировать в каждый HTML файл, меняя только список ссылок -->
+        <aside class="sidebar">
+            <h3>Раздел: ТЛР</h3>
+
+            <ul class="submenu">
+                <script src="2000smenu.js"></script>
+            </ul>
+
+        </aside>
+
+        <!-- ОСНОВНОЙ КОНТЕНТ -->
+        <main class="content">
+
+
+
+<h1>8. Восстановление частичного порядка из локальных расширений</h1>
+
+<p>Исследуем P5.</p>
+
+<p>Цель — установить, может ли исходное отношение</p>
+<div class="math-block"> $$ \preceq $$ </div>
+<p>быть полностью выведено из одного примитивного отношения локальных расширений</p>
+<div class="math-block"> $$ L. $$ </div>
+
+<p>Если это возможно, фундаментальная структура действительно может сократиться до</p>
+<div class="math-block"> $$ (\mathcal{S}, L). $$ </div>
+
+
+
+<h2>1. Достижимость</h2>
+
+<h3>Определение D8. Путь локальных расширений</h3>
+
+<p>Пусть</p>
+<div class="math-block"> $$ L \subseteq \mathcal{S} \times \mathcal{S}. $$ </div>
+
+<p>Конечным путём из $A$ в $B$ называется последовательность</p>
+<div class="math-block"> $$ A = A_0, A_1, \ldots, A_n = B, $$ </div>
+<p>где</p>
+<div class="math-block"> $$ L(A_i, A_{i+1}) $$ </div>
+<p>для каждого</p>
+<div class="math-block"> $$ 0 \leq i < n. $$ </div>
+
+<p>Путь длины $0$ допускается.</p>
+
+
+
+<h3>Определение D9. Отношение достижимости</h3>
+
+<p>Определим</p>
+<div class="math-block"> $$ A \preceq_L B $$ </div>
+<p>тогда и только тогда, когда существует конечный путь из $A$ в $B$.</p>
+
+<p>Иными словами,</p>
+<div class="math-block"> $$ \preceq_L = L^*, $$ </div>
+<p>где $L^*$ — рефлексивное транзитивное замыкание отношения $L$.</p>
+
+
+
+<h2>2. Что следует автоматически?</h2>
+
+<h3>Теорема T13. Рефлексивность достижимости</h3>
+
+<div class="math-block"> $$ \forall A \in \mathcal{S}:\quad A \preceq_L A. $$ </div>
+
+<h4>Доказательство</h4>
+
+<p>Для любого $A$ существует путь длины $0$:</p>
+<div class="math-block"> $$ A. $$ </div>
+
+<p>Следовательно,</p>
+<div class="math-block"> $$ A \preceq_L A. $$ </div>
+<p>□</p>
+
+
+
+<h3>Теорема T14. Транзитивность достижимости</h3>
+
+<p>Если</p>
+<div class="math-block"> $$ A \preceq_L B $$ </div>
+<p>и</p>
+<div class="math-block"> $$ B \preceq_L C, $$ </div>
+<p>то</p>
+<div class="math-block"> $$ A \preceq_L C. $$ </div>
+
+<h4>Доказательство</h4>
+
+<p>Существуют пути</p>
+<div class="math-block"> $$ A = A_0 \to \cdots \to A_m = B $$ </div>
+<p>и</p>
+<div class="math-block"> $$ B = B_0 \to \cdots \to B_n = C. $$ </div>
+
+<p>Объединяя их в точке $B$, получаем путь</p>
+<div class="math-block"> $$ A = A_0 \to \cdots \to A_m = B = B_0 \to \cdots \to B_n = C. $$ </div>
+
+<p>Следовательно,</p>
+<div class="math-block"> $$ A \preceq_L C. $$ </div>
+<p>□</p>
+
+
+
+<h2>Следствие C5</h2>
+
+<p>Отношение $\preceq_L$ <strong>всегда является предпорядком</strong>.</p>
+
+<p>То есть рефлексивность и транзитивность не требуют никаких дополнительных аксиом.</p>
+
+<p>Это уже важный результат минимизации.</p>
+
+
+
+<h2>3. Когда предпорядок становится частичным порядком?</h2>
+
+<p>Остаётся антисимметричность:</p>
+<div class="math-block"> $$ A \preceq_L B \land B \preceq_L A \Longrightarrow A = B. $$ </div>
+
+<p>Она, как оказывается, эквивалентна отсутствию циклов.</p>
+
+
+
+<h3>Определение D10. Цикл</h3>
+
+<p>Ориентированный цикл — это конечная последовательность</p>
+<div class="math-block"> $$ A_0, A_1, \ldots, A_n $$ </div>
+<p>при $n \geq 1$, такая что</p>
+<div class="math-block"> $$ A_0 = A_n $$ </div>
+<p>и</p>
+<div class="math-block"> $$ L(A_i, A_{i+1}) $$ </div>
+<p>для всех</p>
+<div class="math-block"> $$ 0 \leq i < n. $$ </div>
+
+<p>Если среди вершин цикла имеются различные состояния, цикл называется <strong>нетривиальным</strong>.</p>
+
+
+
+<h3>Теорема T15. Критерий антисимметричности</h3>
+
+<p>Отношение $\preceq_L$ является частичным порядком тогда и только тогда, когда $L$ не содержит нетривиальных ориентированных циклов.</p>
+
+<h4>Доказательство</h4>
+
+<h3>$(\Rightarrow)$</h3>
+
+<p>Предположим, что $\preceq_L$ — частичный порядок.</p>
+
+<p>Если бы существовал нетривиальный цикл</p>
+<div class="math-block"> $$ A_0 \to \cdots \to A_n = A_0, $$ </div>
+<p>то для любой пары состояний на цикле выполнялось бы взаимное достижение. В частности, для различных $A_i, A_j$:</p>
+<div class="math-block"> $$ A_i \preceq_L A_j $$ </div>
+<p>и</p>
+<div class="math-block"> $$ A_j \preceq_L A_i. $$ </div>
+
+<p>Это нарушает антисимметричность.</p>
+
+<p>Следовательно, нетривиальных циклов нет.</p>
+
+<h3>$(\Leftarrow)$</h3>
+
+<p>Предположим, что нетривиальных циклов нет.</p>
+
+<p>Пусть</p>
+<div class="math-block"> $$ A \preceq_L B $$ </div>
+<p>и</p>
+<div class="math-block"> $$ B \preceq_L A. $$ </div>
+
+<p>Если $A \neq B$, объединение соответствующих путей даёт нетривиальный цикл.</p>
+
+<p>Противоречие.</p>
+
+<p>Следовательно,</p>
+<div class="math-block"> $$ A = B. $$ </div>
+
+<p>Таким образом, $\preceq_L$ антисимметрично.</p>
+
+<p>Вместе с T13 и T14 получаем частичный порядок.</p>
+<p>□</p>
+
+
+
+<h2>4. Первый фундаментальный результат</h2>
+
+<p>Получаем:</p>
+<div class="math-block"> $$ \boxed{ L\text{ ациклично} \Longleftrightarrow \preceq_L\text{ является частичным порядком} } $$ </div>
+
+<p>Следовательно, если в теории локальных расширений можно доказать отсутствие циклов, <strong>частичный порядок больше не является самостоятельным примитивом</strong>.</p>
+
+<p>Он строится автоматически:</p>
+<div class="math-block"> $$ \boxed{\preceq = \preceq_L = L^*}. $$ </div>
+
+
+
+<h2>5. Но совпадает ли новый порядок со старым?</h2>
+
+<p>Это принципиально важно.</p>
+
+<p>Внешняя теория уже содержит некоторый частичный порядок</p>
+<div class="math-block"> $$ \preceq. $$ </div>
+
+<p>Мы построили новый:</p>
+<div class="math-block"> $$ \preceq_L. $$ </div>
+
+<p>Нужно установить:</p>
+<div class="math-block"> $$ \boxed{\preceq = \preceq_L}. $$ </div>
+
+<p>Само по себе это неверно.</p>
+
+
+
+<h3>Контрпример C7</h3>
+
+<p>Пусть</p>
+<div class="math-block"> $$ \mathcal{S} = \{a, b\} $$ </div>
+<p>и внешний порядок задаётся:</p>
+<div class="math-block"> $$ a \preceq b. $$ </div>
+
+<p>Но пусть</p>
+<div class="math-block"> $$ L = \varnothing. $$ </div>
+
+<p>Тогда:</p>
+<div class="math-block"> $$ a \preceq b, $$ </div>
+<p>но</p>
+<div class="math-block"> $$ a \not\preceq_L b. $$ </div>
+
+<p>Следовательно,</p>
+<div class="math-block"> $$ \preceq_L \neq \preceq. $$ </div>
+
+
+
+<h3>Контрпример C8</h3>
+
+<p>Теперь пусть</p>
+<div class="math-block"> $$ \mathcal{S} = \{a, b, c\} $$ </div>
+<p>и внешний порядок:</p>
+<div class="math-block"> $$ a \prec b \prec c. $$ </div>
+
+<p>Пусть</p>
+<div class="math-block"> $$ L = \{(a, c)\}. $$ </div>
+
+<p>Тогда</p>
+<div class="math-block"> $$ a \preceq_L c, $$ </div>
+<p>хотя локальная структура не содержит переходов</p>
+<div class="math-block"> $$ a \to b, \qquad b \to c. $$ </div>
+
+<p>Если внешняя теория требует, чтобы</p>
+<div class="math-block"> $$ a \preceq b \preceq c, $$ </div>
+<p>то новый порядок снова не совпадает со старым.</p>
+
+
+
+<h2>6. Необходимы два условия</h2>
+
+<p>Для совпадения порядков необходимо установить две импликации.</p>
+
+<h3>Звуковность</h3>
+<div class="math-block"> $$ L(A,B) \Longrightarrow A \preceq B. \tag{S} $$ </div>
+<p>Каждое локальное расширение должно быть допустимым по исходному порядку.</p>
+
+<h3>Полнота</h3>
+<div class="math-block"> $$ A \preceq B \Longrightarrow A \preceq_L B. \tag{C} $$ </div>
+<p>Любая допустимая упорядоченная связь должна быть воспроизводима конечной последовательностью локальных расширений.</p>
+
+
+
+<h3>Теорема T16. Критерий совпадения порядков</h3>
+
+<p>Пусть $\preceq$ — исходное отношение на $\mathcal{S}$, а $\preceq_L$ — достижимость по $L$.</p>
+
+<p>Тогда</p>
+<div class="math-block"> $$ \preceq = \preceq_L $$ </div>
+<p>тогда и только тогда, когда выполнены:</p>
+<div class="math-block"> $$ L \subseteq \preceq $$ </div>
+<p>и</p>
+<div class="math-block"> $$ \preceq \subseteq L^*. $$ </div>
+
+<h4>Доказательство</h4>
+
+<p>Если</p>
+<div class="math-block"> $$ L \subseteq \preceq $$ </div>
+<p>и $\preceq$ транзитивно, то каждый конечный $L$-путь принадлежит $\preceq$. Поэтому</p>
+<div class="math-block"> $$ L^* \subseteq \preceq. $$ </div>
+
+<p>Вторая предпосылка даёт</p>
+<div class="math-block"> $$ \preceq \subseteq L^*. $$ </div>
+
+<p>Следовательно,</p>
+<div class="math-block"> $$ \preceq = L^* = \preceq_L. $$ </div>
+
+<p>Обратное очевидно: если</p>
+<div class="math-block"> $$ \preceq = L^*, $$ </div>
+<p>то $L \subseteq L^* = \preceq$ и $\preceq \subseteq L^*$.</p>
+<p>□</p>
+
+
+
+<h2>7. Следовательно, порядок можно удалить — но не бесплатно</h2>
+
+<p>Мы получили точный результат.</p>
+
+<p>Если внешняя теория доказывает:</p>
+<div class="math-block"> $$ L \subseteq \preceq $$ </div>
+<p>и</p>
+<div class="math-block"> $$ \preceq \subseteq L^*, $$ </div>
+<p>то</p>
+<div class="math-block"> $$ \preceq = L^*. $$ </div>
+
+<p>Тогда $\preceq$ является производным объектом.</p>
+
+<p>Но если эти свойства не доказаны, удалять $\preceq$ из фундаментальной структуры пока нельзя.</p>
+
+
+
+<h2>8. Теперь исследуем покрытие</h2>
+
+<p>Предположим, что</p>
+<div class="math-block"> $$ \preceq_L = L^* $$ </div>
+<p>является частичным порядком.</p>
+
+<p>Можно ли восстановить исходные локальные расширения как отношения покрытия?</p>
+
+<p>Напомним:</p>
+<div class="math-block"> $$ A \lessdot_L B $$ </div>
+<p>означает:</p>
+<div class="math-block"> $$ A \prec_L B $$ </div>
+<p>и не существует $C$, такого что</p>
+<div class="math-block"> $$ A \prec_L C \prec_L B. $$ </div>
+
+
+
+<h3>Контрпример C9. Избыточное локальное ребро</h3>
+
+<p>Пусть</p>
+<div class="math-block"> $$ L = \{(a,b), (b,c), (a,c)\}. $$ </div>
+
+<p>Тогда:</p>
+<div class="math-block"> $$ a \preceq_L b \preceq_L c $$ </div>
+<p>и</p>
+<div class="math-block"> $$ a \preceq_L c. $$ </div>
+
+<p>Но</p>
+<div class="math-block"> $$ a \not\lessdot_L c, $$ </div>
+<p>поскольку существует промежуточное состояние $b$.</p>
+
+<p>Следовательно,</p>
+<div class="math-block"> $$ L \neq \lessdot_L. $$ </div>
+
+
+
+<h3>Определение D11. Транзитивно минимальное отношение</h3>
+
+<p>Назовём $L$ <strong>транзитивно минимальным относительно своего замыкания</strong>, если</p>
+<div class="math-block"> $$ L = \operatorname{Cov}(L^*), $$ </div>
+<p>где $\operatorname{Cov}(L^*)$ — отношение покрытия порядка $L^*$.</p>
+
+<p>Иными словами, каждое локальное расширение является действительно необходимым элементарным переходом и не дублируется более длинным путём.</p>
+
+
+
+<h3>Теорема T17. Критерий восстановления локальных расширений</h3>
+
+<p>Пусть $L$ ациклично.</p>
+
+<p>Тогда</p>
+<div class="math-block"> $$ L = \lessdot_L $$ </div>
+<p>тогда и только тогда, когда $L$ не содержит ребра, заменяемого путём длины не менее двух между теми же вершинами.</p>
+
+<h4>Доказательство</h4>
+
+<p>Если существует</p>
+<div class="math-block"> $$ L(A,B) $$ </div>
+<p>и одновременно путь</p>
+<div class="math-block"> $$ A \to C_1 \to \cdots \to C_n \to B $$ </div>
+<p>длины не менее двух, то</p>
+<div class="math-block"> $$ A \not\lessdot_L B. $$ </div>
+
+<p>Следовательно,</p>
+<div class="math-block"> $$ L \neq \lessdot_L. $$ </div>
+
+<p>Обратно, если некоторое ребро $A \to B$ не является покрытием, существует</p>
+<div class="math-block"> $$ A \prec_L C \prec_L B. $$ </div>
+
+<p>По определению достижимости существуют пути</p>
+<div class="math-block"> $$ A \to \cdots \to C $$ </div>
+<p>и</p>
+<div class="math-block"> $$ C \to \cdots \to B. $$ </div>
+
+<p>Их объединение даёт путь из $A$ в $B$, не являющийся непосредственным ребром $A \to B$.</p>
+<p>□</p>
+
+
+
+<h2>9. Главный результат этапа</h2>
+
+<p>Теперь архитектура значительно прояснилась.</p>
+
+<p>Если выполнены следующие свойства:</p>
+
+<h3>A. Ацикличность</h3>
+<div class="math-block"> $$ L\text{ не содержит нетривиальных циклов}; $$ </div>
+
+<h3>B. Звуковость</h3>
+<div class="math-block"> $$ L \subseteq \preceq; $$ </div>
+
+<h3>C. Полнота</h3>
+<div class="math-block"> $$ \preceq \subseteq L^*; $$ </div>
+
+<h3>D. Транзитивная минимальность</h3>
+<div class="math-block"> $$ L = \operatorname{Cov}(L^*); $$ </div>
+
+<p>то:</p>
+<div class="math-block"> $$ \boxed{ \preceq = L^* } $$ </div>
+<p>и</p>
+<div class="math-block"> $$ \boxed{ L = \operatorname{Cov}(\preceq). } $$ </div>
+
+<p>Таким образом, два объекта взаимно восстанавливаются:</p>
+<div class="math-block"> $$ \boxed{ L \quad\longleftrightarrow\quad \preceq } $$ </div>
+<p>при выполнении соответствующих условий.</p>
+
+
+
+<h2>10. Но минимальная аксиоматика ещё не найдена</h2>
+
+<p>Здесь необходимо не совершить методологическую ошибку.</p>
+
+<p>Мы <strong>не должны сейчас объявлять A, B, C, D четырьмя аксиомами</strong>.</p>
+
+<p>Некоторые из них могут быть следствиями других.</p>
+
+<p>Более того, D может оказаться не фундаментальным свойством теории, а просто условием выбора представления локальных расширений.</p>
+
+<p>Поэтому следующий этап должен исследовать <strong>логическую независимость</strong> этих условий.</p>
+
+
+
+<h2>Новая задача P6</h2>
+
+<p>Исследовать минимальный набор условий на $L$, достаточный для получения:</p>
+<div class="math-block"> $$ \preceq_L $$ </div>
+<p>как частичного порядка и для его точного совпадения с исходным $\preceq$.</p>
+
+<p>Необходимо построить модели, в которых отдельно нарушаются:</p>
+<ol>
+    <li>ацикличность;</li>
+    <li>звуковость;</li>
+    <li>полнота;</li>
+    <li>транзитивная минимальность;</li>
+</ol>
+<p>и проверить, какие из этих свойств действительно независимы.</p>
+
+<p>Особенно важно выяснить:</p>
+<blockquote>
+    <p><strong>можно ли получить звуковость и полноту из одного более фундаментального условия, сформулированного непосредственно на структуре локальных расширений?</strong></p>
+</blockquote>
+
+<p>Если да, то количество фундаментальных аксиом снова уменьшится.</p>
+
+<p>И только после этого можно будет переходить к композиции, совместимости и коммутативности локальных расширений.</p>
+
+
+        </main>
+
+
+    <!-- Скрипты KaTeX -->
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false}
+            ],
+            throwOnError: false
+        });">
+    </script>
+</body>
+</html>

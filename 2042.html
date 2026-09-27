@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Верумическая теория</title>
+
+    <!-- Подключаем KaTeX для формул -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.css">
+
+    <link rel='stylesheet' type='text/css' href='style.css'>
+
+</head>
+
+<body>
+
+    <!-- ВЕРХНЕЕ МЕНЮ (ПОСТОЯННОЕ) -->
+    <header>
+        <div class="site-title">Верумическая теория устойчивого благополучия (ВЕРУМИКА)</i></div>
+
+        <nav class="main-nav">
+            <script src="0menu.js"></script>
+        </nav>
+
+    </header>
+
+    <div class="container">
+        
+        <!-- ЛЕВАЯ КОЛОНКА (МЕНЯЕТСЯ В ЗАВИСИМОСТИ ОТ СТРАНИЦЫ) -->
+        <!-- Эту часть нужно копировать в каждый HTML файл, меняя только список ссылок -->
+        <aside class="sidebar">
+            <h3>Раздел: ТЛР</h3>
+
+            <ul class="submenu">
+                <script src="2000smenu.js"></script>
+            </ul>
+
+        </aside>
+
+        <!-- ОСНОВНОЙ КОНТЕНТ -->
+        <main class="content">
+
+
+
+<h1>42. P36 — минимизация интервального ромба</h1>
+
+<p>Теперь необходимо решить следующий вопрос:</p>
+
+<div class="math-block">$$\boxed{\text{действительно ли }IR\text{ минимально?}}$$</div>
+
+<p>На предыдущем этапе доказано:</p>
+
+<div class="math-block">$$Finite+IR\Rightarrow Graded$$</div>
+
+<p>и:</p>
+
+<div class="math-block">$$Finite+IR\Rightarrow Canonicality.$$</div>
+
+<p>Но $IR$ может содержать лишнее требование. Наша задача — удалить всё, без чего доказательство работает.</p>
+
+
+
+<h2>1. Что фактически использовалось в доказательстве</h2>
+
+<p>В доказательстве T123 при развилке</p>
+
+<div class="math-block">$$S\prec X,\qquad S\prec Y$$</div>
+
+<p>мы использовали существование $Z$ такого, что</p>
+
+<div class="math-block">$$X\prec Z,\qquad Y\prec Z,\qquad Z\le T.$$</div>
+
+<p>Но затем нам было важно не само наличие $Z$, а возможность сравнить длины двух хвостов:</p>
+
+<div class="math-block">$$X\leadsto T$$</div>
+
+<p>и</p>
+
+<div class="math-block">$$Y\leadsto T.$$</div>
+
+<p>Следовательно, непосредственный ромб может оказаться более сильным, чем требуется.</p>
+
+
+
+<h2>2. Определение D119 — интервальная равносходимость</h2>
+
+<p>Для каждого интервала $[S,T]$ и любых двух покрытий</p>
+
+<div class="math-block">$$S\prec X,\qquad S\prec Y$$</div>
+
+<p>требуем существование состояния $Z\in[S,T]$, для которого существуют истории</p>
+
+<div class="math-block">$$X\leadsto Z$$</div>
+
+<p>и</p>
+
+<div class="math-block">$$Y\leadsto Z$$</div>
+
+<p>одинаковой длины.</p>
+
+<p>Обозначим это:</p>
+
+<div class="math-block">$$\boxed{IC(P)}$$</div>
+
+<p>(<strong>Interval Equal-Length Convergence</strong>).</p>
+
+<p>При этом не требуется:</p>
+
+<div class="math-block">$$X\prec Z$$</div>
+
+<p>или</p>
+
+<div class="math-block">$$Y\prec Z.$$</div>
+
+
+
+<h2>3. Сравнение $IR$ и $IC$</h2>
+
+<p>Имеем:</p>
+
+<div class="math-block">$$IR\Rightarrow IC.$$</div>
+
+<p>Действительно, при $IR$ можно взять непосредственного общего преемника:</p>
+
+<div class="math-block">$$X\prec Z,\qquad Y\prec Z.$$</div>
+
+<p>Тогда обе цепи</p>
+
+<div class="math-block">$$X\to Z$$</div>
+
+<p>и</p>
+
+<div class="math-block">$$Y\to Z$$</div>
+
+<p>имеют длину $1$.</p>
+
+<p>Следовательно:</p>
+
+<div class="math-block">$$\boxed{IR\text{ строго сильнее либо эквивалентно }IC.}$$</div>
+
+<p>Чтобы установить строгость, нужен контрпример:</p>
+
+<div class="math-block">$$IC+\neg IR.$$</div>
+
+
+
+<h2>4. Но $IC$ пока недостаточно для локального обмена</h2>
+
+<p>Это принципиальное различие.</p>
+
+<p>Если:</p>
+
+<div class="math-block">$$X\leadsto Z$$</div>
+
+<p>и:</p>
+
+<div class="math-block">$$Y\leadsto Z$$</div>
+
+<p>имеют одинаковую длину, это ещё не означает, что две истории</p>
+
+<div class="math-block">$$S\to X\leadsto Z$$</div>
+
+<p>и</p>
+
+<div class="math-block">$$S\to Y\leadsto Z$$</div>
+
+<p>соединяются последовательностью <strong>локальных обменов</strong>.</p>
+
+<p>Поэтому $IC$ потенциально достаточно для равенства длин, но ещё не очевидно достаточно для канонической реконструкции.</p>
+
+
+
+<h2>5. Разделяем две задачи</h2>
+
+<p>Теперь обнаруживается важное структурное разделение:</p>
+
+<h3>Задача A</h3>
+
+<p>Доказать равенство длин историй:</p>
+
+<div class="math-block">$$\boxed{Graded.}$$</div>
+
+<h3>Задача B</h3>
+
+<p>Доказать их локальную эквивалентность:</p>
+
+<div class="math-block">$$\boxed{Canonicality.}$$</div>
+
+<p>$IC$ может решить A, но не обязательно B.</p>
+
+<p>Это означает, что предыдущая теория немного смешивала два разных свойства.</p>
+
+
+
+<h2>6. Новый кандидат для задачи B</h2>
+
+<p>Определим отношение:</p>
+
+<div class="math-block">$$h\sim k$$</div>
+
+<p>если две истории связаны конечной последовательностью локальных обменов.</p>
+
+<p>Чтобы доказать:</p>
+
+<div class="math-block">$$h\sim k,$$</div>
+
+<p>нужно иметь не просто равенство длин, а механизм локального сведения.</p>
+
+
+
+<h2>7. Определение D120 — локальная сходимость</h2>
+
+<p>Для каждой пары историй</p>
+
+<div class="math-block">$$h:S\leadsto T, \qquad k:S\leadsto T$$</div>
+
+<p>требуем существование некоторого состояния $Z$ и разбиений:</p>
+
+<div class="math-block">$$h=h_1h_2, \qquad k=k_1k_2,$$</div>
+
+<p>таких, что:</p>
+
+<div class="math-block">$$\operatorname{end}(h_1)=\operatorname{end}(k_1)=Z,$$</div>
+
+<p>и:</p>
+
+<div class="math-block">$$h_1\equiv_I k_1.$$</div>
+
+<p>Назовём это <strong>локальной сходимостью историй</strong>.</p>
+
+<p>Однако это определение уже подозрительно близко к самой каноничности.</p>
+
+<p>Поэтому его нельзя просто принять как аксиому: это нарушило бы принцип минимальности.</p>
+
+
+
+<h2>8. Возвращаемся к элементарному уровню</h2>
+
+<p>Нужно искать свойство не историй целиком, а <strong>двух последовательных локальных расширений</strong>.</p>
+
+<p>Пусть:</p>
+
+<div class="math-block">$$X\prec A\prec B.$$</div>
+
+<p>Альтернативная история:</p>
+
+<div class="math-block">$$X\prec A'\prec B.$$</div>
+
+<p>Тогда имеем элементарный обмен:</p>
+
+<div class="math-block">$$XAB \longleftrightarrow XA'B.$$</div>
+
+<p>Обозначим соответствующий элементарный квадрат:</p>
+
+<div class="math-block">$$Q(X,A,A',B).$$</div>
+
+
+
+<h2>9. Определение D121 — интервальная квадратичность</h2>
+
+<p>Для каждой развилки:</p>
+
+<div class="math-block">$$S\prec X,\qquad S\prec Y$$</div>
+
+<p>в интервале $[S,T]$ существует $Z\le T$, такое что:</p>
+
+<div class="math-block">$$X\prec Z,\qquad Y\prec Z.$$</div>
+
+<p>Это фактически наш $IR$.</p>
+
+<p>Но теперь рассматриваем не только наличие квадратов, а их <strong>замыкание относительно продолжений</strong>.</p>
+
+
+
+<h2>10. Определение D122 — продолжимая квадратичность</h2>
+
+<p>Пусть существует локальный квадрат:</p>
+
+<div class="math-block">$$\begin{array}{ccc}
+&S&\\
+\swarrow&&\searrow\\
+X&&Y\\
+\searrow&&\swarrow\\
+&Z&
+\end{array}$$</div>
+
+<p>Для любого:</p>
+
+<div class="math-block">$$Z\le T$$</div>
+
+<p>требуем, чтобы каждая история:</p>
+
+<div class="math-block">$$Z\leadsto T$$</div>
+
+<p>допускала согласованное продолжение обеих сторон квадрата.</p>
+
+<p>Иными словами, квадрат не должен «ломаться» при продолжении.</p>
+
+<p>Обозначим:</p>
+
+<div class="math-block">$$\boxed{CQ(P)}$$</div>
+
+<p>(<strong>Coherent Quadraticity</strong>).</p>
+
+
+
+<h2>11. Но здесь появляется опасность</h2>
+
+<p>$CQ$ уже содержит условие о произвольных продолжениях.</p>
+
+<p>То есть мы опять можем незаметно заменить локальную аксиому почти глобальной.</p>
+
+<p>Следовательно, необходимо строго определить минимальную локальную информацию.</p>
+
+
+
+<h2>12. Используем граф локальных расширений</h2>
+
+<p>Пусть:</p>
+
+<div class="math-block">$$G=(V,E)$$</div>
+
+<p>— граф допустимых расширений.</p>
+
+<p>Для вершины $X$ обозначим:</p>
+
+<div class="math-block">$$Out(X)=\{Y:X\prec Y\}.$$</div>
+
+<p>Две исходящие дуги:</p>
+
+<div class="math-block">$$X\to A, \qquad X\to B$$</div>
+
+<p>назовём совместимыми, если они могут быть включены в общий локальный квадрат.</p>
+
+<p>Это уже чисто локальное свойство графа.</p>
+
+
+
+<h2>13. Новый объект — граф совместимости расширений</h2>
+
+<p>Определим:</p>
+
+<div class="math-block">$$C_X$$</div>
+
+<p>как граф, вершинами которого являются элементы:</p>
+
+<div class="math-block">$$Out(X).$$</div>
+
+<p>Две вершины $(A,B)$ соединены, если существует $Y$ такое, что:</p>
+
+<div class="math-block">$$A\prec Y,\qquad B\prec Y.$$</div>
+
+<p>Тогда:</p>
+
+<div class="math-block">$$IR$$</div>
+
+<p>означает:</p>
+
+<div class="math-block">$$\boxed{C_X\text{ полный граф}}$$</div>
+
+<p>в каждом соответствующем интервале.</p>
+
+
+
+<h2>14. Можно ли заменить полноту связностью?</h2>
+
+<p>Это естественный следующий вопрос.</p>
+
+<p>Вместо:</p>
+
+<div class="math-block">$$\forall A,B\in Out(X): A\sim B$$</div>
+
+<p>может быть достаточно:</p>
+
+<div class="math-block">$$C_X\text{ связен}.$$</div>
+
+<p>То есть не каждая пара локальных расширений должна иметь общий квадрат непосредственно.</p>
+
+<p>Достаточно, чтобы они были соединены цепочкой:</p>
+
+<div class="math-block">$$A=A_0,A_1,\ldots,A_m=B,$$</div>
+
+<p>где каждая соседняя пара образует ромб.</p>
+
+
+
+<h2>15. Определение D123 — локальная связность расширений</h2>
+
+<p>Пусть для каждого $X$ и каждого интервала $[X,T]$ граф совместимости</p>
+
+<div class="math-block">$$C_X(T)$$</div>
+
+<p>связен.</p>
+
+<p>Обозначим:</p>
+
+<div class="math-block">$$\boxed{LC(P)}$$</div>
+
+<p>(<strong>Local Connectivity</strong>).</p>
+
+<p>Очевидно:</p>
+
+<div class="math-block">$$IR\Rightarrow LC.$$</div>
+
+<p>Вопрос:</p>
+
+<div class="math-block">$$LC\Rightarrow Canonicality?$$</div>
+
+
+
+<h2>16. Здесь появляется очень сильная идея</h2>
+
+<p>Если две истории начинаются:</p>
+
+<div class="math-block">$$S\to X$$</div>
+
+<p>и:</p>
+
+<div class="math-block">$$S\to Y,$$</div>
+
+<p>то при $LC$ можно получить цепочку:</p>
+
+<div class="math-block">$$X=X_0,X_1,\ldots,X_m=Y,$$</div>
+
+<p>где каждый переход:</p>
+
+<div class="math-block">$$X_i\leftrightarrow X_{i+1}$$</div>
+
+<p>является стороной ромба.</p>
+
+<p>Каждый такой переход даёт локальный обмен.</p>
+
+<p>Следовательно, можно преобразовывать первую историю в историю с первым шагом $Y$.</p>
+
+<p>Это именно тот механизм, которого требовалось достичь.</p>
+
+
+
+<h2>17. Теорема T126 — локальная связность достаточна</h2>
+
+<p>Пусть $P$ конечен и для каждого интервала $[S,T]$ граф совместимости исходящих расширений связен:</p>
+
+<div class="math-block">$$LC(P).$$</div>
+
+<p>Тогда:</p>
+
+<div class="math-block">$$\boxed{\Gamma(S,T)\text{ связен}.}$$</div>
+
+<h3>Доказательство</h3>
+
+<p>Индукция по:</p>
+
+<div class="math-block">$$|[S,T]|.$$</div>
+
+<p>Берём две истории:</p>
+
+<div class="math-block">$$h:S\to X\leadsto T,$$</div>
+
+<div class="math-block">$$k:S\to Y\leadsto T.$$</div>
+
+<p>По $LC$ существует последовательность:</p>
+
+<div class="math-block">$$X=X_0,X_1,\ldots,X_m=Y$$</div>
+
+<p>такая, что для каждого $i$:</p>
+
+<div class="math-block">$$X_i$$</div>
+
+<p>и:</p>
+
+<div class="math-block">$$X_{i+1}$$</div>
+
+<p>образуют локальный квадрат внутри $[S,T]$.</p>
+
+<p>Следовательно, первый шаг истории можно последовательно заменить:</p>
+
+<div class="math-block">$$X_0\to X_1\to\cdots\to X_m.$$</div>
+
+<p>После конечного числа локальных обменов получаем историю:</p>
+
+<div class="math-block">$$S\to Y\leadsto T.$$</div>
+
+<p>Теперь обе истории имеют общий первый шаг $Y$.</p>
+
+<p>Их хвосты лежат в меньшем интервале:</p>
+
+<div class="math-block">$$[Y,T].$$</div>
+
+<p>По индукционной гипотезе хвосты связаны локальными обменами.</p>
+
+<p>Следовательно:</p>
+
+<div class="math-block">$$h\equiv_I k.$$</div>
+
+<div class="math-block">$$\Box$$</div>
+
+
+
+<h2>18. Это даёт новый минимальный кандидат</h2>
+
+<p>Мы получили:</p>
+
+<div class="math-block">$$\boxed{Finite+LC\Rightarrow Canonicality.}$$</div>
+
+<p>А поскольку:</p>
+
+<div class="math-block">$$IR\Rightarrow LC,$$</div>
+
+<p>старое $IR$ больше не является необходимым условием.</p>
+
+<p>Получаем цепочку:</p>
+
+<div class="math-block">$$\boxed{IR \Rightarrow LC \Rightarrow Canonicality.}$$</div>
+
+
+
+<h2>19. Но теперь можно задать правильный вопрос</h2>
+
+<p>Нужно ли требовать <strong>полную связность графа $C_X$</strong>?</p>
+
+<p>Нет.</p>
+
+<p>В доказательстве использовалась только связность.</p>
+
+<p>Следовательно, требование:</p>
+
+<div class="math-block">$$\forall A,B\quad A\sim B$$</div>
+
+<p>избыточно.</p>
+
+<p>Достаточно:</p>
+
+<div class="math-block">$$\boxed{C_X\text{ связен}.}$$</div>
+
+<p>Это настоящий результат минимизации.</p>
+
+
+
+<h2>20. Можно ли ослабить $LC$ ещё дальше?</h2>
+
+<p>Теперь критический вопрос:</p>
+
+<div class="math-block">$$LC \stackrel{?}{\Longrightarrow} \text{необходимо}.$$</div>
+
+<p>Возможны структуры, где:</p>
+
+<div class="math-block">$$C_X$$</div>
+
+<p>не связен, но разные компоненты всё же соединяются благодаря более глубоким перестройкам истории.</p>
+
+<p>Если такие структуры существуют, $LC$ также не является необходимым.</p>
+
+<p>То есть пока мы имеем <strong>достаточное</strong>, но не доказанно минимальное условие.</p>
+
+
+
+<h2>21. Минимальная граница теперь выглядит так</h2>
+
+<div class="math-block">$$\boxed{\begin{array}{ccc}
+IR && \text{слишком сильное}\\
+\downarrow\\
+LC && \text{достаточное}\\
+\downarrow\\
+Canonicality && \text{цель}
+\end{array}}$$</div>
+
+<p>Нужно проверить существование:</p>
+
+<div class="math-block">$$\boxed{\neg LC+\text{Canonicality}.}$$</div>
+
+<p>Если такая структура существует, $LC$ не необходимо.</p>
+
+
+
+<h2>22. Следующий контрпример</h2>
+
+<p>Нам нужен конечный порядок $P$, такой что:</p>
+
+<div class="math-block">$$\neg LC(P),$$</div>
+
+<p>но:</p>
+
+<div class="math-block">$$\forall S,T: \kappa_{\mathrm{can}}(S,T)=1.$$</div>
+
+<p>То есть локальный граф расширений где-то разрывается, но глобально все истории всё равно соединяются через более длинные преобразования.</p>
+
+<p>Если такой пример существует, то локальная связность — не необходимое условие.</p>
+
+
+
+<h2>23. Но возможен и другой результат</h2>
+
+<p>Если будет доказано:</p>
+
+<div class="math-block">$$Canonicality\Rightarrow LC,$$</div>
+
+<p>тогда получим эквивалентность:</p>
+
+<div class="math-block">$$\boxed{LC \iff Canonicality.}$$</div>
+
+<p>Это было бы чрезвычайно сильным результатом:</p>
+
+<blockquote>
+<p><strong>каноническая реконструкция эквивалентна локальной связности графа допустимых расширений.</strong></p>
+</blockquote>
+
+<p>Тогда глобальное свойство полностью характеризуется локальной структурой.</p>
+
+
+
+<h2>24. P37</h2>
+
+<p>Следовательно, следующий этап должен решить:</p>
+
+<div class="math-block">$$\boxed{\textbf{P37: является ли }LC\textbf{ необходимым для каноничности?}}$$</div>
+
+<p>Нужно либо:</p>
+
+<h3>доказать</h3>
+
+<div class="math-block">$$Canonicality\Rightarrow LC,$$</div>
+
+<p>либо предъявить явный конечный контрпример:</p>
+
+<div class="math-block">$$\boxed{Canonicality+\neg LC.}$$</div>
+
+<p>И только после этого мы сможем определить, является ли $LC$ действительно <strong>минимальным локальным критерием канонической реконструкции</strong>, а не просто очередным достаточным условием.</p>
+
+
+        </main>
+
+
+    <!-- Скрипты KaTeX -->
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false}
+            ],
+            throwOnError: false
+        });">
+    </script>
+</body>
+</html>

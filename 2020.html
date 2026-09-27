@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Верумическая теория</title>
+
+    <!-- Подключаем KaTeX для формул -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.css">
+
+    <link rel='stylesheet' type='text/css' href='style.css'>
+
+</head>
+
+<body>
+
+    <!-- ВЕРХНЕЕ МЕНЮ (ПОСТОЯННОЕ) -->
+    <header>
+        <div class="site-title">Верумическая теория устойчивого благополучия (ВЕРУМИКА)</i></div>
+
+        <nav class="main-nav">
+            <script src="0menu.js"></script>
+        </nav>
+
+    </header>
+
+    <div class="container">
+        
+        <!-- ЛЕВАЯ КОЛОНКА (МЕНЯЕТСЯ В ЗАВИСИМОСТИ ОТ СТРАНИЦЫ) -->
+        <!-- Эту часть нужно копировать в каждый HTML файл, меняя только список ссылок -->
+        <aside class="sidebar">
+            <h3>Раздел: ТЛР</h3>
+
+            <ul class="submenu">
+                <script src="2000smenu.js"></script>
+            </ul>
+
+        </aside>
+
+        <!-- ОСНОВНОЙ КОНТЕНТ -->
+        <main class="content">
+
+
+
+<h1>20. Минимальные условия для 2-замкнутости</h1>
+
+<p>Продолжаем P14.</p>
+
+<p>Наша текущая цепочка:</p>
+<div class="math-block"> $$ \text{условия на допустимые содержания} \Longrightarrow 2\text{-замкнутость} \Longrightarrow \text{локальная квадратность} \Longrightarrow LC. $$ </div>
+
+<p>Теперь необходимо выяснить, можно ли вывести 2-замкнутость из более слабого структурного свойства.</p>
+
+
+
+<h2>1. Формальная модель</h2>
+
+<p>Пусть:</p>
+<div class="math-block"> $$ E $$ </div>
+<p>— множество элементарных расширений.</p>
+
+<p>Пусть:</p>
+<div class="math-block"> $$ \mathcal{C} \subseteq \mathcal{P}_{\mathrm{fin}}(E) $$ </div>
+<p>— семейство допустимых конечных содержаний.</p>
+
+<p>Состоянию соответствует:</p>
+<div class="math-block"> $$ S_X, \qquad X \in \mathcal{C}. $$ </div>
+
+<p>Локальное расширение:</p>
+<div class="math-block"> $$ S_X \to S_{X \cup \{e\}} $$ </div>
+<p>тогда и только тогда, когда:</p>
+<div class="math-block"> $$ e \notin X $$ </div>
+<p>и</p>
+<div class="math-block"> $$ X \cup \{e\} \in \mathcal{C}. $$ </div>
+
+<p>Это наша конструктивная модель.</p>
+
+
+
+<h2>2. Первое возможное свойство — наследственность</h2>
+
+<p>Естественно потребовать:</p>
+<div class="math-block"> $$ Y \in \mathcal{C}, \quad X \subseteq Y \Rightarrow X \in \mathcal{C}. $$ </div>
+
+<h3>Определение D51. Наследственность</h3>
+
+<div class="math-block"> $$ \boxed{ Y \in \mathcal{C}, \ X \subseteq Y \Rightarrow X \in \mathcal{C}. } $$ </div>
+
+<p>Интуитивно: если целая структура допустима, то удаление некоторых расширений не делает её недопустимой.</p>
+
+<p>Но следует проверить, достаточно ли этого для 2-замкнутости.</p>
+
+
+
+<h2>3. Контрпример C14</h2>
+
+<p>Возьмём:</p>
+<div class="math-block"> $$ E = \{e, f\} $$ </div>
+<p>и</p>
+<div class="math-block"> $$ \mathcal{C} = \{\varnothing, \{e\}, \{f\}\}. $$ </div>
+
+<p>Система наследственна:</p>
+<div class="math-block"> $$ \{e\} \Rightarrow \varnothing, $$ </div>
+<div class="math-block"> $$ \{f\} \Rightarrow \varnothing. $$ </div>
+
+<p>Но:</p>
+<div class="math-block"> $$ \varnothing \cup \{e\} = \{e\} \in \mathcal{C}, $$ </div>
+<div class="math-block"> $$ \varnothing \cup \{f\} = \{f\} \in \mathcal{C}, $$ </div>
+<p>при этом:</p>
+<div class="math-block"> $$ \{e, f\} \notin \mathcal{C}. $$ </div>
+
+<p>Следовательно:</p>
+<div class="math-block"> $$ \boxed{ \text{наследственность} \not\Rightarrow 2\text{-замкнутость}. } $$ </div>
+
+<p>Это строгий контрпример.</p>
+
+
+
+<h2>4. Второй кандидат — замкнутость относительно объединения</h2>
+
+<p>Потребуем:</p>
+<div class="math-block"> $$ X, Y \in \mathcal{C} \Rightarrow X \cup Y \in \mathcal{C}. $$ </div>
+
+<h3>Определение D52. Объединительная замкнутость</h3>
+
+<div class="math-block"> $$ \boxed{ X, Y \in \mathcal{C} \Rightarrow X \cup Y \in \mathcal{C}. } $$ </div>
+
+<p>Это явно сильнее необходимого.</p>
+
+<p>Проверим:</p>
+<div class="math-block"> $$ X \cup \{e\} \in \mathcal{C}, $$ </div>
+<div class="math-block"> $$ X \cup \{f\} \in \mathcal{C}. $$ </div>
+
+<p>Тогда по D52:</p>
+<div class="math-block"> $$ (X \cup \{e\}) \cup (X \cup \{f\}) \in \mathcal{C}. $$ </div>
+
+<p>Но:</p>
+<div class="math-block"> $$ (X \cup \{e\}) \cup (X \cup \{f\}) = X \cup \{e, f\}. $$ </div>
+
+<p>Следовательно:</p>
+<div class="math-block"> $$ \boxed{ \text{объединительная замкнутость} \Rightarrow 2\text{-замкнутость}. } $$ </div>
+
+
+
+<h2>5. Но это не минимальное условие</h2>
+
+<p>Объединительная замкнутость требует:</p>
+<div class="math-block"> $$ X \cup Y \in \mathcal{C} $$ </div>
+<p>для <strong>любых</strong> двух допустимых содержаний.</p>
+
+<p>Для LC нам нужно только объединение двух содержаний, отличающихся от общего основания на одном элементе.</p>
+
+<p>Поэтому D52 явно содержит лишнюю информацию.</p>
+
+<p>Наша задача — убрать её.</p>
+
+
+
+<h2>6. Третий кандидат — локальная объединительная замкнутость</h2>
+
+<h3>Определение D53</h3>
+
+<p>$\mathcal{C}$ локально объединительно замкнуто, если для любого $X \in \mathcal{C}$ и любых $e, f \notin X$:</p>
+<div class="math-block"> $$ X \cup \{e\} \in \mathcal{C} $$ </div>
+<p>и</p>
+<div class="math-block"> $$ X \cup \{f\} \in \mathcal{C} $$ </div>
+<p>влекут:</p>
+<div class="math-block"> $$ X \cup \{e, f\} \in \mathcal{C}. $$ </div>
+
+<p>Но это <strong>точно D50</strong>, то есть 2-замкнутость.</p>
+
+<p>Значит, мы просто вернулись к исходному условию.</p>
+
+
+
+<h2>7. Следовательно, нужно искать условие другого типа</h2>
+
+<p>Нам нужен принцип, который не говорит непосредственно:</p>
+<div class="math-block"> $$ X \cup \{e, f\} \in \mathcal{C}, $$ </div>
+<p>но заставляет это следовать.</p>
+
+<p>Естественный кандидат:</p>
+<div class="math-block"> $$ \boxed{\text{независимость ограничений}.} $$ </div>
+
+<p>Если допустимость $e$ определяется одними характеристиками состояния, а допустимость $f$ — другими независимыми характеристиками, то добавление $e$ не должно менять возможность $f$.</p>
+
+<p>Это может дать K1.</p>
+
+<p>Но K1 всё ещё не даёт K2.</p>
+
+
+
+<h2>8. Формализуем ограничения</h2>
+
+<p>Пусть имеется множество ограничений:</p>
+<div class="math-block"> $$ \mathcal{Q}. $$ </div>
+
+<p>Каждому состоянию $X$ сопоставляется множество активных ограничений:</p>
+<div class="math-block"> $$ Q(X) \subseteq \mathcal{Q}. $$ </div>
+
+<p>Расширение $e$ допустимо, если:</p>
+<div class="math-block"> $$ Q(X) \models e. $$ </div>
+
+<p>Но эта запись пока слишком общая.</p>
+
+<p>Нужен конкретный математический механизм.</p>
+
+
+
+<h2>9. Более простой кандидат — конфликтная структура</h2>
+
+<p>Введём отношение конфликта:</p>
+<div class="math-block"> $$ e \mathbin{\#} f. $$ </div>
+
+<p>Интерпретация:</p>
+<div class="math-block"> $$ e \mathbin{\#} f $$ </div>
+<p>означает, что два расширения несовместимы.</p>
+
+<p>Тогда допустимость конечного набора может быть определена условием:</p>
+<div class="math-block"> $$ X \in \mathcal{C} \iff \forall e, f \in X, \ e \neq f:\; \neg(e \mathbin{\#} f). $$ </div>
+
+<p>То есть допустимость определяется исключительно <strong>попарной совместимостью</strong>.</p>
+
+
+
+<h2>10. Определение D54. Попарно-конфликтная система</h2>
+
+<p>Семейство $\mathcal{C}$ называется попарно конфликтным, если существует отношение $\#$ на $E$, такое что:</p>
+<div class="math-block"> $$ \boxed{ X \in \mathcal{C} \iff \forall e \neq f \in X:\; \neg(e \mathbin{\#} f). } $$ </div>
+
+<p>Теперь проверяем, даёт ли это 2-замкнутость.</p>
+
+
+
+<h2>11. Теорема T58</h2>
+
+<p>Попарно-конфликтная система удовлетворяет 2-замкнутости.</p>
+
+<h3>Доказательство</h3>
+
+<p>Пусть:</p>
+<div class="math-block"> $$ X \cup \{e\} \in \mathcal{C} $$ </div>
+<p>и</p>
+<div class="math-block"> $$ X \cup \{f\} \in \mathcal{C}. $$ </div>
+
+<p>Тогда:</p>
+<ol>
+    <li>внутри $X$ нет конфликтов;</li>
+    <li>$e$ не конфликтует ни с одним элементом $X$;</li>
+    <li>$f$ не конфликтует ни с одним элементом $X$.</li>
+</ol>
+
+<p>Остаётся проверить только:</p>
+<div class="math-block"> $$ e \not\mathbin{\#} f. $$ </div>
+
+<p>Если дополнительно известно:</p>
+<div class="math-block"> $$ \boxed{ e \not\mathbin{\#} f, } $$ </div>
+<p>то:</p>
+<div class="math-block"> $$ X \cup \{e, f\} \in \mathcal{C}. $$ </div>
+
+<p>Следовательно, для <strong>совместимых</strong> $e, f$ 2-замкнутость выполняется.</p>
+<p>□</p>
+
+
+
+<h2>12. Но где появляется $e \not\mathbin{\#} f$?</h2>
+
+<p>Из того, что:</p>
+<div class="math-block"> $$ X \cup \{e\} $$ </div>
+<p>и</p>
+<div class="math-block"> $$ X \cup \{f\} $$ </div>
+<p>допустимы, это не следует.</p>
+
+<p>Простейший контрпример:</p>
+<div class="math-block"> $$ E = \{e, f\}, $$ </div>
+<div class="math-block"> $$ \mathcal{C} = \{\varnothing, \{e\}, \{f\}\}. $$ </div>
+
+<p>Здесь:</p>
+<div class="math-block"> $$ e \mathbin{\#} f. $$ </div>
+
+<p>Оба одиночных расширения допустимы, но совместное — нет.</p>
+
+<p>Следовательно, попарная структура сама по себе не решает проблему.</p>
+
+
+
+<h2>13. Но мы нашли важное различие</h2>
+
+<p>Существует два совершенно разных случая:</p>
+
+<h3>Независимые расширения</h3>
+<div class="math-block"> $$ e \not\mathbin{\#} f. $$ </div>
+<p>Тогда попарная конфликтность даёт их совместное применение.</p>
+
+<h3>Конфликтующие расширения</h3>
+<div class="math-block"> $$ e \mathbin{\#} f. $$ </div>
+<p>Тогда совместного продолжения быть не должно.</p>
+
+<p>Это означает, что LC не может требовать квадрат для <strong>любых</strong> двух расширений, если система допускает реальные конфликты.</p>
+
+
+
+<h2>14. Критический пересмотр самого LC</h2>
+
+<p>Следовательно, наша прежняя формулировка</p>
+<div class="math-block"> $$ A \to B, \quad A \to C \Rightarrow \exists D $$ </div>
+<p>может быть слишком сильной для общей теории локальных расширений.</p>
+
+<p>Если $e$ и $f$ взаимоисключающие, то:</p>
+<div class="math-block"> $$ A \xrightarrow{e} B, \qquad A \xrightarrow{f} C $$ </div>
+<p>совершенно корректно, но общий результат отсутствует.</p>
+
+<p>Тогда требование LC заставляет систему <strong>запрещать альтернативные ветви</strong>, что может быть нежелательно.</p>
+
+
+
+<h2>15. Поэтому вводим более точное свойство</h2>
+
+<h3>Определение D55. Условная локальная сходимость</h3>
+
+<p>Пусть:</p>
+<div class="math-block"> $$ A \xrightarrow{e} B, \qquad A \xrightarrow{f} C. $$ </div>
+
+<p>Если $e$ и $f$ независимы, то существует $D$:</p>
+<div class="math-block"> $$ B \leadsto D, \qquad C \leadsto D. $$ </div>
+
+<p>Обозначим это:</p>
+<div class="math-block"> $$ \boxed{ILC} $$ </div>
+<p>(Independent Local Confluence).</p>
+
+<p>Теперь теория различает:</p>
+<div class="math-block"> $$ \text{альтернативность} $$ </div>
+<p>и</p>
+<div class="math-block"> $$ \text{совместимые независимые расширения}. $$ </div>
+
+
+
+<h2>16. Это существенная минимизация</h2>
+
+<p>Исходное LC:</p>
+<div class="math-block"> $$ \forall e, f. $$ </div>
+
+<p>Новое ILC:</p>
+<div class="math-block"> $$ \forall e, f:\; \operatorname{Ind}(e, f) \Rightarrow LC(e, f). $$ </div>
+
+<p>То есть сходимость требуется только там, где она математически ожидаема.</p>
+
+
+
+<h2>17. Но теперь необходимо определить независимость без LC</h2>
+
+<p>Самый простой вариант:</p>
+<div class="math-block"> $$ \operatorname{Ind}(e, f) \iff \neg(e \mathbin{\#} f). $$ </div>
+
+<p>Тогда конфликтная система автоматически даёт:</p>
+<div class="math-block"> $$ \operatorname{Ind}(e, f) \Rightarrow X \cup \{e, f\} \in \mathcal{C}. $$ </div>
+
+<p>Получаем:</p>
+<div class="math-block"> $$ \boxed{ \text{попарная конфликтность} \Rightarrow ILC. } $$ </div>
+
+
+
+<h2>18. Теорема T59</h2>
+
+<p>Пусть допустимость содержаний определяется попарным отсутствием конфликтов:</p>
+<div class="math-block"> $$ X \in \mathcal{C} \iff \forall e \neq f \in X,\; \neg(e \mathbin{\#} f). $$ </div>
+
+<p>Тогда система удовлетворяет ILC.</p>
+
+<h3>Доказательство</h3>
+
+<p>Пусть:</p>
+<div class="math-block"> $$ X \cup \{e\} \in \mathcal{C}, $$ </div>
+<div class="math-block"> $$ X \cup \{f\} \in \mathcal{C}, $$ </div>
+<p>и:</p>
+<div class="math-block"> $$ \neg(e \mathbin{\#} f). $$ </div>
+
+<p>Из первых двух условий:</p>
+<div class="math-block"> $$ e $$ </div>
+<p>не конфликтует с каждым элементом $X$, а</p>
+<div class="math-block"> $$ f $$ </div>
+<p>не конфликтует с каждым элементом $X$.</p>
+
+<p>Из третьего:</p>
+<div class="math-block"> $$ e $$ </div>
+<p>не конфликтует с $f$.</p>
+
+<p>Следовательно:</p>
+<div class="math-block"> $$ X \cup \{e, f\} \in \mathcal{C}. $$ </div>
+
+<p>По T57 существует общий непосредственный продолжатель.</p>
+<p>□</p>
+
+
+
+<h2>19. Но это ещё не окончательное основание</h2>
+
+<p>Мы получили:</p>
+<div class="math-block"> $$ \boxed{ \text{попарная определимость допустимости} \Rightarrow ILC. } $$ </div>
+
+<p>Теперь надо проверить, является ли <strong>попарность</strong> необходимой.</p>
+
+<p>Можно построить систему, где допустимость зависит от тройки:</p>
+<div class="math-block"> $$ \{e, f, g\}, $$ </div>
+<p>но никакие пары не конфликтуют.</p>
+
+<p>Например:</p>
+<div class="math-block"> $$ \mathcal{C} = \mathcal{P}(E) \setminus \{\{e, f, g\}\} $$ </div>
+<p>для</p>
+<div class="math-block"> $$ E = \{e, f, g\}. $$ </div>
+
+<p>Тогда:</p>
+<div class="math-block"> $$ \{e, f\}, \{e, g\}, \{f, g\} $$ </div>
+<p>все допустимы, но:</p>
+<div class="math-block"> $$ \{e, f, g\} $$ </div>
+<p>недопустимо.</p>
+
+<p>Следовательно, допустимость может иметь <strong>трёхместные ограничения</strong>.</p>
+
+
+
+<h2>20. Контрпример C15</h2>
+
+<p>Для:</p>
+<div class="math-block"> $$ X = \varnothing $$ </div>
+<p>имеем:</p>
+<div class="math-block"> $$ \{e\} \in \mathcal{C}, \qquad \{f\} \in \mathcal{C}, $$ </div>
+<p>но:</p>
+<div class="math-block"> $$ \{e, f\} \in \mathcal{C}. $$ </div>
+
+<p>Значит, это не нарушает 2-замкнутость.</p>
+
+<p>Но если взять:</p>
+<div class="math-block"> $$ X = \{g\}, $$ </div>
+<p>то:</p>
+<div class="math-block"> $$ \{g, e\} \in \mathcal{C}, $$ </div>
+<div class="math-block"> $$ \{g, f\} \in \mathcal{C}, $$ </div>
+<p>однако:</p>
+<div class="math-block"> $$ \{g, e, f\} \notin \mathcal{C}. $$ </div>
+
+<p>Следовательно:</p>
+<div class="math-block"> $$ \boxed{ 2\text{-замкнутость может нарушаться при чисто тройном ограничении}. } $$ </div>
+
+
+
+<h2>21. Новый вывод</h2>
+
+<p>Чтобы гарантировать ILC через структуру допустимых содержаний, недостаточно знать только:</p>
+<div class="math-block"> $$ \text{какие пары конфликтуют}. $$ </div>
+
+<p>Необходима информация о <strong>минимальных запрещённых конфигурациях</strong>.</p>
+
+<p>Обозначим их:</p>
+<div class="math-block"> $$ \mathcal{F}. $$ </div>
+
+<p>Тогда:</p>
+<div class="math-block"> $$ X \in \mathcal{C} \iff \forall F \in \mathcal{F}:\; F \nsubseteq X. $$ </div>
+
+<p>Это гораздо более общий формализм.</p>
+
+
+
+<h2>22. Определение D56. Система запрещённых конфигураций</h2>
+
+<p>Пусть:</p>
+<div class="math-block"> $$ \mathcal{F} \subseteq \mathcal{P}_{\mathrm{fin}}(E). $$ </div>
+
+<p>Определим:</p>
+<div class="math-block"> $$ \boxed{ \mathcal{C}_{\mathcal{F}} = \{X \in \mathcal{P}_{\mathrm{fin}}(E):\; \forall F \in \mathcal{F},\; F \nsubseteq X\}. } $$ </div>
+
+<p>То есть допустимы ровно те содержания, которые не содержат ни одной запрещённой конфигурации.</p>
+
+<p>Это естественная общая форма локальных ограничений.</p>
+
+
+
+<h2>23. Теперь можно точно охарактеризовать 2-замкнутость</h2>
+
+<p>Пусть:</p>
+<div class="math-block"> $$ X \cup \{e\}, \quad X \cup \{f\} $$ </div>
+<p>допустимы.</p>
+
+<p>Когда может быть запрещено:</p>
+<div class="math-block"> $$ X \cup \{e, f\}? $$ </div>
+
+<p>Только если существует:</p>
+<div class="math-block"> $$ F \in \mathcal{F} $$ </div>
+<p>такое, что:</p>
+<div class="math-block"> $$ F \subseteq X \cup \{e, f\}. $$ </div>
+
+<p>Но поскольку:</p>
+<div class="math-block"> $$ X \cup \{e\} $$ </div>
+<p>и</p>
+<div class="math-block"> $$ X \cup \{f\} $$ </div>
+<p>допустимы, $F$ не может содержаться ни в одном из них.</p>
+
+<p>Следовательно, $F$ должно содержать <strong>оба</strong>:</p>
+<div class="math-block"> $$ e, f. $$ </div>
+
+<p>И все остальные элементы $F$ должны находиться в $X$.</p>
+
+<p>Таким образом, нарушение 2-замкнутости возникает ровно тогда, когда существует запрещённая конфигурация:</p>
+<div class="math-block"> $$ \boxed{ F = Y \cup \{e, f\}, \qquad Y \subseteq X. } $$ </div>
+
+
+
+<h2>24. Теорема T60. Критерий 2-замкнутости</h2>
+
+<p>Для системы допустимых содержаний</p>
+<div class="math-block"> $$ \mathcal{C}_{\mathcal{F}} $$ </div>
+<p>2-замкнутость эквивалентна отсутствию запрещённых конфигураций, которые становятся минимально запрещёнными только после одновременного добавления двух элементов.</p>
+
+<p>Точнее, если существует:</p>
+<div class="math-block"> $$ F \in \mathcal{F} $$ </div>
+<p>и различные $e, f \in F$, такие что:</p>
+<div class="math-block"> $$ F \setminus \{e, f\} \in \mathcal{C}, $$ </div>
+<p>но:</p>
+<div class="math-block"> $$ F \setminus \{e\} \in \mathcal{C}, \qquad F \setminus \{f\} \in \mathcal{C}, $$ </div>
+<p>тогда 2-замкнутость нарушается.</p>
+
+<p>И наоборот, любое нарушение 2-замкнутости порождает такую конфигурацию.</p>
+
+<h3>Доказательство</h3>
+
+<p>Непосредственно из структуры</p>
+<div class="math-block"> $$ X, \ X \cup \{e\}, \ X \cup \{f\} $$ </div>
+<p>и недопустимости</p>
+<div class="math-block"> $$ X \cup \{e, f\}. $$ </div>
+
+<p>Недопустимость означает наличие запрещённого $F \subseteq X \cup \{e, f\}$.</p>
+
+<p>Допустимость двух промежуточных множеств исключает возможность:</p>
+<div class="math-block"> $$ F \subseteq X \cup \{e\} $$ </div>
+<p>или</p>
+<div class="math-block"> $$ F \subseteq X \cup \{f\}. $$ </div>
+
+<p>Поэтому $F$ обязано содержать $e$ и $f$.</p>
+<p>□</p>
+
+
+
+<h2>25. Это существенно более фундаментальный результат</h2>
+
+<p>Теперь мы знаем не просто достаточное условие, а <strong>точный источник нарушения 2-замкнутости</strong>.</p>
+
+<p>Он имеет форму:</p>
+<div class="math-block"> $$ \boxed{ \text{минимальное запрещённое содержание требует одновременно двух новых элементов}. } $$ </div>
+
+<p>Именно такие ограничения препятствуют локальной сходимости.</p>
+
+
+
+<h2>26. Следовательно, ILC требует структурного условия</h2>
+
+<p>Для независимых $e, f$:</p>
+<div class="math-block"> $$ \operatorname{Ind}(e, f) $$ </div>
+<p>должно быть запрещено наличие минимального конфликта:</p>
+<div class="math-block"> $$ Y \cup \{e, f\}. $$ </div>
+
+<p>Иначе два расширения по отдельности допустимы, но совместное — нет.</p>
+
+<p>Таким образом, независимость можно определить непосредственно через запрещённые конфигурации:</p>
+<div class="math-block"> $$ \boxed{ \operatorname{Ind}_X(e, f) \iff X \cup \{e, f\} \in \mathcal{C}. } $$ </div>
+
+<p>Но это снова определяет независимость через совместимость.</p>
+
+<p>Поэтому для независимости нам нужен внешний источник.</p>
+
+
+
+<h2>27. Возникает фундаментальный предел</h2>
+
+<p>Мы подошли к принципиальному выводу:</p>
+<blockquote>
+    <p>Нельзя одновременно вывести независимость и совместимость из одной только системы допустимых состояний, если не задано дополнительное отношение структуры элементов.</p>
+</blockquote>
+
+<p>Формально возможны две стратегии:</p>
+
+<h3>Стратегия A</h3>
+<p>Независимость — фундаментальное отношение:</p>
+<div class="math-block"> $$ \operatorname{Ind}(e, f). $$ </div>
+<p>Тогда доказываем:</p>
+<div class="math-block"> $$ \operatorname{Ind}(e, f) \Rightarrow ILC. $$ </div>
+
+<h3>Стратегия B</h3>
+<p>Независимость — производное понятие:</p>
+<div class="math-block"> $$ \operatorname{Ind}_X(e, f) \iff X \cup \{e, f\} \in \mathcal{C}. $$ </div>
+<p>Тогда ILC становится тавтологическим относительно определения.</p>
+
+<p>Стратегия B непригодна как фундаментальная.</p>
+
+<p>Следовательно, для настоящей конструктивной теории предпочтительна A.</p>
+
+
+
+<h2>28. Новый минимальный кандидат</h2>
+
+<p>Вводим фундаментальное отношение:</p>
+<div class="math-block"> $$ \boxed{ \operatorname{Ind}(e, f). } $$ </div>
+
+<p>Но не требуем, чтобы оно определяло всю структуру.</p>
+
+<p>Требуем только:</p>
+<div class="math-block"> $$ \operatorname{Ind}(e, f) \Rightarrow \text{совместное применение } e, f. $$ </div>
+
+<p>То есть:</p>
+<div class="math-block"> $$ \boxed{ \operatorname{Ind}(e, f) \Rightarrow X \cup \{e, f\} \in \mathcal{C} } $$ </div>
+<p>при условии:</p>
+<div class="math-block"> $$ X \cup \{e\}, X \cup \{f\} \in \mathcal{C}. $$ </div>
+
+<p>Это уже минимальная <strong>аксиома независимого расширения</strong>.</p>
+
+
+
+<h2>29. Аксиома A-LI</h2>
+
+<p>Предлагаю пока не включать её окончательно в аксиоматику, а зарегистрировать как кандидата:</p>
+<div class="math-block"> $$ \boxed{\mathrm{A\text{-}LI}} $$ </div>
+
+<p><strong>Аксиома локальной независимости:</strong></p>
+
+<p>Для любых допустимого содержания $X$ и элементарных расширений $e, f$:</p>
+<div class="math-block"> $$ X \cup \{e\} \in \mathcal{C}, $$ </div>
+<div class="math-block"> $$ X \cup \{f\} \in \mathcal{C}, $$ </div>
+<div class="math-block"> $$ \operatorname{Ind}(e, f) $$ </div>
+<p>влекут:</p>
+<div class="math-block"> $$ X \cup \{e, f\} \in \mathcal{C}. $$ </div>
+
+<p>Тогда:</p>
+<div class="math-block"> $$ \mathrm{A\text{-}LI} \Rightarrow 2\text{-замкнутость для независимых расширений}. $$ </div>
+
+<p>И по T57:</p>
+<div class="math-block"> $$ \boxed{ \mathrm{A\text{-}LI} \Rightarrow ILC. } $$ </div>
+
+
+
+<h2>30. Но A-LI пока не минимальна</h2>
+
+<p>Она содержит:</p>
+<div class="math-block"> $$ X \cup \{e\} \in \mathcal{C} $$ </div>
+<p>и</p>
+<div class="math-block"> $$ X \cup \{f\} \in \mathcal{C}. $$ </div>
+
+<p>Возможно, часть этих условий уже следует из определения локального расширения.</p>
+
+<p>Если:</p>
+<div class="math-block"> $$ A \to A \cup e $$ </div>
+<p>и</p>
+<div class="math-block"> $$ A \to A \cup f $$ </div>
+<p>даны как исходные локальные расширения, то их допустимость уже установлена.</p>
+
+<p>Поэтому более компактно:</p>
+<div class="math-block"> $$ \boxed{ \operatorname{Ind}(e, f) \land A \xrightarrow{e} B \land A \xrightarrow{f} C \Rightarrow \exists D = A \cup \{e, f\}. } $$ </div>
+
+<p>Но это опять почти квадрат.</p>
+
+<p>Поэтому для настоящей минимизации нам нужно сохранить содержание $X$ как фундаментальный объект.</p>
+
+
+
+<h2>31. Текущая архитектура становится трёхуровневой</h2>
+
+<div class="math-block"> $$ \boxed{ \text{элементарные расширения} } $$ </div>
+<div class="math-block"> $$ \downarrow $$ </div>
+<div class="math-block"> $$ \boxed{ \text{отношение независимости} } $$ </div>
+<div class="math-block"> $$ \downarrow $$ </div>
+<div class="math-block"> $$ \boxed{ \text{допустимые содержания} } $$ </div>
+<div class="math-block"> $$ \downarrow $$ </div>
+<div class="math-block"> $$ \boxed{ \text{граф локальных расширений} } $$ </div>
+<div class="math-block"> $$ \downarrow $$ </div>
+<div class="math-block"> $$ \boxed{ ILC } $$ </div>
+
+<p>Это уже значительно более строгая архитектура, чем первоначальная.</p>
+
+
+
+<h2>32. Итог Этапа 18</h2>
+
+<p>Установлены следующие результаты.</p>
+
+<h3>Теорема</h3>
+<div class="math-block"> $$ \boxed{ \text{объединительная замкнутость} \Rightarrow 2\text{-замкнутость}. } $$ </div>
+
+<h3>Контрпример</h3>
+<div class="math-block"> $$ \boxed{ \text{наследственность} \nRightarrow 2\text{-замкнутость}. } $$ </div>
+
+<h3>Теорема</h3>
+<p>Для системы запрещённых конфигураций источник нарушения 2-замкнутости точно характеризуется минимальной запрещённой конфигурацией, возникающей при одновременном добавлении двух элементов.</p>
+
+<h3>Концептуальный результат</h3>
+<p>Общее LC слишком сильно, если существуют конфликтующие расширения.</p>
+
+<p>Поэтому для общей теории естественнее:</p>
+<div class="math-block"> $$ \boxed{ ILC = \text{сходимость только для независимых расширений}. } $$ </div>
+
+<h3>Новый кандидат в аксиоматику</h3>
+<div class="math-block"> $$ \boxed{\mathrm{A\text{-}LI}} $$ </div>
+<p>— локальная аксиома независимого совместного расширения.</p>
+
+
+
+<h2>Следующий шаг</h2>
+
+<p>Теперь необходимо исследовать <strong>само отношение независимости</strong>.</p>
+
+<p>Нужно определить минимальный набор его свойств:</p>
+<div class="math-block"> $$ \operatorname{Ind}(e, f) $$ </div>
+<p>и проверить, следуют ли они друг из друга или должны быть аксиомами.</p>
+
+<p>В частности, нужно строго установить статус следующих свойств:</p>
+<div class="math-block"> $$ \operatorname{Ind}(e, f) \Rightarrow \operatorname{Ind}(f, e) $$ </div>
+<p>(симметрия),</p>
+<div class="math-block"> $$ \operatorname{Ind}(e, e) $$ </div>
+<p>(рефлексивность — вероятно, нежелательна),</p>
+
+<p>а также транзитивность:</p>
+<div class="math-block"> $$ \operatorname{Ind}(e, f), \quad \operatorname{Ind}(f, g) \Rightarrow \operatorname{Ind}(e, g). $$ </div>
+
+<p>Особенно важен последний пункт: <strong>если транзитивность окажется ненужной или ложной, это будет ещё одной существенной минимизацией аксиоматики.</strong></p>
+
+<p>Следовательно, следующий этап:</p>
+<div class="math-block"> $$ \boxed{ \textbf{P15. Минимальная теория отношения независимости локальных расширений.} } $$ </div>
+
+
+        </main>
+
+
+    <!-- Скрипты KaTeX -->
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false}
+            ],
+            throwOnError: false
+        });">
+    </script>
+</body>
+</html>

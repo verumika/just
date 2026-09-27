@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Верумическая теория</title>
+
+    <!-- Подключаем KaTeX для формул -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.css">
+
+    <link rel='stylesheet' type='text/css' href='style.css'>
+
+</head>
+
+<body>
+
+    <!-- ВЕРХНЕЕ МЕНЮ (ПОСТОЯННОЕ) -->
+    <header>
+        <div class="site-title">Верумическая теория устойчивого благополучия (ВЕРУМИКА)</i></div>
+
+        <nav class="main-nav">
+            <script src="0menu.js"></script>
+        </nav>
+
+    </header>
+
+    <div class="container">
+        
+        <!-- ЛЕВАЯ КОЛОНКА (МЕНЯЕТСЯ В ЗАВИСИМОСТИ ОТ СТРАНИЦЫ) -->
+        <!-- Эту часть нужно копировать в каждый HTML файл, меняя только список ссылок -->
+        <aside class="sidebar">
+            <h3>Раздел: ТЛР</h3>
+
+            <ul class="submenu">
+                <script src="2000smenu.js"></script>
+            </ul>
+
+        </aside>
+
+        <!-- ОСНОВНОЙ КОНТЕНТ -->
+        <main class="content">
+
+
+
+<h1>9. Минимизация условий на $L$</h1>
+
+<p>Теперь исследуем P6: какие свойства действительно независимы, а какие являются следствиями других.</p>
+
+<p>Это особенно важно, потому что на предыдущем этапе мы получили четыре условия:</p>
+<div class="math-block"> $$ \begin{aligned} A &: \text{ацикличность } L, \\ B &: L \subseteq \preceq, \\ C &: \preceq \subseteq L^*, \\ D &: L = \operatorname{Cov}(L^*). \end{aligned} $$ </div>
+
+<p>Но пока это лишь список кандидатов. В минимальной аксиоматике нельзя сохранять условие, которое выводится из других.</p>
+
+
+
+<h2>1. Сначала устраняем техническую неоднозначность</h2>
+
+<p>До сих пор $L$ определялось как бинарное отношение:</p>
+<div class="math-block"> $$ L \subseteq \mathcal{S} \times \mathcal{S}. $$ </div>
+
+<p>Но для локального расширения естественно требуется переход <strong>между различными состояниями</strong>.</p>
+
+<p>Поэтому введём:</p>
+
+<h3>Определение D12. Строгое локальное расширение</h3>
+
+<div class="math-block"> $$ L(A,B) \Rightarrow A \neq B. $$ </div>
+
+<p>Это можно трактовать не как отдельную аксиому, а как часть выбора сигнатуры:</p>
+<div class="math-block"> $$ L \subseteq \{(A,B) \in \mathcal{S}^2 \mid A \neq B\}. $$ </div>
+
+<p>Теперь локальное расширение является иррефлексивным.</p>
+
+<p>Это устраняет тривиальные петли</p>
+<div class="math-block"> $$ A \to A. $$ </div>
+
+
+
+<h2>2. Ацикличность выводится из звуковости</h2>
+
+<p>Предположим, что внешний порядок $\preceq$ является частичным порядком.</p>
+
+<p>Обозначим его строгую часть:</p>
+<div class="math-block"> $$ A \prec B \iff A \preceq B \land A \neq B. $$ </div>
+
+<p>Теперь вместо $B$ в наиболее точной форме используем:</p>
+<div class="math-block"> $$ \boxed{L \subseteq \prec}. \tag{B'} $$ </div>
+
+<p>То есть каждое локальное расширение движется строго вверх по исходному порядку.</p>
+
+
+
+<h3>Теорема T18</h3>
+
+<p>Из $(B')$ следует ацикличность $L$.</p>
+
+<h4>Доказательство</h4>
+
+<p>Предположим противное: существует цикл</p>
+<div class="math-block"> $$ A_0 \to A_1 \to \cdots \to A_n = A_0. $$ </div>
+
+<p>Из $(B')$:</p>
+<div class="math-block"> $$ A_0 \prec A_1 \prec \cdots \prec A_n. $$ </div>
+
+<p>По транзитивности строгого порядка:</p>
+<div class="math-block"> $$ A_0 \prec A_n. $$ </div>
+
+<p>Но</p>
+<div class="math-block"> $$ A_n = A_0. $$ </div>
+
+<p>Следовательно,</p>
+<div class="math-block"> $$ A_0 \prec A_0, $$ </div>
+<p>что невозможно.</p>
+
+<p>Противоречие.</p>
+<p>□</p>
+
+
+
+<h2>Следствие C6</h2>
+
+<p>Условие $A$ — ацикличность — <strong>не является независимой аксиомой</strong>, если принято $(B')$.</p>
+
+<p>То есть:</p>
+<div class="math-block"> $$ \boxed{B' \Rightarrow A}. $$ </div>
+
+<p>Это первый реальный результат минимизации.</p>
+
+
+
+<h2>3. Можно ли получить звуковость из полноты?</h2>
+
+<p>Теперь проверим обратную зависимость.</p>
+
+<p>Напомним:</p>
+<div class="math-block"> $$ C:\quad \preceq \subseteq L^*. $$ </div>
+
+<p>Может ли $C$ гарантировать</p>
+<div class="math-block"> $$ L \subseteq \prec? $$ </div>
+
+<p>Нет.</p>
+
+
+
+<h3>Контрпример C10</h3>
+
+<p>Пусть</p>
+<div class="math-block"> $$ \mathcal{S} = \{a, b\} $$ </div>
+<p>и внешний порядок:</p>
+<div class="math-block"> $$ a \prec b. $$ </div>
+
+<p>Определим</p>
+<div class="math-block"> $$ L = \{(b, a)\}. $$ </div>
+
+<p>Тогда</p>
+<div class="math-block"> $$ a \preceq b, $$ </div>
+<p>но</p>
+<div class="math-block"> $$ b \not\preceq a. $$ </div>
+
+<p>Следовательно,</p>
+<div class="math-block"> $$ L^* = \{(a,a), (b,b), (b,a)\}. $$ </div>
+
+<p>Условие</p>
+<div class="math-block"> $$ \preceq \subseteq L^* $$ </div>
+<p>не выполняется, поскольку</p>
+<div class="math-block"> $$ a \preceq b, $$ </div>
+<p>но</p>
+<div class="math-block"> $$ a \not\preceq_L b. $$ </div>
+
+<p>Значит, одного $C$ недостаточно.</p>
+
+<p>Можно построить более сильный пример, где $C$ выполняется.</p>
+
+<p>Пусть</p>
+<div class="math-block"> $$ L = \{(a,b), (b,a)\}. $$ </div>
+
+<p>Тогда все пары, сравнимые в $\preceq$, достижимы, поэтому</p>
+<div class="math-block"> $$ \preceq \subseteq L^*. $$ </div>
+
+<p>Но $L \not\subseteq \prec$, поскольку присутствует переход</p>
+<div class="math-block"> $$ b \to a. $$ </div>
+
+<p>Следовательно:</p>
+<div class="math-block"> $$ \boxed{C \nRightarrow B'}. $$ </div>
+
+
+
+<h2>4. Можно ли получить полноту из звуковости?</h2>
+
+<p>Также нет.</p>
+
+<h3>Контрпример C11</h3>
+
+<p>Пусть</p>
+<div class="math-block"> $$ \mathcal{S} = \{a, b\} $$ </div>
+<p>и</p>
+<div class="math-block"> $$ a \prec b. $$ </div>
+
+<p>Возьмём</p>
+<div class="math-block"> $$ L = \varnothing. $$ </div>
+
+<p>Тогда</p>
+<div class="math-block"> $$ L \subseteq \prec $$ </div>
+<p>выполняется тривиально.</p>
+
+<p>Но</p>
+<div class="math-block"> $$ a \preceq b $$ </div>
+<p>и одновременно</p>
+<div class="math-block"> $$ a \not\preceq_L b. $$ </div>
+
+<p>Следовательно,</p>
+<div class="math-block"> $$ \preceq \nsubseteq L^*. $$ </div>
+
+<p>Итак:</p>
+<div class="math-block"> $$ \boxed{B' \nRightarrow C}. $$ </div>
+
+
+
+<h2>5. Независимость $B$ и $C$</h2>
+
+<p>Получили:</p>
+<div class="math-block"> $$ B' \nRightarrow C, $$ </div>
+<p>и</p>
+<div class="math-block"> $$ C \nRightarrow B'. $$ </div>
+
+<p>Следовательно, при фиксированном внешнем порядке:</p>
+<div class="math-block"> $$ \boxed{B'\text{ и }C\text{ независимы}.} $$ </div>
+
+<p>Это важный результат.</p>
+
+<p>Чтобы локальные расширения одновременно:</p>
+<ul>
+    <li>не противоречили порядку;</li>
+    <li>полностью воспроизводили порядок,</li>
+</ul>
+<p>необходимо обеспечить обе стороны связи.</p>
+
+
+
+<h2>6. Что происходит с условием $D$?</h2>
+
+<p>Условие $D$:</p>
+<div class="math-block"> $$ L = \operatorname{Cov}(L^*). $$ </div>
+
+<p>Оно существенно отличается от $B$ и $C$.</p>
+
+<p>$B$ и $C$ говорят:</p>
+<blockquote>
+    <p>локальные расширения должны правильно порождать порядок.</p>
+</blockquote>
+
+<p>$D$ говорит:</p>
+<blockquote>
+    <p>локальные расширения должны быть минимальным представлением этого порядка.</p>
+</blockquote>
+
+<p>Следовательно, $D$ необходимо исследовать отдельно.</p>
+
+
+
+<h2>7. $D$ не следует из $B$ и $C$</h2>
+
+<h3>Контрпример C12</h3>
+
+<p>Пусть</p>
+<div class="math-block"> $$ \mathcal{S} = \{a, b, c\} $$ </div>
+<p>с порядком</p>
+<div class="math-block"> $$ a \prec b \prec c. $$ </div>
+
+<p>Определим</p>
+<div class="math-block"> $$ L = \{(a,b), (b,c), (a,c)\}. $$ </div>
+
+<p>Тогда:</p>
+<div class="math-block"> $$ L \subseteq \prec. $$ </div>
+
+<p>Кроме того,</p>
+<div class="math-block"> $$ a \preceq_L b, \qquad b \preceq_L c, \qquad a \preceq_L c. $$ </div>
+
+<p>Следовательно:</p>
+<div class="math-block"> $$ \preceq = L^*. $$ </div>
+
+<p>То есть $B$ и $C$ выполнены.</p>
+
+<p>Однако</p>
+<div class="math-block"> $$ (a,c) \notin \operatorname{Cov}(\preceq), $$ </div>
+<p>поскольку</p>
+<div class="math-block"> $$ a \prec b \prec c. $$ </div>
+
+<p>Поэтому</p>
+<div class="math-block"> $$ L \neq \operatorname{Cov}(L^*). $$ </div>
+
+<p>Следовательно:</p>
+<div class="math-block"> $$ \boxed{B' + C \nRightarrow D}. $$ </div>
+
+
+
+<h2>8. Нужно ли $D$ для восстановления порядка?</h2>
+
+<p>Вот здесь обнаруживается принципиально важное различие.</p>
+
+<p>Для получения</p>
+<div class="math-block"> $$ \preceq = L^* $$ </div>
+<p>$D$ <strong>не требуется</strong>.</p>
+
+<p>Достаточно $B$ и $C$.</p>
+
+<p>Действительно:</p>
+<div class="math-block"> $$ B' \Rightarrow L^* \subseteq \preceq, $$ </div>
+<p>а</p>
+<div class="math-block"> $$ C \Rightarrow \preceq \subseteq L^*. $$ </div>
+
+<p>Следовательно:</p>
+<div class="math-block"> $$ \boxed{\preceq = L^*}. $$ </div>
+
+<p>Таким образом:</p>
+<blockquote>
+    <p><strong>транзитивная минимальность локальных расширений не нужна для восстановления порядка.</strong></p>
+</blockquote>
+
+<p>Она нужна только для восстановления <strong>самого $L$</strong> из порядка.</p>
+
+
+
+<h2>9. Новый фундаментальный результат</h2>
+
+<h3>Теорема T19. Минимальный критерий реконструкции порядка</h3>
+
+<p>Пусть $(\mathcal{S}, \preceq)$ — частично упорядоченное множество, а $L$ — отношение локальных расширений.</p>
+
+<p>Тогда</p>
+<div class="math-block"> $$ \boxed{\preceq = L^*} $$ </div>
+<p>тогда и только тогда, когда одновременно выполнены:</p>
+<div class="math-block"> $$ \boxed{L \subseteq \prec} $$ </div>
+<p>и</p>
+<div class="math-block"> $$ \boxed{\preceq \subseteq L^*}. $$ </div>
+
+<h4>Доказательство</h4>
+
+<p>Уже доказано:</p>
+<div class="math-block"> $$ L \subseteq \prec \Rightarrow L^* \subseteq \preceq. $$ </div>
+
+<p>Второе условие даёт:</p>
+<div class="math-block"> $$ \preceq \subseteq L^*. $$ </div>
+
+<p>Следовательно,</p>
+<div class="math-block"> $$ L^* = \preceq. $$ </div>
+
+<p>Обратное направление очевидно: если</p>
+<div class="math-block"> $$ L^* = \preceq, $$ </div>
+<p>то каждое ребро $L$ принадлежит строгой части $\preceq$, а второе включение выполняется автоматически.</p>
+<p>□</p>
+
+
+
+<h2>10. Ещё более сильная минимизация</h2>
+
+<p>Теперь рассмотрим два разных уровня теории.</p>
+
+<h3>Уровень I — реконструкция порядка</h3>
+
+<p>Нам нужны только:</p>
+<div class="math-block"> $$ B': L \subseteq \prec $$ </div>
+<p>и</p>
+<div class="math-block"> $$ C: \preceq \subseteq L^*. $$ </div>
+
+<p>Тогда:</p>
+<div class="math-block"> $$ \boxed{\preceq = L^*}. $$ </div>
+
+<h3>Уровень II — реконструкция локальных расширений</h3>
+
+<p>Если дополнительно требуется:</p>
+<div class="math-block"> $$ L = \operatorname{Cov}(\preceq), $$ </div>
+<p>тогда $D$ становится необходимым.</p>
+
+<p>Таким образом, $D$ не является фундаментальной аксиомой самой теории достижимости.</p>
+
+
+
+<h2>11. Можно ли заменить $D$ более слабым условием?</h2>
+
+<p>Да.</p>
+
+<p>Если уже доказано</p>
+<div class="math-block"> $$ \preceq = L^*, $$ </div>
+<p>то вместо</p>
+<div class="math-block"> $$ L = \operatorname{Cov}(L^*) $$ </div>
+<p>можно записать:</p>
+<div class="math-block"> $$ \boxed{L = \operatorname{Cov}(\preceq)}. $$ </div>
+
+<p>Но это не уменьшает содержательную силу условия — просто заменяет производный объект $L^*$ внешним порядком.</p>
+
+
+
+<h2>12. Таблица независимости</h2>
+
+<p>На данном этапе получаем:</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Условие</th>
+            <th>Следует из остальных?</th>
+            <th>Статус</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>$A$: ацикличность</td>
+            <td>Да, из $B'$</td>
+            <td>удалить</td>
+        </tr>
+        <tr>
+            <td>$B'$: $L \subseteq \prec$</td>
+            <td>Нет</td>
+            <td>необходимо для реконструкции</td>
+        </tr>
+        <tr>
+            <td>$C$: $\preceq \subseteq L^*$</td>
+            <td>Нет</td>
+            <td>необходимо для реконструкции</td>
+        </tr>
+        <tr>
+            <td>$D$: $L = \operatorname{Cov}(L^*)$</td>
+            <td>Нет</td>
+            <td>необходимо только для минимальности $L$</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>Это уже существенно сокращает первоначальную систему.</p>
+
+
+
+<h2>13. Но появляется более глубокий вопрос</h2>
+
+<p>До сих пор мы сохраняем внешний порядок</p>
+<div class="math-block"> $$ \preceq $$ </div>
+<p>как заданный объект.</p>
+
+<p>Но если наша конечная цель — построить минимальную теорию локальных расширений, возникает вопрос:</p>
+<blockquote>
+    <p><strong>Нужен ли вообще внешний порядок в качестве примитива?</strong></p>
+</blockquote>
+
+<p>Мы уже умеем строить</p>
+<div class="math-block"> $$ \preceq_L = L^*. $$ </div>
+
+<p>Поэтому можно попытаться построить теорию вообще без $\preceq$.</p>
+
+<p>Тогда единственным фундаментальным объектом останется:</p>
+<div class="math-block"> $$ \boxed{(\mathcal{S}, L)}. $$ </div>
+
+<p>Но для этого необходимо определить, какие свойства $L$ гарантируют, что</p>
+<div class="math-block"> $$ L^* $$ </div>
+<p>будет именно тем структурным порядком, который требуется основной теории.</p>
+
+
+
+<h2>Открытая проблема P7</h2>
+
+<p>Исследовать <strong>аксиоматизацию только через $L$</strong>.</p>
+
+<p>Необходимо определить минимальный набор свойств отношения $L$, достаточный для того, чтобы:</p>
+<ol>
+    <li>$L^*$ являлось частичным порядком;</li>
+    <li>этот порядок обладал требуемыми свойствами структурного порядка;</li>
+    <li>локальные расширения можно было проверять алгоритмически;</li>
+    <li>при необходимости $L$ восстанавливалось из $L^*$ как отношение покрытия;</li>
+    <li>внешняя теория структур могла быть подключена через доказанную эквивалентность, а не через скрытое предположение.</li>
+</ol>
+
+<p>Главный кандидат уже найден:</p>
+<div class="math-block"> $$ \boxed{ L\text{ иррефлексивно и ациклично} } $$ </div>
+<p>поскольку тогда</p>
+<div class="math-block"> $$ L^* $$ </div>
+<p>автоматически является частичным порядком.</p>
+
+<p>Но здесь возникает новый вопрос минимальности:</p>
+<blockquote>
+    <p><strong>Нужно ли отдельно аксиоматизировать ацикличность, или она сама должна быть следствием ещё более фундаментального свойства локального расширения?</strong></p>
+</blockquote>
+
+<p>Именно это исследуем далее.</p>
+
+
+        </main>
+
+
+    <!-- Скрипты KaTeX -->
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false}
+            ],
+            throwOnError: false
+        });">
+    </script>
+</body>
+</html>

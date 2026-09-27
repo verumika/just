@@ -1,0 +1,46 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const menuContainer = document.querySelector('ul.submenu');
+  if (!menuContainer) return;
+
+  // Вставляем один пункт с подменю (можно добавить ещё такие же li.has-submenu)
+  menuContainer.insertAdjacentHTML('beforeend', `
+
+<li><a href="802.html">ФОРМАЛЬНАЯ МОДЕЛЬ СПРАВЕДЛИВОГО МИРА</a></li>
+<li><a href="801.html">Почему «жизнь несправедлива"?</a></li>
+<li><a href="803.html">Всеохватность и вездесущность справедливости</a></li>
+<li><a href="804.html">Сборник глубоких истин о справедливости</a></li>
+<li><a href="899.html">---</a></li>
+
+
+
+  `);
+
+  const toggles = document.querySelectorAll('.submenu-toggle');
+
+  toggles.forEach(toggle => {
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault(); // блокируем переход по ссылке-заголовку
+      const parentLi = toggle.closest('li.has-submenu');
+      const sub = parentLi.querySelector('.submenu-level-2');
+      if (!sub) return;
+
+      const isOpen = sub.style.display === 'block';
+
+      // Сначала закрываем ВСЕ подменю
+      document.querySelectorAll('li.has-submenu .submenu-level-2').forEach(s => {
+        s.style.display = 'none';
+        const t = s.closest('li').querySelector('.submenu-toggle .toggle-icon');
+        if (t) t.textContent = '▼';
+      });
+
+      // Если до клика это меню было открыто — мы его просто закрыли (ничего не открываем)
+      if (isOpen) {
+        return;
+      }
+
+      // Открываем только текущее
+      sub.style.display = 'block';
+      toggle.querySelector('.toggle-icon').textContent = '▲';
+    });
+  });
+});
