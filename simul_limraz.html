@@ -1,0 +1,1215 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Верумика — симуляция эволюции цивилизации (H, I, N)</title>
+  <style>
+    :root{
+      --bg:#0b1020;
+      --card:#0f1730;
+      --muted:#8aa0c8;
+      --text:#e9f0ff;
+      --line:rgba(255,255,255,.08);
+      --accent:#7aa2ff;
+      --good:#33d6a6;
+      --warn:#ffd166;
+      --bad:#ff5c7a;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background: radial-gradient(1200px 700px at 20% 10%, rgba(122,162,255,.16), transparent 55%),
+                  radial-gradient(900px 600px at 80% 20%, rgba(51,214,166,.10), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+    }
+    header{
+      padding:18px 18px 12px;
+      border-bottom:1px solid var(--line);
+      position:sticky;
+      top:0;
+      backdrop-filter: blur(10px);
+      background: rgba(11,16,32,.72);
+      z-index:10;
+    }
+    .row{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    h1{
+      font-size:16px;
+      margin:0;
+      letter-spacing:.2px;
+      font-weight:650;
+    }
+    .sub{
+      color:var(--muted);
+      font-size:12px;
+      margin-top:6px;
+      line-height:1.35;
+      max-width:1100px;
+    }
+    .controls{
+      margin-left:auto;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    button{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      color:var(--text);
+      padding:10px 12px;
+      border-radius:14px;
+      cursor:pointer;
+      font-weight:650;
+      font-size:13px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.18);
+    }
+    button:hover{border-color: rgba(122,162,255,.35)}
+    button:active{transform: translateY(1px)}
+    .pill{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:8px 10px;
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-size:12px;
+    }
+    select{
+      background: transparent;
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 10px;
+      padding: 6px 10px;
+      outline:none;
+    }
+
+    main{
+      padding: 14px 14px 22px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .world{
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 12px;
+      box-shadow: 0 16px 50px rgba(0,0,0,.25);
+      overflow:hidden;
+      min-width: 0;
+    }
+    .worldHead{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      justify-content:space-between;
+      margin-bottom: 10px;
+    }
+    .worldTitle .t{
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: .2px;
+    }
+    .worldTitle .d{
+      margin-top: 4px;
+      font-size: 12px;
+      line-height: 1.35;
+      color: var(--muted);
+      max-width: 680px;
+    }
+    .legend{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      align-items:flex-end;
+      font-size: 11px;
+      color: var(--muted);
+      white-space:nowrap;
+    }
+    .sw{display:flex; gap:8px; align-items:center}
+    .dot{width:10px; height:10px; border-radius:99px; display:inline-block}
+
+    .canvasWrap{
+      height: 390px;
+      width: 100%;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: radial-gradient(900px 500px at 50% 20%, rgba(122,162,255,.06), transparent 60%),
+                  radial-gradient(900px 600px at 60% 80%, rgba(51,214,166,.04), transparent 60%),
+                  rgba(0,0,0,.18);
+      overflow:hidden;
+      position:relative;
+    }
+    canvas{width:100%; height:100%; display:block}
+
+    .note{
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+    .kbd{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      padding: 2px 6px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.18);
+      color: rgba(233,240,255,.92);
+    }
+
+    .charts{grid-column: 1 / -1;}
+
+    @media (max-width: 980px){
+      main{grid-template-columns: 1fr;}
+      .canvasWrap{height: 360px;}
+      .legend{align-items:flex-start;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="row">
+      <div>
+        <h1>Верумика — симуляция эволюции цивилизации: честность H, интеллект I, численность N</h1>
+        <div class="sub">
+          Две параллельные траектории: <b>несправедливый мир</b> (слева) и <b>справедливый мир</b> (справа).<br>
+          Критические пороги: <span class="kbd">H=0.7</span> (честность филоверума), <span class="kbd">I=0.5</span> (предел разумности в несправедливом мире), <span class="kbd">N=100</span> (предел численности при достижении предела разумности).
+        </div>
+      </div>
+
+      <div class="controls">
+        <button id="btnRun">Запуск</button>
+        <span class="pill">
+          Интервал шага
+          <select id="selSpeed" title="Длительность шага">
+            <option value="5">Очень быстро (~4 c)</option>
+            <option value="8" selected>Быстро (~6 c)</option>
+            <option value="12">Средне (~9 c)</option>
+            <option value="16">Медленно (~12 c)</option>
+            <option value="22">Очень медленно (~16 c)</option>
+          </select>
+        </span>
+        <span class="pill"><span id="lblStep">шаг 0/1000</span></span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="world" id="worldUnfair">
+      <div class="worldHead">
+        <div class="worldTitle">
+          <div class="t">Несправедливый мир</div>
+          <div class="d">
+            Рост честности возможен, но <b>разумность не переходит</b> предел <span class="kbd">I=0.5</span>.
+            При приближении к пределу — системный кризис и падение численности.
+          </div>
+        </div>
+        <div class="legend">
+          <span class="sw"><span class="dot" style="background:rgba(122,162,255,.9)"></span>поверхность: распределение</span>
+          <span class="sw"><span class="dot" style="background:rgba(255,209,102,.9)"></span>предел разумности</span>
+          <span class="sw"><span class="dot" style="background:rgba(255,92,122,.9)"></span>предел численности</span>
+          <span class="sw"><span class="dot" style="background:rgba(51,214,166,.9)"></span>H=0.7</span>
+        </div>
+      </div>
+      <div class="canvasWrap"><canvas id="cvUnfair"></canvas></div>
+      <div class="note">
+        <b>Антиверумика</b> = область <span class="kbd">I&lt;0.5</span>.
+        В несправедливом мире даже при <span class="kbd">H&gt;0.7</span> переход не происходит.
+      </div>
+    </section>
+
+    <section class="world" id="worldFair">
+      <div class="worldHead">
+        <div class="worldTitle">
+          <div class="t">Справедливый мир</div>
+          <div class="d">
+            При достижении <span class="kbd">H≥0.7</span> и <span class="kbd">I≈0.5</span> возникает <b>переход знания</b>: антиверумика → верумика.
+            После этого пределы преодолеваются.
+          </div>
+        </div>
+        <div class="legend">
+          <span class="sw"><span class="dot" style="background:rgba(122,162,255,.9)"></span>поверхность: распределение</span>
+          <span class="sw"><span class="dot" style="background:rgba(255,209,102,.9)"></span>предел разумности</span>
+          <span class="sw"><span class="dot" style="background:rgba(255,92,122,.9)"></span>предел численности</span>
+          <span class="sw"><span class="dot" style="background:rgba(51,214,166,.9)"></span>H=0.7</span>
+        </div>
+      </div>
+      <div class="canvasWrap"><canvas id="cvFair"></canvas></div>
+      <div class="note">
+        <b>Верумика</b> = область <span class="kbd">I&gt;0.5</span> и <span class="kbd">H≥0.7</span>.
+        Переход отображается вспышкой и меткой шага.
+      </div>
+    </section>
+
+    <section class="world charts">
+      <div class="worldHead">
+        <div class="worldTitle">
+          <div class="t">Интегралы и доли зон</div>
+          <div class="d">
+            <b>N(t)</b> для обоих миров и доли населения в областях <b>антиверумика</b> / <b>верумика</b>.
+          </div>
+        </div>
+        <div class="legend">
+          <span class="sw"><span class="dot" style="background:rgba(122,162,255,.9)"></span>N(t) несправ.</span>
+          <span class="sw"><span class="dot" style="background:rgba(51,214,166,.9)"></span>N(t) справ.</span>
+          <span class="sw"><span class="dot" style="background:rgba(255,209,102,.9)"></span>доля антиверумики</span>
+          <span class="sw"><span class="dot" style="background:rgba(51,214,166,.9)"></span>доля верумики</span>
+        </div>
+      </div>
+      <div class="canvasWrap" style="height: 260px;"><canvas id="cvCharts"></canvas></div>
+      <div class="note">
+        Антиверумика: <span class="kbd">I&lt;0.5</span>. Верумика: <span class="kbd">I&gt;0.5</span> и <span class="kbd">H≥0.7</span>.
+      </div>
+    </section>
+  </main>
+
+<script>
+(() => {
+  // =============================
+  // ПАРАМЕТРЫ СИМУЛЯЦИИ
+  // =============================
+  const STEPS = 1000;
+  const H_FILOVERUM = 0.70;
+  const H_TRICKSTER = 0.50;
+  const I_TRICKSTER = 0.50;
+  const I_LIMIT = 0.50;          // предел разумности (несправедливый мир)
+  const N_MAX = 200;
+  const N_LIMIT = 100;
+  const N_CRASH_FLOOR = 5;
+
+  // сетка распределения (H, I)
+  const GH = 28;
+  const GI = 28;
+
+  // =============================
+  // УТИЛИТЫ
+  // =============================
+  const clamp = (x,a,b)=>Math.max(a,Math.min(b,x));
+  const lerp = (a,b,t)=>a+(b-a)*t;
+  const smoothstep = (a,b,x)=>{
+    const t = clamp((x-a)/(b-a),0,1);
+    return t*t*(3-2*t);
+  };
+
+  function resizeCanvas(cv){
+    const r = cv.getBoundingClientRect();
+    const dpr = Math.max(1, Math.min(2.2, window.devicePixelRatio || 1));
+    cv.width = Math.floor(r.width * dpr);
+    cv.height = Math.floor(r.height * dpr);
+    return {w:cv.width, h:cv.height, dpr};
+  }
+
+  // =============================
+  // ПРОЕКТОР ("кубический", авто-fit)
+  // =============================
+  function makeProjector(width, height){
+    // Изометрическая проекция + авто-вписывание bbox куба.
+
+    const bx = {x: 1.00, y: -0.22};   // H
+    const by = {x: -0.62, y: -0.62};  // I
+    const bz = {x: 0.00, y: -1.00};   // Z
+
+    function projectWith(origin, s, H, I, Z){
+      const scaleX = s;
+      const scaleY = s*0.98;
+      const scaleZ = s*0.92;
+
+      const x = origin.x + (H*scaleX)*bx.x + (I*scaleY)*by.x + (Z*scaleZ)*bz.x;
+      const y = origin.y + (H*scaleX)*bx.y + (I*scaleY)*by.y + (Z*scaleZ)*bz.y;
+      return {x,y};
+    }
+
+    function boundsFor(origin, s){
+      const pts = [
+        projectWith(origin,s, 0,0,0),
+        projectWith(origin,s, 1,0,0),
+        projectWith(origin,s, 0,1,0),
+        projectWith(origin,s, 1,1,0),
+        projectWith(origin,s, 0,0,1),
+        projectWith(origin,s, 1,0,1),
+        projectWith(origin,s, 0,1,1),
+        projectWith(origin,s, 1,1,1),
+      ];
+      let minX=Infinity, minY=Infinity, maxX=-Infinity, maxY=-Infinity;
+      for(const p of pts){
+        minX = Math.min(minX,p.x);
+        minY = Math.min(minY,p.y);
+        maxX = Math.max(maxX,p.x);
+        maxY = Math.max(maxY,p.y);
+      }
+      return {minX,minY,maxX,maxY, w:maxX-minX, h:maxY-minY};
+    }
+
+    const pad = 18;
+    const maxW = Math.max(40, width - 2*pad);
+    const maxH = Math.max(40, height - 2*pad);
+
+    let s = Math.min(width, height) * 0.55;
+    let origin = {x: width*0.50, y: height*0.78};
+
+    for(let it=0; it<10; it++){
+      const b = boundsFor(origin, s);
+      const k = Math.min(1, maxW / b.w, maxH / b.h);
+      if(k >= 0.999) break;
+      s *= k;
+    }
+
+    // центрирование
+    {
+      const b = boundsFor(origin, s);
+      const targetMinX = pad;
+      const targetMaxX = width - pad;
+      const targetMinY = pad;
+      const targetMaxY = height - pad;
+
+      const dx = (targetMinX - b.minX) + ((targetMaxX-targetMinX) - b.w)/2;
+      const dy = (targetMinY - b.minY) + ((targetMaxY-targetMinY) - b.h)/2;
+      origin = {x: origin.x + dx, y: origin.y + dy};
+    }
+
+    function project(H, I, Z){
+      return projectWith(origin, s, H, I, Z);
+    }
+
+    return {project, origin, scale:s};
+  }
+
+  // =============================
+  // ПОВЕРХНОСТЬ "ПРЕДЕЛ ЧИСЛЕННОСТИ" N_limit(H,I,t)
+  // =============================
+  function popLimitSurfaceZ(state, isFair, H, I){
+    let base = N_LIMIT;
+
+    const nearReason = smoothstep(0.44, I_LIMIT, state.I_mean);
+    const honestyGain = 0.35*smoothstep(0.55, 0.90, H);
+
+    if(!isFair){
+      const lowH = 1 - smoothstep(0.60, 0.85, state.H_mean);
+      const collapse = 0.75*nearReason*(0.70 + 0.30*lowH);
+      const minCap = 10;
+      base = lerp(N_LIMIT, minCap, collapse);
+      base *= (1 - 0.10*smoothstep(0.40, I_LIMIT, I));
+    } else {
+      if(!state.verumSwitch){
+        const lowH = 1 - smoothstep(0.62, 0.86, state.H_mean);
+        const wobble = 0.25*nearReason*(0.70 + 0.30*lowH);
+        base = lerp(N_LIMIT, 70, wobble);
+      } else {
+        const lift = 0.65*smoothstep(I_LIMIT, 0.75, state.I_mean);
+        base = lerp(N_LIMIT, N_MAX, lift);
+      }
+    }
+
+    const spatial = 1 + honestyGain + 0.20*smoothstep(0.35, 0.80, I);
+    const Ncap = clamp(base*spatial, 5, N_MAX);
+    return Ncap / N_MAX;
+  }
+
+  // =============================
+  // РИСОВАНИЕ ОСЕЙ И ПРЕДЕЛОВ
+  // =============================
+  function drawCubeAxes(ctx, proj){
+    ctx.save();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = 'rgba(255,255,255,0.14)';
+
+    const O = proj.project(0,0,0);
+    const X = proj.project(1,0,0);
+    const Y = proj.project(0,1,0);
+    const Z = proj.project(0,0,1);
+
+    // оси
+    ctx.beginPath(); ctx.moveTo(O.x,O.y); ctx.lineTo(X.x,X.y); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(O.x,O.y); ctx.lineTo(Y.x,Y.y); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(O.x,O.y); ctx.lineTo(Z.x,Z.y); ctx.stroke();
+
+    // грани куба
+    const A = proj.project(1,0,0);
+    const B = proj.project(1,1,0);
+    const C = proj.project(0,1,0);
+    const D = proj.project(0,0,0);
+
+    const A2 = proj.project(1,0,1);
+    const B2 = proj.project(1,1,1);
+    const C2 = proj.project(0,1,1);
+    const D2 = proj.project(0,0,1);
+
+    ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+
+    // нижняя грань
+    ctx.beginPath();
+    ctx.moveTo(D.x,D.y);
+    ctx.lineTo(A.x,A.y);
+    ctx.lineTo(B.x,B.y);
+    ctx.lineTo(C.x,C.y);
+    ctx.closePath();
+    ctx.stroke();
+
+    // верхняя
+    ctx.beginPath();
+    ctx.moveTo(D2.x,D2.y);
+    ctx.lineTo(A2.x,A2.y);
+    ctx.lineTo(B2.x,B2.y);
+    ctx.lineTo(C2.x,C2.y);
+    ctx.closePath();
+    ctx.stroke();
+
+    // вертикали
+    ctx.beginPath(); ctx.moveTo(A.x,A.y); ctx.lineTo(A2.x,A2.y); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(B.x,B.y); ctx.lineTo(B2.x,B2.y); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(C.x,C.y); ctx.lineTo(C2.x,C2.y); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(D.x,D.y); ctx.lineTo(D2.x,D2.y); ctx.stroke();
+
+    // подписи
+    ctx.fillStyle = 'rgba(233,240,255,0.72)';
+    ctx.font = '12px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace';
+
+    ctx.fillText('H (честность)', X.x+6, X.y+2);
+    ctx.fillText('I (интеллект)', Y.x-98, Y.y+6);
+    ctx.fillText('N (численность)', Z.x+6, Z.y-4);
+
+    ctx.restore();
+  }
+
+  function drawPlane_ReasonLimit(ctx, proj){
+    // Плоскость I=0.5
+    const I = I_LIMIT;
+
+    const p00 = proj.project(0,I,0);
+    const p10 = proj.project(1,I,0);
+    const p11 = proj.project(1,I,1);
+    const p01 = proj.project(0,I,1);
+
+    ctx.save();
+    ctx.fillStyle = 'rgba(255,209,102,0.09)';
+    ctx.strokeStyle = 'rgba(255,209,102,0.22)';
+    ctx.lineWidth = 1;
+
+    ctx.beginPath();
+    ctx.moveTo(p00.x,p00.y);
+    ctx.lineTo(p10.x,p10.y);
+    ctx.lineTo(p11.x,p11.y);
+    ctx.lineTo(p01.x,p01.y);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.fillStyle = 'rgba(255,209,102,0.9)';
+    ctx.font = '12px ui-sans-serif, system-ui';
+    const t = proj.project(0.05, I, 0.95);
+    ctx.fillText('предел разумности: I=0.5', t.x+6, t.y-4);
+
+    ctx.restore();
+  }
+
+  function drawLine_HFiloverum(ctx, proj){
+    // линия H=0.7 на нижнем основании
+    const H = H_FILOVERUM;
+    const p0 = proj.project(H, 0, 0);
+    const p1 = proj.project(H, 1, 0);
+
+    ctx.save();
+    ctx.strokeStyle = 'rgba(51,214,166,0.70)';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(p0.x,p0.y);
+    ctx.lineTo(p1.x,p1.y);
+    ctx.stroke();
+
+    ctx.fillStyle = 'rgba(51,214,166,0.90)';
+    ctx.font = '12px ui-sans-serif, system-ui';
+    const t = proj.project(H, 0.02, 0.02);
+    ctx.fillText('H=0.7', t.x+6, t.y+2);
+
+    ctx.restore();
+  }
+
+  function drawSurface_PopLimit(ctx, proj, state, isFair){
+    // сетчатая поверхность Z = N_limit(H,I,t)
+    const stepH = 1/10;
+    const stepI = 1/10;
+
+    ctx.save();
+    ctx.lineWidth = 1;
+    ctx.fillStyle = 'rgba(255,92,122,0.06)';
+    ctx.strokeStyle = 'rgba(255,92,122,0.22)';
+
+    for(let yi=0; yi<10; yi++){
+      const i0 = yi*stepI;
+      const i1 = (yi+1)*stepI;
+      for(let xi=0; xi<10; xi++){
+        const h0 = xi*stepH;
+        const h1 = (xi+1)*stepH;
+
+        const z00 = popLimitSurfaceZ(state,isFair,h0,i0);
+        const z10 = popLimitSurfaceZ(state,isFair,h1,i0);
+        const z01 = popLimitSurfaceZ(state,isFair,h0,i1);
+        const z11 = popLimitSurfaceZ(state,isFair,h1,i1);
+
+        const p00 = proj.project(h0,i0,z00);
+        const p10 = proj.project(h1,i0,z10);
+        const p11 = proj.project(h1,i1,z11);
+        const p01 = proj.project(h0,i1,z01);
+
+        ctx.beginPath();
+        ctx.moveTo(p00.x,p00.y);
+        ctx.lineTo(p10.x,p10.y);
+        ctx.lineTo(p11.x,p11.y);
+        ctx.lineTo(p01.x,p01.y);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+      }
+    }
+
+    ctx.fillStyle = 'rgba(255,92,122,0.88)';
+    ctx.font = '12px ui-sans-serif, system-ui';
+    const t = proj.project(0.06, 0.92, popLimitSurfaceZ(state,isFair,0.06,0.92));
+    ctx.fillText('предел численности: N(H,I,t)', t.x+6, t.y-4);
+
+    ctx.restore();
+  }
+
+  // =============================
+  // РАСПРЕДЕЛЕНИЕ НАСЕЛЕНИЯ
+  // =============================
+  function makeGrid(){
+    const g = new Float32Array(GH*GI);
+    return g;
+  }
+
+  function gaussian2D(h,i, mh, mi, sh, si){
+    const dh = (h-mh)/sh;
+    const di = (i-mi)/si;
+    return Math.exp(-0.5*(dh*dh + di*di));
+  }
+
+  function updateDistribution(state, isFair){
+    // Распределение по H и I: максимум вокруг (H_mean, I_mean)
+    // В справедливом мире после перехода распределение сдвигается в область H>=0.7, I>0.5.
+
+    const g = state.grid;
+
+    const mh = state.H_mean;
+    const mi = state.I_mean;
+
+    let sh = 0.16 - 0.06*smoothstep(0.25, 0.85, mh);
+    let si = 0.16 - 0.07*smoothstep(0.25, 0.85, mi);
+
+    if(isFair && state.verumSwitch){
+      sh *= 0.75;
+      si *= 0.70;
+    }
+
+    // нормируем массу на N
+    let sum = 0;
+    for(let y=0; y<GI; y++){
+      const i = y/(GI-1);
+      for(let x=0; x<GH; x++){
+        const h = x/(GH-1);
+
+        // ядро
+        let v = gaussian2D(h,i, mh, mi, sh, si);
+
+        // в несправедливом мире: область I>0.5 искусственно подавляется
+        if(!isFair && i > I_LIMIT){
+          v *= 0.08;
+        }
+
+        // в справедливом мире после перехода: область I>0.5 поддерживается
+        if(isFair && state.verumSwitch && i > I_LIMIT){
+          v *= 1.35;
+        }
+
+        g[y*GH+x] = v;
+        sum += v;
+      }
+    }
+
+    const k = (sum>0) ? (state.N / sum) : 0;
+    for(let i=0; i<g.length; i++) g[i] *= k;
+  }
+
+  function computeShares(state){
+    // Доли населения в зонах:
+    // антиверумика: I<0.5
+    // верумика: I>0.5 и H>=0.7
+
+    const g = state.grid;
+    let sum = 0;
+    let anti = 0;
+    let verum = 0;
+
+    for(let y=0; y<GI; y++){
+      const I = y/(GI-1);
+      for(let x=0; x<GH; x++){
+        const H = x/(GH-1);
+        const v = g[y*GH+x];
+        sum += v;
+
+        if(I < I_LIMIT) anti += v;
+        if(I > I_LIMIT && H >= H_FILOVERUM) verum += v;
+      }
+    }
+
+    const inv = sum>0 ? 1/sum : 0;
+    return {
+      anti: anti*inv,
+      verum: verum*inv,
+      sum
+    };
+  }
+
+  // =============================
+  // ДИНАМИКА МИРА
+  // =============================
+  function initState(){
+    return {
+      step: 0,
+      H_mean: 0.12,
+      I_mean: 0.12,
+      N: 2,
+      grid: makeGrid(),
+      verumSwitch: false,
+      flashT: 0,
+      switchStep: null,
+      historyN: new Float32Array(STEPS),
+      historyAnti: new Float32Array(STEPS),
+      historyVerum: new Float32Array(STEPS),
+    };
+  }
+
+  function stepWorld(state, isFair){
+    const p = state.step/(STEPS-1);
+
+    // базовая динамика честности и интеллекта
+    const dH = 0.00018 + 0.00025*smoothstep(0.05, 0.65, p);
+    const dI = 0.00032 + 0.00055*smoothstep(0.10, 0.70, p);
+
+    state.H_mean = clamp(state.H_mean + dH, 0, 1);
+    state.I_mean = clamp(state.I_mean + dI, 0, 1);
+
+    // Несправедливый мир: барьер разумности
+    if(!isFair){
+      if(state.I_mean > I_LIMIT){
+        state.I_mean = I_LIMIT + (state.I_mean - I_LIMIT)*0.08;
+      }
+    }
+
+    // Численность: базовый рост
+    // (зависит от интеллекта и честности)
+    const baseGrowth = 0.18 + 0.85*smoothstep(0.10,0.55,state.I_mean);
+    const moralGain = 0.55*smoothstep(0.30,0.75,state.H_mean);
+    let targetN = 2 + (N_MAX-2) * clamp(0.15 + 0.55*p + 0.20*moralGain, 0, 1);
+
+    // Несправедливый мир: кризис при I≈0.5 и низкой честности
+    if(!isFair){
+      const near = smoothstep(0.42, I_LIMIT, state.I_mean);
+      const lowH = 1 - smoothstep(0.55, 0.80, state.H_mean);
+      const collapse = near * (0.55 + 0.45*lowH);
+
+      // падение к 5
+      const crashN = lerp(targetN, N_CRASH_FLOOR, clamp(collapse,0,1));
+      targetN = crashN;
+
+      // ограничение: при достижении I≈0.5 предел численности ~100
+      // (после этого предел начинает "проседать")
+      if(state.I_mean > 0.48){
+        targetN = Math.min(targetN, N_LIMIT);
+      }
+    }
+
+    // Справедливый мир: переход знания
+    if(isFair){
+      const readyH = state.H_mean >= H_FILOVERUM;
+      const readyI = state.I_mean >= (I_LIMIT - 0.01);
+      const readyN = state.N >= 60;
+
+      if(!state.verumSwitch && readyH && readyI && readyN){
+        state.verumSwitch = true;
+        state.flashT = 1.0;
+        state.switchStep = state.step;
+      }
+
+      if(state.verumSwitch){
+        // после перехода: интеллект и честность ускоряются
+        state.I_mean = clamp(state.I_mean + 0.00055 + 0.0012*smoothstep(0.50,0.75,state.I_mean), 0, 1);
+        state.H_mean = clamp(state.H_mean + 0.00025 + 0.0006*smoothstep(0.70,0.90,state.H_mean), 0, 1);
+
+        // численность после перехода растёт и выходит за N_LIMIT
+        targetN = Math.max(targetN, N_LIMIT + 10);
+        targetN = lerp(targetN, N_MAX, smoothstep(0.55, 0.90, state.I_mean));
+      }
+
+      // затухание вспышки
+      state.flashT = Math.max(0, state.flashT - 0.035);
+    }
+
+    // сглаживание N
+    const relax = 0.08 + 0.10*smoothstep(0.10,0.70,p);
+    state.N = lerp(state.N, targetN, relax);
+
+    // обновление распределения
+    updateDistribution(state, isFair);
+
+    // доли зон
+    const shares = computeShares(state);
+
+    state.historyN[state.step] = state.N;
+    state.historyAnti[state.step] = shares.anti;
+    state.historyVerum[state.step] = shares.verum;
+
+    state.step++;
+  }
+
+  // =============================
+  // РИСОВАНИЕ ПОВЕРХНОСТИ НАСЕЛЕНИЯ
+  // =============================
+  function drawPopulationSurface(ctx, proj, state, isFair){
+    // Z = N(H,I) / N_MAX
+    // Рисуем квадрики от дальнего к ближнему (по I и H) для правильного наложения.
+
+    const g = state.grid;
+
+    // максимальная высота на кадре (для нормировки)
+    let vmax = 1e-6;
+    for(let i=0;i<g.length;i++) vmax = Math.max(vmax, g[i]);
+
+    // нормировка: максимум поверхности будет ~0.9 куба
+    const zScale = 0.90 * (state.N / N_MAX) * (N_MAX / (vmax*GH*GI*0.08 + 1));
+
+    // рисуем в порядке дальности
+    for(let y=GI-2; y>=0; y--){
+      for(let x=0; x<GH-1; x++){
+        const h0 = x/(GH-1);
+        const h1 = (x+1)/(GH-1);
+        const i0 = y/(GI-1);
+        const i1 = (y+1)/(GI-1);
+
+        const v00 = g[y*GH+x];
+        const v10 = g[y*GH+(x+1)];
+        const v01 = g[(y+1)*GH+x];
+        const v11 = g[(y+1)*GH+(x+1)];
+
+        // нормированная высота
+        const z00 = clamp((v00 / vmax) * zScale, 0, 1);
+        const z10 = clamp((v10 / vmax) * zScale, 0, 1);
+        const z01 = clamp((v01 / vmax) * zScale, 0, 1);
+        const z11 = clamp((v11 / vmax) * zScale, 0, 1);
+
+        const p00 = proj.project(h0,i0,z00);
+        const p10 = proj.project(h1,i0,z10);
+        const p11 = proj.project(h1,i1,z11);
+        const p01 = proj.project(h0,i1,z01);
+
+        // цвет: базовый (синий), с небольшим оттенком по зонам
+        const isAnti = (i0 < I_LIMIT);
+        const isVerum = (i0 > I_LIMIT && h0 >= H_FILOVERUM);
+
+        let fill = 'rgba(122,162,255,0.20)';
+        let stroke = 'rgba(122,162,255,0.16)';
+
+        if(isVerum){
+          fill = 'rgba(51,214,166,0.18)';
+          stroke = 'rgba(51,214,166,0.16)';
+        } else if(!isAnti){
+          fill = 'rgba(255,209,102,0.12)';
+          stroke = 'rgba(255,209,102,0.14)';
+        }
+
+        ctx.fillStyle = fill;
+        ctx.strokeStyle = stroke;
+        ctx.lineWidth = 1;
+
+        ctx.beginPath();
+        ctx.moveTo(p00.x,p00.y);
+        ctx.lineTo(p10.x,p10.y);
+        ctx.lineTo(p11.x,p11.y);
+        ctx.lineTo(p01.x,p01.y);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+      }
+    }
+
+    // подпись зон
+    ctx.save();
+    ctx.font = '12px ui-sans-serif, system-ui';
+
+    const a = proj.project(0.10, 0.20, 0.02);
+    ctx.fillStyle = 'rgba(255,209,102,0.78)';
+    ctx.fillText('антиверумика', a.x+6, a.y);
+
+    const v = proj.project(0.76, 0.70, 0.02);
+    ctx.fillStyle = 'rgba(51,214,166,0.78)';
+    ctx.fillText('верумика', v.x+6, v.y);
+
+    ctx.restore();
+  }
+
+  // =============================
+  // ВСПЫШКА ПЕРЕХОДА ЗНАНИЯ
+  // =============================
+  function drawKnowledgeSwitchFlash(ctx, w, h, state){
+    if(!state.flashT || state.flashT<=0) return;
+
+    const t = state.flashT;
+
+    ctx.save();
+
+    // общая вспышка
+    ctx.globalCompositeOperation = 'screen';
+    ctx.fillStyle = `rgba(51,214,166,${0.22*t})`;
+    ctx.fillRect(0,0,w,h);
+
+    // кольцо
+    ctx.globalCompositeOperation = 'lighter';
+    ctx.strokeStyle = `rgba(255,255,255,${0.55*t})`;
+    ctx.lineWidth = 3;
+
+    const cx = w*0.58;
+    const cy = h*0.30;
+    const r = (Math.min(w,h)*0.25) * (1.15 - 0.25*t);
+
+    ctx.beginPath();
+    ctx.arc(cx,cy,r,0,Math.PI*2);
+    ctx.stroke();
+
+    // текст
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.fillStyle = `rgba(233,240,255,${0.92*t})`;
+    ctx.font = '800 16px ui-sans-serif, system-ui';
+    ctx.fillText('ПЕРЕХОД ЗНАНИЯ', 18, 28);
+
+    ctx.fillStyle = `rgba(233,240,255,${0.72*t})`;
+    ctx.font = '12px ui-sans-serif, system-ui';
+    ctx.fillText('антиверумика → верумика', 18, 46);
+
+    ctx.restore();
+  }
+
+  function drawSwitchStepMarker(ctx, proj, state){
+    if(state.switchStep == null) return;
+
+    // Метка на плоскости I=0.5 в точке (H=0.7, I=0.5, Z~0.02)
+    const p = proj.project(H_FILOVERUM, I_LIMIT, 0.03);
+
+    ctx.save();
+    ctx.fillStyle = 'rgba(255,255,255,0.85)';
+    ctx.strokeStyle = 'rgba(51,214,166,0.90)';
+    ctx.lineWidth = 2;
+
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, 6, 0, Math.PI*2);
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.fillStyle = 'rgba(51,214,166,0.95)';
+    ctx.font = '12px ui-sans-serif, system-ui';
+    ctx.fillText(`шаг перехода: ${state.switchStep}`, p.x+10, p.y-10);
+
+    ctx.restore();
+  }
+
+  // =============================
+  // РЕНДЕР МИРА
+  // =============================
+  function renderWorld(ctx, size, state, isFair){
+    const {w,h} = size;
+
+    ctx.clearRect(0,0,w,h);
+
+    // фон
+    ctx.save();
+    ctx.fillStyle = 'rgba(0,0,0,0.14)';
+    ctx.fillRect(0,0,w,h);
+    ctx.restore();
+
+    const proj = makeProjector(w,h);
+
+    // слои
+    drawCubeAxes(ctx, proj);
+    drawPlane_ReasonLimit(ctx, proj);
+    drawLine_HFiloverum(ctx, proj);
+    drawSurface_PopLimit(ctx, proj, state, isFair);
+
+    // поверхность населения
+    drawPopulationSurface(ctx, proj, state, isFair);
+
+    // метка перехода (только справедливый)
+    if(isFair){
+      drawSwitchStepMarker(ctx, proj, state);
+      drawKnowledgeSwitchFlash(ctx, w, h, state);
+    }
+
+    // HUD
+    ctx.save();
+    ctx.fillStyle = 'rgba(233,240,255,0.92)';
+    ctx.font = '12px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace';
+
+    const txt = `H=${state.H_mean.toFixed(3)}  I=${state.I_mean.toFixed(3)}  N=${state.N.toFixed(1)}`;
+    ctx.fillText(txt, 14, h-14);
+
+    // маркер "антиверумика/верумика"
+    if(isFair){
+      const s = state.verumSwitch ? 'верумика' : 'антиверумика';
+      ctx.fillStyle = state.verumSwitch ? 'rgba(51,214,166,0.9)' : 'rgba(255,209,102,0.9)';
+      ctx.fillText(s, w-120, h-14);
+    }
+
+    ctx.restore();
+  }
+
+  // =============================
+  // ГРАФИКИ N(t) и долей
+  // =============================
+  function drawCharts(ctx, size, unfair, fair){
+    const {w,h} = size;
+    ctx.clearRect(0,0,w,h);
+
+    // фон
+    ctx.save();
+    ctx.fillStyle = 'rgba(0,0,0,0.16)';
+    ctx.fillRect(0,0,w,h);
+    ctx.restore();
+
+    const pad = 34;
+    const plotW = w - pad*2;
+    const plotH = h - pad*2;
+
+    // рамка
+    ctx.save();
+    ctx.strokeStyle = 'rgba(255,255,255,0.10)';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(pad, pad, plotW, plotH);
+    ctx.restore();
+
+    // оси
+    ctx.save();
+    ctx.fillStyle = 'rgba(233,240,255,0.65)';
+    ctx.font = '12px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace';
+    ctx.fillText('t →', pad + plotW - 26, pad + plotH + 22);
+    ctx.fillText('N(t), доли', 12, 18);
+    ctx.restore();
+
+    const step = Math.max(0, unfair.step-1);
+    const maxStep = STEPS-1;
+
+    function xOf(k){
+      return pad + (k/maxStep)*plotW;
+    }
+
+    // N(t) (две линии)
+    function yN(N){
+      const z = clamp(N/N_MAX,0,1);
+      return pad + (1-z)*plotH;
+    }
+
+    // доли (0..1) в нижней половине графика
+    // (чтобы визуально не смешивалось с N)
+    const split = 0.60;
+    function yShare(s){
+      const top = pad + plotH*split;
+      const hh = plotH*(1-split);
+      return top + (1-clamp(s,0,1))*hh;
+    }
+
+    // сетка
+    ctx.save();
+    ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+    ctx.lineWidth = 1;
+    for(let i=0;i<=4;i++){
+      const y = pad + (i/4)*plotH;
+      ctx.beginPath(); ctx.moveTo(pad,y); ctx.lineTo(pad+plotW,y); ctx.stroke();
+    }
+    for(let i=0;i<=10;i++){
+      const x = pad + (i/10)*plotW;
+      ctx.beginPath(); ctx.moveTo(x,pad); ctx.lineTo(x,pad+plotH); ctx.stroke();
+    }
+    ctx.restore();
+
+    function drawLine(data, yFn, color, width){
+      ctx.save();
+      ctx.strokeStyle = color;
+      ctx.lineWidth = width;
+      ctx.beginPath();
+      for(let k=0;k<=step;k++){
+        const x = xOf(k);
+        const y = yFn(data[k]);
+        if(k===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+      }
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    // N(t)
+    drawLine(unfair.historyN, yN, 'rgba(122,162,255,0.9)', 2);
+    drawLine(fair.historyN, yN, 'rgba(51,214,166,0.9)', 2);
+
+    // доли
+    drawLine(unfair.historyAnti, yShare, 'rgba(255,209,102,0.85)', 2);
+    drawLine(fair.historyVerum, yShare, 'rgba(51,214,166,0.70)', 2);
+
+    // текущие маркеры
+    const x = xOf(step);
+    ctx.save();
+    ctx.strokeStyle = 'rgba(255,255,255,0.18)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(x,pad);
+    ctx.lineTo(x,pad+plotH);
+    ctx.stroke();
+
+    // подпись
+    ctx.fillStyle = 'rgba(233,240,255,0.75)';
+    ctx.font = '12px ui-sans-serif, system-ui';
+    ctx.fillText(`шаг ${step}/${STEPS}`, pad+6, pad+18);
+
+    // подпись перехода
+    if(fair.switchStep != null){
+      const xs = xOf(fair.switchStep);
+      ctx.strokeStyle = 'rgba(51,214,166,0.40)';
+      ctx.beginPath();
+      ctx.moveTo(xs,pad);
+      ctx.lineTo(xs,pad+plotH);
+      ctx.stroke();
+
+      ctx.fillStyle = 'rgba(51,214,166,0.85)';
+      ctx.fillText('переход знания', xs+6, pad+34);
+    }
+
+    ctx.restore();
+
+    // подписи уровней
+    ctx.save();
+    ctx.fillStyle = 'rgba(233,240,255,0.55)';
+    ctx.font = '11px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace';
+
+    ctx.fillText('N=200', 6, yN(200)+4);
+    ctx.fillText('N=100', 6, yN(100)+4);
+    ctx.fillText('N=5', 10, yN(5)+4);
+
+    ctx.fillText('доля=1', 6, yShare(1)+4);
+    ctx.fillText('доля=0', 6, yShare(0)+4);
+
+    ctx.restore();
+  }
+
+  // =============================
+  // СИМУЛЯТОР
+  // =============================
+  const cvU = document.getElementById('cvUnfair');
+  const cvF = document.getElementById('cvFair');
+  const cvC = document.getElementById('cvCharts');
+
+  const ctxU = cvU.getContext('2d');
+  const ctxF = cvF.getContext('2d');
+  const ctxC = cvC.getContext('2d');
+
+  let sizeU = resizeCanvas(cvU);
+  let sizeF = resizeCanvas(cvF);
+  let sizeC = resizeCanvas(cvC);
+
+  window.addEventListener('resize', () => {
+    sizeU = resizeCanvas(cvU);
+    sizeF = resizeCanvas(cvF);
+    sizeC = resizeCanvas(cvC);
+  });
+
+  const unfair = initState();
+  const fair = initState();
+
+  // начальная инициализация
+  updateDistribution(unfair,false);
+  updateDistribution(fair,true);
+
+  renderWorld(ctxU, sizeU, unfair, false);
+  renderWorld(ctxF, sizeF, fair, true);
+  drawCharts(ctxC, sizeC, unfair, fair);
+
+  const btnRun = document.getElementById('btnRun');
+  const selSpeed = document.getElementById('selSpeed');
+  const lblStep = document.getElementById('lblStep');
+
+  let running = false;
+  let timer = null;
+
+  function stop(){
+    running = false;
+    btnRun.textContent = 'Запуск';
+    if(timer){clearInterval(timer); timer=null;}
+  }
+
+  function start(){
+    if(running) return;
+    running = true;
+    btnRun.textContent = 'Стоп';
+
+    const dt = parseInt(selSpeed.value,10);
+    timer = setInterval(() => {
+      // несколько шагов за тик, чтобы уложиться в 4–16 секунд
+      // (в зависимости от dt)
+      const batch = dt<=5 ? 6 : dt<=8 ? 4 : dt<=12 ? 3 : dt<=16 ? 2 : 1;
+
+      for(let b=0; b<batch; b++){
+        if(unfair.step >= STEPS || fair.step >= STEPS){
+          stop();
+          break;
+        }
+        stepWorld(unfair,false);
+        stepWorld(fair,true);
+      }
+
+      lblStep.textContent = `шаг ${Math.min(unfair.step,STEPS)}/${STEPS}`;
+
+      renderWorld(ctxU, sizeU, unfair, false);
+      renderWorld(ctxF, sizeF, fair, true);
+      drawCharts(ctxC, sizeC, unfair, fair);
+
+    }, dt);
+  }
+
+  btnRun.addEventListener('click', () => {
+    if(running) stop();
+    else {
+      // если уже завершено — перезапуск
+      if(unfair.step>=STEPS || fair.step>=STEPS){
+        stop();
+        // reset
+        const u2 = initState();
+        const f2 = initState();
+        Object.assign(unfair,u2);
+        Object.assign(fair,f2);
+        updateDistribution(unfair,false);
+        updateDistribution(fair,true);
+        renderWorld(ctxU, sizeU, unfair, false);
+        renderWorld(ctxF, sizeF, fair, true);
+        drawCharts(ctxC, sizeC, unfair, fair);
+      }
+      start();
+    }
+  });
+
+  selSpeed.addEventListener('change', () => {
+    if(running){
+      stop();
+      start();
+    }
+  });
+
+})();
+</script>
+</body>
+</html>
