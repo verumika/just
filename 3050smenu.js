@@ -21,9 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
 <li><a href="3063.html">Переход к написанию научной статьи</a></li>
 <li><a href="3064.html"><b>Научная статья</b></a></li>
 <li><a href="3065.html">«Deepseek» бросил разметку текстов и предложил научную статью</a></li>
-<li><a href="3051.html">---</a></li>
-<li><a href="3051.html">---</a></li>
-<li><a href="3051.html">---</a></li>
 
 
 
